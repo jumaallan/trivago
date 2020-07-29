@@ -17,6 +17,11 @@ private val databaseModule: Module = module {
     }
 }
 
+private val daoModule: Module = module {
+    single { get<Database>().characterDao() }
+}
+
 val appModules: List<Module> = listOf(
-    databaseModule
+    databaseModule,
+    daoModule
 )
