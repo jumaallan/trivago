@@ -1,4 +1,4 @@
-package com.trivago.ui
+package com.trivago.ui.views
 
 import android.os.Bundle
 import com.trivago.R
