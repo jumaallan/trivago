@@ -5,6 +5,7 @@ import android.os.Build
 import com.facebook.stetho.Stetho
 import com.trivago.core.di.coreModules
 import com.trivago.di.appModules
+import com.trivago.util.CrashlyticsTree
 import org.jetbrains.annotations.NotNull
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -54,6 +55,8 @@ class Trivago : Application() {
                     return super.createStackElementTag(element) + ":" + element.lineNumber
                 }
             })
+        } else {
+            Timber.plant(CrashlyticsTree())
         }
     }
 
