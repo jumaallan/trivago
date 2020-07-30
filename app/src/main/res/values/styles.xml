@@ -1,10 +1,92 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="TrivagoTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorOnSecondary">@color/primaryTextColor</item>
+
+        <item name="textInputStyle">@style/TrivagoTextField</item>
+        <item name="toolbarStyle">@style/TrivagoToolbar</item>
+        <item name="materialButtonStyle">@style/TrivagoButton</item>
+    </style>
+
+    <style name="TrivagoTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+    <style name="TrivagoAvatar" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/background_circle</item>
+        <item name="android:backgroundTint">?colorPrimary</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="TrivagoText" parent="TextAppearance.MaterialComponents.Body1" />
+
+    <style name="TrivagoTextColored" parent="TrivagoText">
+        <item name="android:textColor">?colorSecondary</item>
+    </style>
+
+    <style name="TrivagoToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.TrivagoToolbar</item>
+        <item name="titleTextColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.TrivagoToolbar" parent="">
+        <item name="iconTint">?colorOnBackground</item>
+    </style>
+
+    <style name="TrivagoToolbarButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:backgroundTint">?colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="TrivagoButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="backgroundTint">@color/button_states</item>
+    </style>
+
+    <style name="TrivagoToolbarProgress" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:indeterminateTint">?colorOnPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="TrivagoButtonProgress" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:indeterminateTint">?colorOnPrimary</item>
+    </style>
+
+    <style name="TrivagoTextToolbar" parent="TrivagoText">
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="TrivagoTextSmall" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textColorLink">@color/secondaryTextColor</item>>
+    </style>
+
+    <style name="TrivagoTextLarge" parent="TextAppearance.MaterialComponents.Headline6" />
+
+    <style name="BanksTextExtraLarge" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="TrivagoTextHugeToolbar" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
 </resources>
