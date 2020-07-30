@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "name": "Death Star",
+      "initial": "DS",
+      "color": "#ffa1ac",
+      "model": "DS-1 Orbital Battle Station"
+    },
+    {
+      "name": "Biggs Darklighter",
+      "initial": "BD",
+      "color": "#8ad5ae",
+      "model": "DS-1 Orbital Battle Station"
+    },
+    {
+      "name": "Darth Maul",
+      "initial": "DM",
+      "color": "#bbbcfc",
+      "model": "DS-1 Orbital Battle Station"
+    },
+    {
+      "name": "Padme Amidala",
+      "initial": "PA",
+      "color": "#f9c47e",
+      "model": "DS-1 Orbital Battle Station"
+    },
+    {
+      "name": "Yoda",
+      "initial": "YD",
+      "color": "#f8dc93",
+      "model": "DS-1 Orbital Battle Station"
+    }
+  ]
+}
