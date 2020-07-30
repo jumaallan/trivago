@@ -1,8 +1,8 @@
-package com.trivago.util
+package com.trivago.core.utils
 
 import android.util.Log
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.trivago.BuildConfig
+import com.trivago.core.BuildConfig
 import timber.log.Timber
 
 class CrashlyticsTree : Timber.Tree() {

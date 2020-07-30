@@ -4,8 +4,8 @@ import android.app.Application
 import android.os.Build
 import com.facebook.stetho.Stetho
 import com.trivago.core.di.coreModules
+import com.trivago.core.utils.CrashlyticsTree
 import com.trivago.di.appModules
-import com.trivago.util.CrashlyticsTree
 import org.jetbrains.annotations.NotNull
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
