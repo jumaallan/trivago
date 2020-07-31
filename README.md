@@ -5,31 +5,50 @@ Delete the .git
 
 👀  Writing Trivago Interview Solution App using [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/), in 100% Kotlin, using Android Jetpack Components. 
 
+### Prerequisites 
+
+Before every commit, make sure you run the following commands:
+
+* `./gradlew ktlintFormat`
+
+* `./gradlew ktlintCheck`
+
+* `./gradlew detekt`
+
+* `./gradlew spotlessApply`
 
 ### Background
 
-Implement a small but scalable (!) app which interacts with the open Star Wars API at https://swapi.dev/.
+Implement a small but scalable (!) app which interacts with the open [Star Wars API](https://swapi.dev/)
 
 The app should contain 2 main areas:
-• Character Search (Home Screen)
-• Character Details
+
+* Character Search (Home Screen)
+
+* Character Details
 
 The following attributes should be displayed for the character details:
-• name
-• birth year
-• height (in cm and feet/inches)
-• name (species)
-• language (species)
-• homeworld (species)
-• population (planets)
-• films (movies the character appeared in)
-• opening crawl (detailed description of each movie)
 
-On app start, the user lands on the character search screen.
+* name
 
-The user can search for characters from the Star Wars universe. The result of the search should display a character list.
+* birth year
 
-When tapping on a character, details are displayed as defined above.
+* height (in cm and feet/inches)
+
+* name (species)
+
+* language (species)
+
+* homeworld (species)
+
+* population (planets)
+
+* films (movies the character appeared in)
+
+* opening crawl (detailed description of each movie)
+
+
+On app start, the user lands on the character search screen. The user can search for characters from the Star Wars universe. The result of the search should display a character list. When tapping on a character, details are displayed as defined above.
 
 ## Tech-stack
 

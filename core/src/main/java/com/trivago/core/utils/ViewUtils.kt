@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.core.content.getSystemService
 import com.google.android.material.snackbar.Snackbar
 
-
 fun Context.dismissKeyboard(windowToken: IBinder) {
     val imm = getSystemService<InputMethodManager>()
     imm?.hideSoftInputFromWindow(windowToken, 0)
@@ -34,6 +33,3 @@ fun View.show() {
 fun View.hide() {
     visibility = View.GONE
 }
-
-
-

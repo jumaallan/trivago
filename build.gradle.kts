@@ -1,19 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id(BuildPlugins.ktlintPlugin)
-    id(BuildPlugins.detektPlugin)
+    id(BuildPlugins.ktlintPlugin) version Versions.ktlint
+    id(BuildPlugins.detektPlugin) version Versions.detekt
     id(BuildPlugins.androidLibrary) apply false
     id(BuildPlugins.androidApplication) apply false
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
-    id("com.diffplug.spotless") version "5.1.0"
+    id(BuildPlugins.spotlessPlugin) version Versions.spotless
 }
+
 allprojects {
     repositories {
         google()
         jcenter()
         maven(url = "https://jitpack.io")
     }
+
     apply(plugin = BuildPlugins.ktlintPlugin)
     ktlint {
         android.set(true)
@@ -23,6 +25,7 @@ allprojects {
         }
     }
 }
+
 subprojects {
     apply(plugin = BuildPlugins.detektPlugin)
     detekt {
@@ -30,8 +33,3 @@ subprojects {
         parallel = true
     }
 }
-
-
-//tasks.register("clean").configure{
-//    delete("build")
-//}

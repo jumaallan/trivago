@@ -1,10 +1,9 @@
-plugins{
+plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.kapt)
 }
-
 
 android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
@@ -13,7 +12,7 @@ android {
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner ="androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -40,20 +39,27 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.coreKtx)
-    implementation(Libraries.appCompat)
+
+    // Material Design
+    implementation(Libraries.material)
+
+    // Firebase crashlytics
     implementation(Libraries.crashlytics)
+
+    // Network - Retrofit, OKHTTP
     implementation(Libraries.retrofit)
     implementation(Libraries.ohttp)
     implementation(Libraries.loggingInterceptor)
+    implementation(Libraries.gson)
+
+    // DI - KOIN
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
-    implementation(Libraries.gson)
-    implementation(Libraries.timber)
-    implementation(Libraries.material)
-    implementation(Libraries.room)
-    implementation(Libraries.roomRuntime)
-    kapt(Libraries.roomCompiler)
 
+    // debug
+    implementation(Libraries.timber)
+
+    // tests
     testImplementation(TestLibraries.jUnit)
     androidTestImplementation(TestLibraries.jUnitTest)
     androidTestImplementation(TestLibraries.espresso)

@@ -7,9 +7,7 @@ class Settings(
     val settings: SharedPreferences
 ) {
 
-    fun getBearerToken(): String? {
-        return settings.getString(SettingsConstants.BEARER_TOKEN_KEY, "")
-    }
+    fun getBearerToken(): String? = settings.getString(SettingsConstants.BEARER_TOKEN_KEY, "")
 
     fun setBearerToken(token: String) {
         settings.edit {
