@@ -30,7 +30,6 @@ subprojects {
     }
 }
 
-
-tasks.register("clean").configure{
+tasks.register("clean").configure {
     delete("build")
 }
