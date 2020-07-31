@@ -67,6 +67,12 @@ dependencies {
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
 
+    // Lifecycle
+    implementation(Libraries.viewModel)
+    implementation(Libraries.livedata)
+    implementation(Libraries.lifecycle)
+    implementation(Libraries.viewModelSavedState)
+
     // debug
     implementation(Libraries.timber)
     implementation(Libraries.leakCanary)
