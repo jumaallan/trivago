@@ -9,6 +9,7 @@ android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
     dataBinding.isEnabled = true
+    viewBinding.isEnabled = true
 
     defaultConfig {
         applicationId = "com.trivago"
