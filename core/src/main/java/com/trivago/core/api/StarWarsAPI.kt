@@ -27,5 +27,4 @@ interface StarWarsAPI {
 
     @GET
     suspend fun fetchPlanetDetails(@Url planetUrl: String): PlanetDetailsResponse
-
 }

@@ -6,4 +6,3 @@ data class SearchResponse(
     val previous: Any,
     val results: List<CharacterResponse>
 )
-

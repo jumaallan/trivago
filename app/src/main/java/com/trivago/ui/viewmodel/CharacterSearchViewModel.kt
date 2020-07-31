@@ -9,7 +9,6 @@ class CharacterSearchViewModel(
     private val characterSearchRepository: CharacterSearchRepository
 ) : ViewModel() {
 
-    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<CharacterResponse>> {
-        return characterSearchRepository.searchStarWarsCharacters(characterName)
-    }
+    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<CharacterResponse>> =
+        characterSearchRepository.searchStarWarsCharacters(characterName)
 }

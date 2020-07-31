@@ -42,7 +42,6 @@ class CharacterSearchActivity : BaseActivity() {
                 .onEach { setUpViews(it) }
                 .launchIn(lifecycleScope)
         }
-
     }
 
     private fun setUpViews(charactersList: List<CharacterResponse>) {

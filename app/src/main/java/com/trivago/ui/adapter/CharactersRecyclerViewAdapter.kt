@@ -9,16 +9,13 @@ import com.trivago.core.models.CharacterResponse
 import com.trivago.databinding.ItemCharacterBinding
 
 object CharactersDiffer : DiffUtil.ItemCallback<CharacterResponse>() {
-    override fun areItemsTheSame(oldItem: CharacterResponse, newItem: CharacterResponse): Boolean {
-        return oldItem.name == newItem.name
-    }
+    override fun areItemsTheSame(oldItem: CharacterResponse, newItem: CharacterResponse): Boolean =
+        oldItem.name == newItem.name
 
     override fun areContentsTheSame(
         oldItem: CharacterResponse,
         newItem: CharacterResponse
-    ): Boolean {
-        return oldItem == newItem
-    }
+    ): Boolean = oldItem == newItem
 }
 
 typealias CharacterClickListener = (CharacterResponse) -> Unit

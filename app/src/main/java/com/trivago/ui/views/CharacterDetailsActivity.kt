@@ -22,5 +22,4 @@ class CharacterDetailsActivity : BaseActivity() {
 
         private const val CHARACTER_NAME = "characterName"
     }
-
 }

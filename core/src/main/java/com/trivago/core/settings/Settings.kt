@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 
 class Settings(
-    val settings: SharedPreferences
+    private val settings: SharedPreferences
 ) {
 
     fun getBearerToken(): String? = settings.getString(SettingsConstants.BEARER_TOKEN_KEY, "")
