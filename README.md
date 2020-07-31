@@ -1,6 +1,8 @@
 ## \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️🚧 \] Trivago Interview Solution
 
 
+Delete the .git
+
 👀  Writing Trivago Interview Solution App using [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/), in 100% Kotlin, using Android Jetpack Components. 
 
 
