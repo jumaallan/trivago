@@ -39,20 +39,21 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.coreKtx)
-    implementation(Libraries.appCompat)
+
+    // Firebase crashlytics
     implementation(Libraries.crashlytics)
+
+    // Network - Retrofit, OKHTTP
     implementation(Libraries.retrofit)
     implementation(Libraries.ohttp)
     implementation(Libraries.loggingInterceptor)
+    implementation(Libraries.gson)
+
+    // DI - KOIN
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
-    implementation(Libraries.gson)
-    implementation(Libraries.timber)
-    implementation(Libraries.material)
-    implementation(Libraries.room)
-    implementation(Libraries.roomRuntime)
-    kapt(Libraries.roomCompiler)
 
+    // tests
     testImplementation(TestLibraries.jUnit)
     androidTestImplementation(TestLibraries.jUnitTest)
     androidTestImplementation(TestLibraries.espresso)

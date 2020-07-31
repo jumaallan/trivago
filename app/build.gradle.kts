@@ -46,21 +46,24 @@ kapt {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Libraries.constraintLayout)
-    implementation(Libraries.appCompat)
     implementation(project(BuildModules.coreModule))
-    implementation(Libraries.material)
-
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.coreKtx)
+
+    // Material and AndroidX
+    implementation(Libraries.constraintLayout)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.material)
+
+    // Room
     implementation(Libraries.room)
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
+
+    // debug
     implementation(Libraries.timber)
     implementation(Libraries.leakCanary)
     implementation(Libraries.stetho)
-    implementation(Libraries.koin)
-    implementation(Libraries.koinViewModel)
 
     // tests
     testImplementation(TestLibraries.jUnit)
