@@ -60,8 +60,6 @@ class Trivago : Application() {
         }
     }
 
-    private fun isRoboUnitTest(): Boolean {
-        return "robolectric" == Build.FINGERPRINT
-    }
+    private fun isRoboUnitTest(): Boolean = "robolectric" == Build.FINGERPRINT
 
 }
