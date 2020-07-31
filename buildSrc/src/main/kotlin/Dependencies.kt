@@ -23,6 +23,8 @@ object Versions{
     const val espresso = "3.2.0"
     const val ktlint = "9.3.0"
     const val detekt = "1.10.0"
+    const val spotless = "5.1.0"
+    const val firebaseCrashlyticsPlugin = "2.1.0"
 
 }
 
@@ -42,6 +44,8 @@ object BuildPlugins {
     const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
+    const val spotlessPlugin = "com.diffplug.spotless"
+    const val firebaseCrashlyticsPlugin = "com.google.firebase.crashlytics"
 }
 
 object Libraries {
