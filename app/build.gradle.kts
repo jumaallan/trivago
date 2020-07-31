@@ -8,6 +8,8 @@ plugins {
 android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
+    dataBinding.isEnabled = true
+
     defaultConfig {
         applicationId = "com.trivago"
         minSdkVersion(AndroidSdk.minSdkVersion)
@@ -59,6 +61,10 @@ dependencies {
     implementation(Libraries.room)
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
+
+    // DI - KOIN
+    implementation(Libraries.koin)
+    implementation(Libraries.koinViewModel)
 
     // debug
     implementation(Libraries.timber)
