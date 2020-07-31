@@ -5,6 +5,17 @@ Delete the .git
 
 👀  Writing Trivago Interview Solution App using [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/), in 100% Kotlin, using Android Jetpack Components. 
 
+### Prerequisites 
+
+Before every commit, make sure you run the following commands:
+
+* ./gradlew ktlintFormat
+
+* ./gradlew ktlintCheck
+
+* ./gradlew detekt
+
+* ./gradlew spotlessApply
 
 ### Background
 
