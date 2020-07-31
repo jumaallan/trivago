@@ -21,6 +21,8 @@ object Versions{
     const val junit = "4.13"
     const val junitTest = "1.1.1"
     const val espresso = "3.2.0"
+    const val ktlint = "9.3.0"
+    const val detekt = "1.10.0"
 
 }
 object BuildPlugins {
@@ -38,7 +40,7 @@ object BuildPlugins {
     const val kapt = "kotlin-kapt"
     const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
-    const val dektPlugin = "io.gitlab.arturbosch.detekt"
+    const val detektPlugin = "io.gitlab.arturbosch.detekt"
 }
 
 

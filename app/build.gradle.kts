@@ -8,11 +8,6 @@ plugins{
 android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
-    buildFeatures {
-        dataBinding = true
-        viewBinding = true
-    }
-
     defaultConfig {
         applicationId ="com.trivago"
         minSdkVersion(AndroidSdk.minSdkVersion)
