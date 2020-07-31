@@ -38,7 +38,7 @@ class CharacterSearchActivity : BaseActivity() {
         binding.recyclerViewCharacters.adapter = charactersRecyclerViewAdapter
 
         lifecycleScope.launch {
-            characterSearchViewModel.searchStarWarsCharacters("yoda")
+            characterSearchViewModel.searchStarWarsCharacters("Da")
                 .onEach { setUpViews(it) }
                 .launchIn(lifecycleScope)
         }
