@@ -2,7 +2,9 @@ package com.trivago.di
 
 import androidx.room.Room
 import com.trivago.data.Database
+import com.trivago.data.repository.CharacterDetailsRepository
 import com.trivago.data.repository.CharacterSearchRepository
+import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,10 +28,12 @@ private val daoModule: Module = module {
 
 private val repositoryModule: Module = module {
     single { CharacterSearchRepository(get(), get()) }
+    single { CharacterDetailsRepository(get(), get()) }
 }
 
 private val viewModelModule: Module = module {
     viewModel { CharacterSearchViewModel(get()) }
+    viewModel { CharacterDetailsViewModel(get()) }
 }
 
 val appModules: List<Module> = listOf(
