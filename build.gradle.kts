@@ -6,6 +6,7 @@ plugins {
     id(BuildPlugins.androidApplication) apply false
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
+    id("com.diffplug.spotless") version "5.1.0"
 }
 allprojects {
     repositories {
@@ -31,6 +32,6 @@ subprojects {
 }
 
 
-tasks.register("clean").configure{
-    delete("build")
-}
+//tasks.register("clean").configure{
+//    delete("build")
+//}
