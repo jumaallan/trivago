@@ -17,6 +17,7 @@ class CharacterSearchActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_search)
         binding.lifecycleOwner = this
-        binding.characterSearchViewModel = characterSearchViewModel
+
+
     }
 }
