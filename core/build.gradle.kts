@@ -53,6 +53,9 @@ dependencies {
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
 
+    // debug
+    implementation(Libraries.timber)
+
     // tests
     testImplementation(TestLibraries.jUnit)
     androidTestImplementation(TestLibraries.jUnitTest)

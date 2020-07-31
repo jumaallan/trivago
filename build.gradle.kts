@@ -7,12 +7,14 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
 }
+
 allprojects {
     repositories {
         google()
         jcenter()
         maven(url = "https://jitpack.io")
     }
+
     apply(plugin = BuildPlugins.ktlintPlugin)
     ktlint {
         android.set(true)
@@ -22,6 +24,7 @@ allprojects {
         }
     }
 }
+
 subprojects {
     apply(plugin = BuildPlugins.detektPlugin)
     detekt {

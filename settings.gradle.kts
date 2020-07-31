@@ -14,6 +14,7 @@ pluginManagement {
         id("com.android.library") version "4.0.1"
         id("com.google.firebase.crashlytics") version "2.1.0"
     }
+
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
