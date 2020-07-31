@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
@@ -9,10 +9,10 @@ android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
     defaultConfig {
-        applicationId ="com.trivago"
+        applicationId = "com.trivago"
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
-        versionCode= AndroidSdk.versionCode
+        versionCode = AndroidSdk.versionCode
         versionName = AndroidSdk.versionName
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

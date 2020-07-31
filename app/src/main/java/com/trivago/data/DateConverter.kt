@@ -11,5 +11,4 @@ object DateConverter {
     @TypeConverter
     @JvmStatic
     fun dateToTimestamp(date: Date?): Long? = date?.time
-
 }

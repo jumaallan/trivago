@@ -11,10 +11,13 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Handler().postDelayed({
-            val intent = Intent(applicationContext, CharacterSearchActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 1000)
+        Handler().postDelayed(
+            {
+                val intent = Intent(applicationContext, CharacterSearchActivity::class.java)
+                startActivity(intent)
+                finish()
+            },
+            1000
+        )
     }
 }
