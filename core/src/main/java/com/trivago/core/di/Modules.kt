@@ -35,7 +35,7 @@ private val networkingModule: Module = module {
             .build()
     }
 
-    single<Retrofit> {
+    single {
 
         val gson = GsonBuilder()
             .serializeNulls()
