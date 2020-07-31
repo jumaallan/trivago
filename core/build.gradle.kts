@@ -40,6 +40,9 @@ dependencies {
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.coreKtx)
 
+    // Material Design
+    implementation(Libraries.material)
+
     // Firebase crashlytics
     implementation(Libraries.crashlytics)
 
