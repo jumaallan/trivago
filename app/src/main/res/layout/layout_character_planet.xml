@@ -7,7 +7,7 @@
 
         <variable
             name="planet"
-            type="com.trivago.core.data.models.PlanetDetailsResponse" />
+            type="com.trivago.core.data.network.PlanetDetailsResponse" />
     </data>
 
     <merge>

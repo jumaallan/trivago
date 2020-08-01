@@ -27,6 +27,7 @@
                 layout="@layout/layout_character_planet" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCharacterFilms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="1"

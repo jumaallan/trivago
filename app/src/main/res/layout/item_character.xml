@@ -7,7 +7,7 @@
 
         <variable
             name="character"
-            type="com.trivago.core.data.models.CharacterResponse" />
+            type="com.trivago.core.data.network.CharacterResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
