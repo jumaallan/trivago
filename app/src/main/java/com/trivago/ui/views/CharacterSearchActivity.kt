@@ -33,10 +33,12 @@ class CharacterSearchActivity : BaseActivity() {
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
+        Timber.d("Jumaaaa 1")
+
         if (Intent.ACTION_SEARCH == intent.action) {
             intent.getStringExtra(SearchManager.QUERY)?.also { query ->
                 // characterSearchViewModel.searchStarWarsCharacters(query)
-                Timber.d("Juma $query")
+                Timber.d("Jumaaaa $query")
             }
         }
 
