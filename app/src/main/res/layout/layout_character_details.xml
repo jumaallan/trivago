@@ -6,8 +6,17 @@
     <data>
 
         <variable
-            name="character"
-            type="com.trivago.core.data.models.CharacterResponse" />
+            name="birthYear"
+            type="String" />
+
+        <variable
+            name="heightInCm"
+            type="String" />
+
+        <variable
+            name="heightInInches"
+            type="String" />
+
     </data>
 
     <merge>
@@ -37,7 +46,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_birth_year" />
 
                     <TextView
@@ -45,6 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
                         android:fontFamily="@font/oxygen_bold"
+                        android:text="@{birthYear}"
                         android:textSize="25sp"
                         tools:text="869BBY" />
 
@@ -62,7 +71,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_height" />
 
                     <TextView
@@ -71,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:fontFamily="@font/oxygen_bold"
+                        android:text="@{String.format(@string/template_height_cm, heightInCm)}"
                         tools:text="100 CM" />
 
                     <TextView
@@ -80,8 +88,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
-                        tools:text="12 Feet" />
+                        android:text="@{String.format(@string/template_height_inches, heightInInches)}"
+                        tools:text="12 Inches" />
 
                 </LinearLayout>
 

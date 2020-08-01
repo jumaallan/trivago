@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="planet"
+            type="com.trivago.core.data.models.PlanetDetailsResponse" />
     </data>
 
     <merge>
@@ -35,7 +38,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_planet_name" />
 
                     <TextView
@@ -44,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:fontFamily="@font/oxygen_bold"
+                        android:text="@{planet.name}"
                         tools:text="Unknown" />
 
                 </LinearLayout>
@@ -61,7 +63,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_planet_language" />
 
                     <TextView
@@ -70,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:fontFamily="@font/oxygen_bold"
+                        android:text="@{planet.population}"
                         tools:text="0" />
 
                 </LinearLayout>

@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="species"
+            type="com.trivago.core.data.models.SpeciesDetailResponse" />
     </data>
 
     <merge>
@@ -35,7 +38,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_species_name" />
 
                     <TextView
@@ -44,7 +46,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:fontFamily="@font/oxygen_bold"
                         tools:text="Yoda's Species" />
 
                 </LinearLayout>
@@ -61,7 +62,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/label_character_species_language" />
 
                     <TextView
@@ -70,7 +70,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:fontFamily="@font/oxygen_bold"
                         tools:text="Galactic basic" />
 
                 </LinearLayout>

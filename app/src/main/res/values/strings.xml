@@ -35,4 +35,8 @@
 
     </string>
 
+    <!--    Templating-->
+    <string name="template_height_cm">%s cm</string>
+    <string name="template_height_inches">%s inches</string>
+
 </resources>
