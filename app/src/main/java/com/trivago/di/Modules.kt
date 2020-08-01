@@ -27,7 +27,7 @@ private val daoModule: Module = module {
 
 private val repositoryModule: Module = module {
     single { CharacterSearchRepository(get(), get()) }
-    single { CharacterDetailsRepository(get(), get()) }
+    single { CharacterDetailsRepository(get()) }
 }
 
 private val viewModelModule: Module = module {

@@ -2,11 +2,9 @@ package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.models.*
-import com.trivago.data.dao.CharacterDao
 
 class CharacterDetailsRepository(
-    private val starWarsAPI: StarWarsAPI,
-    private val characterDao: CharacterDao
+    private val starWarsAPI: StarWarsAPI
 ) {
 
     suspend fun fetchSpecies(characterUrl: String): SpeciesResponse =

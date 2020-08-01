@@ -7,5 +7,8 @@ import androidx.room.PrimaryKey
 data class Character(
     @PrimaryKey
     var id: Long,
-    var characterName: String
+    var name: String,
+    var birthYear: String,
+    var height: String,
+    var url: String
 )
