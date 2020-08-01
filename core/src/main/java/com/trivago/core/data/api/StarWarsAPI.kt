@@ -1,6 +1,6 @@
 package com.trivago.core.data.api
 
-import com.trivago.core.data.models.*
+import com.trivago.core.data.network.*
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url

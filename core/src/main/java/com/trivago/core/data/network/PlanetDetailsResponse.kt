@@ -1,4 +1,4 @@
-package com.trivago.core.data.models
+package com.trivago.core.data.network
 
 data class PlanetDetailsResponse(
     val name: String,

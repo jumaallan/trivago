@@ -1,4 +1,4 @@
-package com.trivago.core.data.models
+package com.trivago.core.data.network
 
 import com.google.gson.annotations.SerializedName
 
