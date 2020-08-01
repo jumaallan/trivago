@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.trivago.R
-import com.trivago.core.data.network.FilmDetailResponse
+import com.trivago.core.data.models.Film
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
@@ -38,13 +40,24 @@ class CharacterDetailsActivity : BaseActivity() {
         // pass to planet details layout
 //        binding.layoutCharacterPlanet.planet =
 
+        val layoutManagerStats = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewCharacterFilms.layoutManager = layoutManagerStats
+        val snapHelper = PagerSnapHelper()
+        binding.recyclerViewCharacterFilms.onFlingListener = null
+        snapHelper.attachToRecyclerView(binding.recyclerViewCharacterFilms)
+
         characterFilmsRecyclerViewAdapter = CharacterFilmsRecyclerViewAdapter()
         binding.recyclerViewCharacterFilms.adapter = characterFilmsRecyclerViewAdapter
+
+        binding.indicator.attachToRecyclerView(binding.recyclerViewCharacterFilms, snapHelper)
+        characterFilmsRecyclerViewAdapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
+
+        setUpViews(prepareMockFilms())
 
         binding.lifecycleOwner = this
     }
 
-    private fun setUpViews(characterFilmsList: List<FilmDetailResponse>) {
+    private fun setUpViews(characterFilmsList: List<Film>) {
         if (characterFilmsList.isNullOrEmpty()) {
             binding.recyclerViewCharacterFilms.hide()
             // we can show some UI here - like nothing to show
@@ -52,6 +65,51 @@ class CharacterDetailsActivity : BaseActivity() {
             binding.recyclerViewCharacterFilms.show()
             characterFilmsRecyclerViewAdapter.submitList(characterFilmsList)
         }
+    }
+
+    private fun prepareMockFilms(): List<Film> {
+        var models = ArrayList<Film>()
+        models.add(
+            Film(
+                "Trivago",
+                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
+                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
+                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
+                        "\n" +
+                        "        \"Bold, graphic, intentional."
+            )
+        )
+        models.add(
+            Film(
+                "Trivago",
+                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
+                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
+                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
+                        "\n" +
+                        "        \"Bold, graphic, intentional."
+            )
+        )
+        models.add(
+            Film(
+                "Trivago",
+                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
+                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
+                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
+                        "\n" +
+                        "        \"Bold, graphic, intentional."
+            )
+        )
+        models.add(
+            Film(
+                "Trivago",
+                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
+                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
+                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
+                        "\n" +
+                        "        \"Bold, graphic, intentional."
+            )
+        )
+        return models
     }
 
     private val characterName get() = intent.getStringExtra(CHARACTER_NAME)

@@ -5,24 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trivago.core.data.network.FilmDetailResponse
+import com.trivago.core.data.models.Film
 import com.trivago.databinding.ItemFilmBinding
 
-object CharacterFilmsDiffer : DiffUtil.ItemCallback<FilmDetailResponse>() {
-    override fun areItemsTheSame(
-        oldItem: FilmDetailResponse,
-        newItem: FilmDetailResponse
-    ): Boolean =
-        oldItem.title == newItem.title
-
-    override fun areContentsTheSame(
-        oldItem: FilmDetailResponse,
-        newItem: FilmDetailResponse
-    ): Boolean = oldItem == newItem
-}
-
 internal class CharacterFilmsRecyclerViewAdapter :
-    ListAdapter<FilmDetailResponse, CharacterFilmsRecyclerViewAdapter.ViewHolder>(
+    ListAdapter<Film, CharacterFilmsRecyclerViewAdapter.ViewHolder>(
         CharacterFilmsDiffer
     ) {
 
@@ -39,9 +26,22 @@ internal class CharacterFilmsRecyclerViewAdapter :
     class ViewHolder(private val binding: ItemFilmBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(filmDetailResponse: FilmDetailResponse) {
+        fun bind(filmDetailResponse: Film) {
             binding.film = filmDetailResponse
             binding.executePendingBindings()
         }
+    }
+
+    companion object CharacterFilmsDiffer : DiffUtil.ItemCallback<Film>() {
+        override fun areItemsTheSame(
+            oldItem: Film,
+            newItem: Film
+        ): Boolean =
+            oldItem.title == newItem.title
+
+        override fun areContentsTheSame(
+            oldItem: Film,
+            newItem: Film
+        ): Boolean = oldItem == newItem
     }
 }

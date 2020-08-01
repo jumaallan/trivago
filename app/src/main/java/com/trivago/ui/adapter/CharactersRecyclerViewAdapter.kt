@@ -8,16 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.databinding.ItemCharacterBinding
 
-object CharactersDiffer : DiffUtil.ItemCallback<StarWarsCharacter>() {
-    override fun areItemsTheSame(oldItem: StarWarsCharacter, newItem: StarWarsCharacter): Boolean =
-        oldItem.name == newItem.name
-
-    override fun areContentsTheSame(
-        oldItem: StarWarsCharacter,
-        newItem: StarWarsCharacter
-    ): Boolean = oldItem == newItem
-}
-
 typealias CharacterClickListener = (StarWarsCharacter) -> Unit
 
 internal class CharactersRecyclerViewAdapter(
@@ -44,5 +34,18 @@ internal class CharactersRecyclerViewAdapter(
                 listener.invoke(character)
             }
         }
+    }
+
+    companion object CharactersDiffer : DiffUtil.ItemCallback<StarWarsCharacter>() {
+        override fun areItemsTheSame(
+            oldItem: StarWarsCharacter,
+            newItem: StarWarsCharacter
+        ): Boolean =
+            oldItem.name == newItem.name
+
+        override fun areContentsTheSame(
+            oldItem: StarWarsCharacter,
+            newItem: StarWarsCharacter
+        ): Boolean = oldItem == newItem
     }
 }

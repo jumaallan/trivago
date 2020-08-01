@@ -48,7 +48,7 @@
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_weight=".5"
                         android:text="@{planet.name}"
-                        tools:text="Unknown" />
+                        tools:text="Tatooine" />
 
                 </LinearLayout>
 
@@ -74,7 +74,7 @@
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_weight=".5"
                         android:text="@{planet.population}"
-                        tools:text="0" />
+                        tools:text="200,000" />
 
                 </LinearLayout>
 

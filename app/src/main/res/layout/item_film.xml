@@ -7,7 +7,7 @@
 
         <variable
             name="film"
-            type="com.trivago.core.data.network.FilmDetailResponse" />
+            type="com.trivago.core.data.models.Film" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_small"
-                android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_small"
                 android:text="@{film.openingCrawl}"
                 tools:text="@string/large_text" />
 
