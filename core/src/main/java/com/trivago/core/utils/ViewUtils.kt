@@ -33,3 +33,8 @@ fun View.show() {
 fun View.hide() {
     visibility = View.GONE
 }
+
+fun String.toHttps(): String =
+    if (!this.contains("https"))
+        this.replace("http", "https")
+    else this
