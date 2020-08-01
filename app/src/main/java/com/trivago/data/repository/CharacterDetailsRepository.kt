@@ -45,10 +45,8 @@ class CharacterDetailsRepository(
 private fun SpeciesDetailResponse.toResponse(): Species =
     Species(this.name, this.language)
 
-
 private fun FilmDetailResponse.toResponse(): Film =
     Film(this.title, this.openingCrawl)
-
 
 private fun PlanetDetailsResponse.toResponse(): Planet =
     Planet(this.name, this.population)
