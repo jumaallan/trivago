@@ -19,7 +19,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class CharacterSearchActivity : BaseActivity() {
 
@@ -33,12 +32,10 @@ class CharacterSearchActivity : BaseActivity() {
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
-        Timber.d("Jumaaaa 1")
-
         if (Intent.ACTION_SEARCH == intent.action) {
             intent.getStringExtra(SearchManager.QUERY)?.also { query ->
                 // characterSearchViewModel.searchStarWarsCharacters(query)
-                Timber.d("Jumaaaa $query")
+
             }
         }
 
@@ -46,7 +43,9 @@ class CharacterSearchActivity : BaseActivity() {
             val intent = CharacterDetailsActivity.createIntent(
                 context = this,
                 characterName = it.name,
-                characterUrl = it.url
+                characterUrl = it.url,
+                characterBirthYear = it.birthYear,
+                characterHeight = it.height
             )
             startActivity(intent)
         }
