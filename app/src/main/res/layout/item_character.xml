@@ -7,19 +7,21 @@
 
         <variable
             name="character"
-            type="com.trivago.core.models.CharacterResponse" />
+            type="com.trivago.core.data.models.CharacterResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:paddingStart="@dimen/spacing_large"
+        android:paddingTop="@dimen/spacing_medium"
         tools:ignore="RtlSymmetry">
 
         <TextView
             android:id="@+id/textViewCharacterInitial"
             style="@style/TrivagoAvatar"
+            android:text="JA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,14 +33,12 @@
             style="@style/TrivagoText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/spacing_medium"
-            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
             android:text="@{character.name}"
-            app:layout_constraintBottom_toTopOf="@+id/textViewCharacterDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textViewCharacterInitial"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
             tools:text="@sample/characters.json/characters/name" />
 
         <TextView
@@ -46,14 +46,28 @@
             style="@style/TrivagoTextSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/spacing_medium"
-            android:paddingEnd="@dimen/spacing_medium"
-            android:text="@{character.height}"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:text="@{character.birthYear}"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewCharacterName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCharacterName"
+            tools:text="@sample/characters.json/characters/year" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:background="@color/grey"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewCharacterInitial"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCharacterName"
-            tools:text="@sample/characters.json/characters/model" />
+            app:layout_constraintStart_toStartOf="@+id/textViewCharacterDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCharacterDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
