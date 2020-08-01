@@ -30,7 +30,8 @@ class CharacterSearchActivity : BaseActivity() {
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
                 context = this,
-                cardName = it.name
+                characterName = it.name,
+                characterUrl = it.url
             )
             startActivity(intent)
         }
