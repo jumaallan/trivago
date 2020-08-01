@@ -35,7 +35,6 @@ class CharacterSearchActivity : BaseActivity() {
         if (Intent.ACTION_SEARCH == intent.action) {
             intent.getStringExtra(SearchManager.QUERY)?.also { query ->
                 // characterSearchViewModel.searchStarWarsCharacters(query)
-
             }
         }
 

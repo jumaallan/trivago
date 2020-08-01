@@ -69,5 +69,4 @@ class CharacterDetailsActivity : BaseActivity() {
         onBackPressed()
         return true
     }
-
 }
