@@ -73,6 +73,9 @@ dependencies {
     implementation(Libraries.lifecycle)
     implementation(Libraries.viewModelSavedState)
 
+    // Circle Indicator
+    implementation(Libraries.circleIndicator)
+
     // debug
     implementation(Libraries.timber)
     implementation(Libraries.leakCanary)
