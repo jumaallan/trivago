@@ -1,28 +1,23 @@
 package com.trivago.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.trivago.core.data.models.*
+import com.trivago.core.data.models.Film
+import com.trivago.core.data.models.Planet
+import com.trivago.core.data.models.Species
 import com.trivago.data.repository.CharacterDetailsRepository
+import kotlinx.coroutines.flow.Flow
 
 class CharacterDetailsViewModel(
     private val characterDetailsRepository: CharacterDetailsRepository
 ) : ViewModel() {
 
-    suspend fun fetchSpecies(characterUrl: String): SpeciesResponse =
+    suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> =
         characterDetailsRepository.fetchSpecies(characterUrl)
 
-    suspend fun fetchSpeciesDetails(speciesUrl: String): SpeciesDetailResponse =
-        characterDetailsRepository.fetchSpeciesDetails(speciesUrl)
-
-    suspend fun fetchFilms(characterUrl: String): FilmsResponse =
+    suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> =
         characterDetailsRepository.fetchFilms(characterUrl)
 
-    suspend fun fetchFilmDetails(filmsUrl: String): FilmDetailResponse =
-        characterDetailsRepository.fetchFilmDetails(filmsUrl)
-
-    suspend fun fetchPlanet(characterUrl: String): PlanetResponse =
+    suspend fun fetchPlanet(characterUrl: String): Flow<Planet> =
         characterDetailsRepository.fetchPlanet(characterUrl)
 
-    suspend fun fetchPlanetDetails(planetUrl: String): PlanetDetailsResponse =
-        characterDetailsRepository.fetchPlanetDetails(planetUrl)
 }
