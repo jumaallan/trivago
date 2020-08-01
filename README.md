@@ -19,7 +19,7 @@ Before every commit, make sure you run the following commands:
 
 ### Background
 
-Implement a small but scalable (!) app which interacts with the open [Star Wars API](https://swapi.dev/)
+Implement a small but scalable app which interacts with the open [Star Wars API](https://swapi.dev/)
 
 The app should contain 2 main areas:
 
