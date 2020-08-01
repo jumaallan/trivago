@@ -1,7 +1,7 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
-import com.trivago.core.data.models.CharacterResponse
+import com.trivago.core.data.network.CharacterResponse
 import com.trivago.data.dao.CharacterDao
 import com.trivago.data.model.Character
 import kotlinx.coroutines.flow.Flow

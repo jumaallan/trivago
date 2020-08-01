@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trivago.core.data.models.FilmDetailResponse
+import com.trivago.core.data.network.FilmDetailResponse
 import com.trivago.databinding.ItemFilmBinding
 
 object CharacterFilmsDiffer : DiffUtil.ItemCallback<FilmDetailResponse>() {

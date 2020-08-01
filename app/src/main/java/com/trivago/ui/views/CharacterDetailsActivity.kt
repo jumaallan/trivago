@@ -5,13 +5,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.trivago.R
+import com.trivago.core.data.network.FilmDetailResponse
 import com.trivago.databinding.ActivityCharacterDetailsBinding
+import com.trivago.ui.adapter.CharacterFilmsRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterDetailsActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCharacterDetailsBinding
+    private lateinit var characterFilmsRecyclerViewAdapter: CharacterFilmsRecyclerViewAdapter
     private val characterDetailsViewModel: CharacterDetailsViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +36,20 @@ class CharacterDetailsActivity : BaseActivity() {
         // pass to planet details layout
 //        binding.layoutCharacterPlanet.planet =
 
+        characterFilmsRecyclerViewAdapter = CharacterFilmsRecyclerViewAdapter()
+        binding.recyclerViewCharacterFilms.adapter = characterFilmsRecyclerViewAdapter
+
         binding.lifecycleOwner = this
+    }
+
+    private fun setUpViews(characterFilmsList: List<FilmDetailResponse>) {
+        if (characterFilmsList.isNullOrEmpty()) {
+            binding.recyclerViewCharacterFilms.hide()
+            // we can show some UI here - like nothing to show
+        } else {
+            binding.recyclerViewCharacterFilms.show()
+            characterFilmsRecyclerViewAdapter.submitList(characterFilmsList)
+        }
     }
 
     private val characterName get() = intent.getStringExtra(CHARACTER_NAME)

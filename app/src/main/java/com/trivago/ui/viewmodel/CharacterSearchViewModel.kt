@@ -3,7 +3,7 @@ package com.trivago.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.trivago.core.data.models.CharacterResponse
+import com.trivago.core.data.network.CharacterResponse
 import com.trivago.data.model.Character
 import com.trivago.data.repository.CharacterSearchRepository
 import kotlinx.coroutines.flow.Flow

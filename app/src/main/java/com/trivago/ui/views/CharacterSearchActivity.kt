@@ -9,9 +9,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.trivago.R
-import com.trivago.core.data.models.CharacterResponse
-import com.trivago.core.utils.hide
-import com.trivago.core.utils.show
+import com.trivago.core.data.network.CharacterResponse
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
