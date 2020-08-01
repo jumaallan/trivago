@@ -18,7 +18,6 @@ class CharacterDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_details)
         binding.lifecycleOwner = this
-
     }
 
     private val characterName get() = intent.getStringExtra(CHARACTER_NAME)
