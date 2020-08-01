@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_small"
         tools:context=".ui.views.CharacterDetailsActivity">
 
-        <include layout="@layout/layout_character_details" />
+        <include
+            android:id="@+id/layout_character_details"
+            layout="@layout/layout_character_details" />
 
-        <include layout="@layout/layout_character_species" />
+        <include
+            android:id="@+id/layout_character_species"
+            layout="@layout/layout_character_species" />
 
-        <include layout="@layout/layout_character_planet" />
+        <include
+            android:id="@+id/layout_character_planet"
+            layout="@layout/layout_character_planet" />
 
-        <include layout="@layout/layout_character_films" />
+        <include
+            android:id="@+id/layout_character_films"
+            layout="@layout/layout_character_films" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <me.relex.circleindicator.CircleIndicator2
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_small"
+            app:ci_drawable="@drawable/film_indicator_selected"
+            app:ci_drawable_unselected="@drawable/film_indicator_unselected"
+            app:ci_gravity="center"
+            app:ci_height="12dp"
+            app:ci_margin="5dp"
+            app:ci_orientation="horizontal"
+            app:ci_width="12dp" />
+
+    </LinearLayout>
 
 </layout>

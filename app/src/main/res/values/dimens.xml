@@ -6,8 +6,18 @@
     <dimen name="spacing_xl">32dp</dimen>
     <dimen name="spacing_xxl">48dp</dimen>
 
+    <dimen name="margin_largest">32dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_small">6dp</dimen>
+
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="padding_medium">12dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+
     <dimen name="border_width">1dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
 
     <dimen name="list_item_height">72dp</dimen>
+    <dimen name="card_corner_radius">6dp</dimen>
 </resources>

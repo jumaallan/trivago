@@ -7,4 +7,32 @@
 
     <!--    Menu-->
     <string name="menu_search">Search</string>
+
+    <!--    Labels-->
+    <string name="label_character_height">Height</string>
+    <string name="label_character_birth_year">Birth Year</string>
+    <string name="label_character_details">Character Details</string>
+
+    <string name="label_character_species_name">Species Name</string>
+    <string name="label_character_species_language">Species Language</string>
+
+    <string name="label_character_planet_name">Planet Name</string>
+    <string name="label_character_planet_language">Planet Population</string>
+
+    <string name="label_character_film">The Empire Strikes Back</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+    </string>
+
 </resources>

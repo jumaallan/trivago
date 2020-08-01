@@ -13,6 +13,9 @@
         <item name="textInputStyle">@style/TrivagoTextField</item>
         <item name="toolbarStyle">@style/TrivagoToolbar</item>
         <item name="materialButtonStyle">@style/TrivagoButton</item>
+
+        <!-- App default font -->
+        <item name="android:fontFamily">@font/oxygen_regular</item>
     </style>
 
     <style name="TrivagoTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
@@ -87,6 +90,15 @@
     <style name="TrivagoTextHugeToolbar" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textColor">?colorOnPrimary</item>
         <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="cardTitles">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="cardData">
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
