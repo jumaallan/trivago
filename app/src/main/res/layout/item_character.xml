@@ -23,7 +23,6 @@
             style="@style/TrivagoAvatar"
             android:text="@string/sw_placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:backgroundTint="@sample/characters.json/characters/color"
@@ -39,7 +38,7 @@
             android:text="@{character.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toEndOf="@+id/textViewCharacterInitial"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@sample/characters.json/characters/name" />
 
@@ -54,7 +53,7 @@
             android:text="@{character.birthYear}"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/textViewCharacterName"
             app:layout_constraintTop_toBottomOf="@+id/textViewCharacterName"
             tools:text="@sample/characters.json/characters/year" />
 
@@ -68,15 +67,8 @@
             android:background="@color/grey"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/textViewCharacterName"
             app:layout_constraintTop_toBottomOf="@+id/textViewCharacterDescription" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="50dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

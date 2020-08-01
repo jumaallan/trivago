@@ -3,27 +3,32 @@
     {
       "name": "Death Star",
       "initial": "DS",
-      "color": "#ffa1ac"
+      "color": "#ffa1ac",
+      "year": "41.9BBY"
     },
     {
       "name": "Biggs Darklighter",
       "initial": "BD",
-      "color": "#8ad5ae"
+      "color": "#8ad5ae",
+      "year": "24BBY"
     },
     {
       "name": "Darth Maul",
       "initial": "DM",
-      "color": "#bbbcfc"
+      "color": "#bbbcfc",
+      "year": "896BBY"
     },
     {
       "name": "Padme Amidala",
       "initial": "PA",
-      "color": "#f9c47e"
+      "color": "#f9c47e",
+      "year": "54BBY"
     },
     {
       "name": "Yoda",
       "initial": "YD",
-      "color": "#f8dc93"
+      "color": "#f8dc93",
+      "year": "unknown"
     }
   ]
 }
