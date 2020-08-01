@@ -59,15 +59,15 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_large"
             android:background="@color/grey"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewCharacterName"
+            app:layout_constraintStart_toStartOf="@+id/textViewCharacterDescription"
             app:layout_constraintTop_toBottomOf="@+id/textViewCharacterDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

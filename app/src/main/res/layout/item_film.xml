@@ -30,14 +30,15 @@
                 android:layout_marginStart="@dimen/margin_small"
                 android:layout_marginTop="4dp"
                 android:text="@{film.title}"
+                android:textColor="@color/black"
                 tools:text="@string/label_character_film" />
 
             <TextView
-                style="@style/cardData"
+                style="@style/rowData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_small"
-                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:text="@{film.openingCrawl}"
                 tools:text="@string/large_text" />
 
