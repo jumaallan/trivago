@@ -25,7 +25,15 @@
 
         <activity
             android:name=".ui.views.CharacterSearchActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:resource="@xml/searchable"
+                android:value=".ui.views.CharacterSearchActivity" />
+        </activity>
 
         <activity
             android:name=".ui.views.CharacterDetailsActivity"
