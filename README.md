@@ -17,6 +17,8 @@ Before every commit, make sure you run the following commands:
 
 * `./gradlew spotlessApply`
 
+Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get any issues :)
+
 ### Background
 
 Implement a small but scalable app which interacts with the open [Star Wars API](https://swapi.dev/)
