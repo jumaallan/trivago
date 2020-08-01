@@ -5,24 +5,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trivago.core.data.network.CharacterResponse
+import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.databinding.ItemCharacterBinding
 
-object CharactersDiffer : DiffUtil.ItemCallback<CharacterResponse>() {
-    override fun areItemsTheSame(oldItem: CharacterResponse, newItem: CharacterResponse): Boolean =
+object CharactersDiffer : DiffUtil.ItemCallback<StarWarsCharacter>() {
+    override fun areItemsTheSame(oldItem: StarWarsCharacter, newItem: StarWarsCharacter): Boolean =
         oldItem.name == newItem.name
 
     override fun areContentsTheSame(
-        oldItem: CharacterResponse,
-        newItem: CharacterResponse
+        oldItem: StarWarsCharacter,
+        newItem: StarWarsCharacter
     ): Boolean = oldItem == newItem
 }
 
-typealias CharacterClickListener = (CharacterResponse) -> Unit
+typealias CharacterClickListener = (StarWarsCharacter) -> Unit
 
 internal class CharactersRecyclerViewAdapter(
     private val listener: CharacterClickListener
-) : ListAdapter<CharacterResponse, CharactersRecyclerViewAdapter.ViewHolder>(CharactersDiffer) {
+) : ListAdapter<StarWarsCharacter, CharactersRecyclerViewAdapter.ViewHolder>(CharactersDiffer) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -37,7 +37,7 @@ internal class CharactersRecyclerViewAdapter(
     class ViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: CharacterResponse, listener: CharacterClickListener) {
+        fun bind(character: StarWarsCharacter, listener: CharacterClickListener) {
             binding.character = character
             binding.executePendingBindings()
             itemView.setOnClickListener {

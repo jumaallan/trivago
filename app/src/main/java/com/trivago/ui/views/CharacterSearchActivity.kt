@@ -9,7 +9,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.trivago.R
-import com.trivago.core.data.network.CharacterResponse
+import com.trivago.core.data.models.StarWarsCharacter
+import com.trivago.core.utils.hide
+import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
@@ -56,7 +58,7 @@ class CharacterSearchActivity : BaseActivity() {
         }
     }
 
-    private fun setUpViews(charactersList: List<CharacterResponse>) {
+    private fun setUpViews(charactersList: List<StarWarsCharacter>) {
         if (charactersList.isNullOrEmpty()) {
             binding.recyclerViewCharacters.hide()
             // we can show some UI here - like nothing to show

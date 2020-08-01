@@ -1,6 +1,7 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.data.network.CharacterResponse
 import com.trivago.data.dao.CharacterDao
 import com.trivago.data.model.Character
@@ -12,11 +13,13 @@ class CharacterSearchRepository(
     private val characterDao: CharacterDao
 ) {
 
-    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<CharacterResponse>> =
+    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
         flow {
             val characters = starWarsAPI.searchCharacters(characterName)
-            val starWarsCharacters = mutableListOf<CharacterResponse>()
-            starWarsCharacters.addAll(characters.results)
+            val starWarsCharacters = mutableListOf<StarWarsCharacter>()
+            for (starWarsCharacter in characters.results) {
+                starWarsCharacters.add(starWarsCharacter.toResponse())
+            }
             emit(starWarsCharacters)
         }
 
@@ -25,4 +28,8 @@ class CharacterSearchRepository(
 
     fun getCharacters(): Flow<List<Character>> =
         characterDao.getCharacters()
+}
+
+private fun CharacterResponse.toResponse(): StarWarsCharacter {
+    return StarWarsCharacter(this.name, this.birthYear, this.height, this.url)
 }

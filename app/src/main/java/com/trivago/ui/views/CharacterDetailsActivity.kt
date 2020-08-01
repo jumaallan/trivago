@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.trivago.R
 import com.trivago.core.data.network.FilmDetailResponse
+import com.trivago.core.utils.hide
+import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
 import com.trivago.ui.adapter.CharacterFilmsRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
