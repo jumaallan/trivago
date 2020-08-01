@@ -18,6 +18,6 @@ class CharacterSearchViewModel(
     suspend fun saveCharacter(character: Character) =
         characterSearchRepository.saveCharacter(character)
 
-    suspend fun getCharacters(): LiveData<List<Character>> =
+    fun getCharacters(): LiveData<List<Character>> =
         characterSearchRepository.getCharacters().asLiveData()
 }

@@ -23,6 +23,6 @@ class CharacterSearchRepository(
     suspend fun saveCharacter(character: Character) =
         characterDao.insert(character)
 
-    suspend fun getCharacters(): Flow<List<Character>> =
+    fun getCharacters(): Flow<List<Character>> =
         characterDao.getCharacters()
 }

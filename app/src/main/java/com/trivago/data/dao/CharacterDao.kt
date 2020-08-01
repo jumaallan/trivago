@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
 interface CharacterDao : BaseDao<Character> {
 
     @Query("SELECT * FROM Character")
-    suspend fun getCharacters(): Flow<List<Character>>
+    fun getCharacters(): Flow<List<Character>>
 }
