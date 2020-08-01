@@ -68,7 +68,7 @@ class CharacterDetailsActivity : BaseActivity() {
     }
 
     private fun prepareMockFilms(): List<Film> {
-        var models = ArrayList<Film>()
+        val models = ArrayList<Film>()
         models.add(
             Film(
                 "Trivago",
@@ -81,32 +81,12 @@ class CharacterDetailsActivity : BaseActivity() {
         )
         models.add(
             Film(
-                "Trivago",
-                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
+                "Trivago 2",
+                "2 A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
                         "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
                         "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
                         "\n" +
-                        "        \"Bold, graphic, intentional."
-            )
-        )
-        models.add(
-            Film(
-                "Trivago",
-                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
-                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
-                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
-                        "\n" +
-                        "        \"Bold, graphic, intentional."
-            )
-        )
-        models.add(
-            Film(
-                "Trivago",
-                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
-                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
-                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
-                        "\n" +
-                        "        \"Bold, graphic, intentional."
+                        "        \"Bold, graphic, intentional. 2"
             )
         )
         return models

@@ -19,5 +19,4 @@ class CharacterDetailsViewModel(
 
     suspend fun fetchPlanet(characterUrl: String): Flow<Planet> =
         characterDetailsRepository.fetchPlanet(characterUrl)
-
 }

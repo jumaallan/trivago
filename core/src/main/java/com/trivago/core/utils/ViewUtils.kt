@@ -35,6 +35,6 @@ fun View.hide() {
 }
 
 fun String.toHttps(): String =
-    if (!this.contains("https"))
+    if (!this.contains("https")) {
         this.replace("http", "https")
-    else this
+    } else this

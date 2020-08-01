@@ -35,23 +35,20 @@ class CharacterDetailsRepository(
         emit(films)
     }
 
-
     suspend fun fetchPlanet(characterUrl: String): Flow<Planet> = flow {
         val planetResponse = starWarsAPI.fetchPlanet(characterUrl.toHttps())
         val planet = starWarsAPI.fetchPlanetDetails(planetResponse.homeworld.toHttps())
         emit(planet.toResponse())
     }
-
 }
 
-private fun SpeciesDetailResponse.toResponse(): Species {
-    return Species(this.name, this.language)
-}
+private fun SpeciesDetailResponse.toResponse(): Species =
+    Species(this.name, this.language)
 
-private fun FilmDetailResponse.toResponse(): Film {
-    return Film(this.title, this.openingCrawl)
-}
 
-private fun PlanetDetailsResponse.toResponse(): Planet {
-    return Planet(this.name, this.population)
-}
+private fun FilmDetailResponse.toResponse(): Film =
+    Film(this.title, this.openingCrawl)
+
+
+private fun PlanetDetailsResponse.toResponse(): Planet =
+    Planet(this.name, this.population)

@@ -30,6 +30,5 @@ class CharacterSearchRepository(
         characterDao.getCharacters()
 }
 
-private fun CharacterResponse.toResponse(): StarWarsCharacter {
-    return StarWarsCharacter(this.name, this.birthYear, this.height, this.url)
-}
+private fun CharacterResponse.toResponse(): StarWarsCharacter =
+    StarWarsCharacter(this.name, this.birthYear, this.height, this.url)
