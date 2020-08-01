@@ -3,7 +3,7 @@ package com.trivago.core.di
 import android.content.Context
 import com.google.gson.GsonBuilder
 import com.trivago.core.BuildConfig
-import com.trivago.core.api.StarWarsAPI
+import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.network.AuthInterceptor
 import com.trivago.core.settings.Settings
 import com.trivago.core.settings.SettingsConstants

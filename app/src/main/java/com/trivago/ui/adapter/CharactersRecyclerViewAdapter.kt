@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trivago.core.models.CharacterResponse
+import com.trivago.core.data.models.CharacterResponse
 import com.trivago.databinding.ItemCharacterBinding
 
 object CharactersDiffer : DiffUtil.ItemCallback<CharacterResponse>() {

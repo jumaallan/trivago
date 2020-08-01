@@ -1,7 +1,7 @@
 package com.trivago.data.repository
 
-import com.trivago.core.api.StarWarsAPI
-import com.trivago.core.models.*
+import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.models.*
 import com.trivago.data.dao.CharacterDao
 
 class CharacterDetailsRepository(

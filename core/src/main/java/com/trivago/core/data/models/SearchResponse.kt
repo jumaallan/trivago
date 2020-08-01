@@ -1,4 +1,4 @@
-package com.trivago.core.models
+package com.trivago.core.data.models
 
 data class SearchResponse(
     val count: Int,

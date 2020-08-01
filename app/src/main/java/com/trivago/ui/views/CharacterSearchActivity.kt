@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.trivago.R
-import com.trivago.core.models.CharacterResponse
+import com.trivago.core.data.models.CharacterResponse
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterSearchBinding

@@ -1,7 +1,7 @@
 package com.trivago.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.trivago.core.models.*
+import com.trivago.core.data.models.*
 import com.trivago.data.repository.CharacterDetailsRepository
 
 class CharacterDetailsViewModel(
