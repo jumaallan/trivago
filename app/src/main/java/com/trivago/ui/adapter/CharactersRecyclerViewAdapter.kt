@@ -10,6 +10,11 @@ import com.trivago.databinding.ItemCharacterBinding
 
 typealias CharacterClickListener = (StarWarsCharacter) -> Unit
 
+/**
+ * CharactersRecyclerViewAdapter
+ *
+ * This adapter is responsible for setting the character results list on the character search view
+ */
 internal class CharactersRecyclerViewAdapter(
     private val listener: CharacterClickListener
 ) : ListAdapter<StarWarsCharacter, CharactersRecyclerViewAdapter.ViewHolder>(CharactersDiffer) {

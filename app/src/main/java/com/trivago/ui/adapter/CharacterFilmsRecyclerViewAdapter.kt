@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.trivago.core.data.models.Film
 import com.trivago.databinding.ItemFilmBinding
 
+/**
+ * CharacterFilmsRecyclerViewAdapter
+ *
+ * This adapter is responsible for setting the character films list on the character details view
+ */
 internal class CharacterFilmsRecyclerViewAdapter :
     ListAdapter<Film, CharacterFilmsRecyclerViewAdapter.ViewHolder>(
         CharacterFilmsDiffer

@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.trivago.core.data.models.Species
 import com.trivago.databinding.ItemSpeciesBinding
 
+/**
+ * CharacterSpeciesRecyclerViewAdapter
+ *
+ * This adapter is responsible for setting the character species list on the character details view
+ */
 internal class CharacterSpeciesRecyclerViewAdapter :
     ListAdapter<Species, CharacterSpeciesRecyclerViewAdapter.ViewHolder>(
         CharacterFilmsDiffer
