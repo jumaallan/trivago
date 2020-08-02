@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="species"
-            type="com.trivago.core.data.models.Species" />
+            name="characterDetailsViewModel"
+            type="com.trivago.ui.viewmodel.CharacterDetailsViewModel" />
     </data>
 
     <merge>

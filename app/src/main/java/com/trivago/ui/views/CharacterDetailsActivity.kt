@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.trivago.R
@@ -13,6 +14,7 @@ import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
 import com.trivago.ui.adapter.CharacterFilmsRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
+import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterDetailsActivity : BaseActivity() {
@@ -21,9 +23,12 @@ class CharacterDetailsActivity : BaseActivity() {
     private lateinit var characterFilmsRecyclerViewAdapter: CharacterFilmsRecyclerViewAdapter
     private val characterDetailsViewModel: CharacterDetailsViewModel by viewModel()
 
+    @FlowPreview
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_details)
+
+        characterDetailsViewModel.getCharacterDetails(characterUrl.toString())
 
         title = characterName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -33,12 +38,6 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.layoutCharacterDetails.birthYear = characterBirthYear
         binding.layoutCharacterDetails.heightInCm = characterHeight
         binding.layoutCharacterDetails.heightInInches = characterHeight
-
-        // pass to species details layout
-//         binding.layoutCharacterSpecies.species =
-
-        // pass to planet details layout
-//        binding.layoutCharacterPlanet.planet =
 
         val layoutManagerStats = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCharacterFilms.layoutManager = layoutManagerStats
@@ -52,12 +51,21 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.indicator.attachToRecyclerView(binding.recyclerViewCharacterFilms, snapHelper)
         characterFilmsRecyclerViewAdapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
 
-        setUpViews(prepareMockFilms())
-
         binding.lifecycleOwner = this
+
+        characterDetailsViewModel.characterResponseState.observe(this, Observer {
+
+            // pass the species list to rv adapter
+
+            // pass the planet to the planet view
+            binding.layoutCharacterPlanet.planet = it.planet
+
+            // pass the film list to rv adapter
+            setUpFilms(it.films)
+        })
     }
 
-    private fun setUpViews(characterFilmsList: List<Film>) {
+    private fun setUpFilms(characterFilmsList: List<Film>?) {
         if (characterFilmsList.isNullOrEmpty()) {
             binding.recyclerViewCharacterFilms.hide()
             // we can show some UI here - like nothing to show
@@ -65,31 +73,6 @@ class CharacterDetailsActivity : BaseActivity() {
             binding.recyclerViewCharacterFilms.show()
             characterFilmsRecyclerViewAdapter.submitList(characterFilmsList)
         }
-    }
-
-    private fun prepareMockFilms(): List<Film> {
-        val models = ArrayList<Film>()
-        models.add(
-            Film(
-                "Trivago",
-                "A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
-                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
-                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
-                        "\n" +
-                        "        \"Bold, graphic, intentional."
-            )
-        )
-        models.add(
-            Film(
-                "Trivago 2",
-                "2 A material metaphor is the unifying theory of a rationalized space and a system of motion.\"\n" +
-                        "        \"The material is grounded in tactile reality, inspired by the study of paper and ink, yet \"\n" +
-                        "        \"technologically advanced and open to imagination and magic.\\n\\n\"\n" +
-                        "\n" +
-                        "        \"Bold, graphic, intentional. 2"
-            )
-        )
-        return models
     }
 
     private val characterName get() = intent.getStringExtra(CHARACTER_NAME)
