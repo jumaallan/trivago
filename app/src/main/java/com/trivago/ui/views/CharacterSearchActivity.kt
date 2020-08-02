@@ -55,9 +55,12 @@ class CharacterSearchActivity : BaseActivity() {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 characterSearchViewModel.searchStarWarsCharacters("Da")
-                    .observe(this@CharacterSearchActivity, Observer {
-                        setUpViews(it)
-                    })
+                    .observe(
+                        this@CharacterSearchActivity,
+                        Observer {
+                            setUpViews(it)
+                        }
+                    )
             }
         }
     }

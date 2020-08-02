@@ -18,7 +18,6 @@ import java.math.RoundingMode
 suspend fun <T> Flow<List<T>>.flattenToList() =
     flatMapConcat { it.asFlow() }.toList()
 
-
 /**
  * Utility function to convert Centimeters to Inches
  *
