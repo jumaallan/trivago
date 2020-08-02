@@ -56,6 +56,7 @@ object Versions {
     const val androidXTestCore = "1.0.0"
     const val runner = "1.2.0"
     const val rules = "1.2.0"
+    const val archComponentTest = "2.1.0"
 }
 
 object BuildPlugins {
@@ -140,6 +141,8 @@ object TestLibraries {
     const val roomTest = "androidx.room:room-testing:${Versions.room}"
     const val coroutinesTest =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val archComponentTest =
+        "androidx.arch.core:core-testing:${Versions.archComponentTest}"
 }
 
 object BuildModules {

@@ -121,4 +121,5 @@ dependencies {
     testImplementation(TestLibraries.runner)
     testImplementation(TestLibraries.androidXJUnit)
     testImplementation(TestLibraries.coroutinesTest)
+    testImplementation(TestLibraries.archComponentTest)
 }
