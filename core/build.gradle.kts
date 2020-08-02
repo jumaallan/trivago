@@ -71,5 +71,5 @@ dependencies {
     // tests
     testImplementation(TestLibraries.jUnit)
     androidTestImplementation(TestLibraries.jUnitTest)
-    androidTestImplementation(TestLibraries.espresso)
+    testImplementation(TestLibraries.truth)
 }
