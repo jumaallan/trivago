@@ -19,6 +19,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit
 
+/**
+ *  Core DI Module
+ *
+ *  This file is responsible for setting up and injecting the following
+ *      - network (OKHTTP and Retrofit)
+ *      - Retrofit API
+ *      - Shared Preference
+ *      - App Executors
+ *
+ * The modules are available globally across the app. This makes it easy to manage them centrally
+ */
 private val networkingModule: Module = module {
 
     single {
