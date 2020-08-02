@@ -7,7 +7,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.spotlessPlugin) version Versions.spotless
-    id(BuildPlugins.dokkaPlugin) version Versions.dokka
+//    id(BuildPlugins.dokkaPlugin) version Versions.dokka
 }
 
 allprojects {
