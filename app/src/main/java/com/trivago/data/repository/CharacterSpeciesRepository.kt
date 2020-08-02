@@ -20,7 +20,6 @@ class CharacterSpeciesRepository(
         }
         emit(species)
     }
-
 }
 
 private fun SpeciesDetailResponse.toResponse(): Species =

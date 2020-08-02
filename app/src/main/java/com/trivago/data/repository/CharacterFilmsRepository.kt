@@ -20,7 +20,6 @@ class CharacterFilmsRepository(
         }
         emit(films)
     }
-
 }
 
 private fun FilmDetailResponse.toResponse(): Film =

@@ -53,16 +53,19 @@ class CharacterDetailsActivity : BaseActivity() {
 
         binding.lifecycleOwner = this
 
-        characterDetailsViewModel.characterResponseState.observe(this, Observer {
+        characterDetailsViewModel.characterResponseState.observe(
+            this,
+            Observer {
 
-            // pass the species list to rv adapter
+                // pass the species list to rv adapter
 
-            // pass the planet to the planet view
-            binding.layoutCharacterPlanet.planet = it.planet
+                // pass the planet to the planet view
+                binding.layoutCharacterPlanet.planet = it.planet
 
-            // pass the film list to rv adapter
-            setUpFilms(it.films)
-        })
+                // pass the film list to rv adapter
+                setUpFilms(it.films)
+            }
+        )
     }
 
     private fun setUpFilms(characterFilmsList: List<Film>?) {

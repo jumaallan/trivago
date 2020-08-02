@@ -9,5 +9,4 @@ sealed class Result<T> {
     data class Loading<T>(val show: Boolean) : Result<T>()
 
     fun isSuccess(): Boolean = this is Success
-
 }
