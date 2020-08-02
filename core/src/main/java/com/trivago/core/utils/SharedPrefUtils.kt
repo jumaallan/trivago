@@ -3,6 +3,12 @@ package com.trivago.core.utils
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 
+/**
+ * SharedPreferenceLiveData
+ *
+ * This class allows us to observe the shared preference file, as a live data object.
+ *      - we observe the theme changes, so that the app theme changes without any reload
+ */
 abstract class SharedPreferenceLiveData<T>(
     val sharedPreferences: SharedPreferences,
     private val key: String,
