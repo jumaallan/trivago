@@ -7,7 +7,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.trivago.R
 
-class SettingsFragment : PreferenceFragmentCompat() {
+class ThemeFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
@@ -32,5 +32,4 @@ class SettingsFragment : PreferenceFragmentCompat() {
     companion object {
         const val THEME_KEY = "theme"
     }
-
 }
