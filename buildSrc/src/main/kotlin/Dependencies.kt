@@ -1,30 +1,60 @@
 object Versions {
+    // Material and androidX
     const val material = "1.3.0-alpha02"
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val swiperefreshlayout = "1.1.0"
     const val preference = "1.1.1"
+
+    // Firebase
     const val crashlytics = "17.1.1"
+
+    //Networking
     const val retrofit = "2.9.0"
     const val okhttp = "4.8.0"
     const val loggingInterceptor = "4.7.2"
+
+    //DI - KOIN
     const val koin = "2.1.5"
+
+    // Room db
     const val room = "2.2.5"
+
+    // Lifecycle
     const val lifecycle = "2.3.0-alpha06"
+
+    // Coroutines
     const val coroutines = "1.3.7"
+
+    // Logging - debug builds
     const val timber = "4.7.1"
     const val stetho = "1.5.1"
     const val leakCanary = "2.4"
+
+    // Kotlin
     const val kotlinVersion = "1.3.72"
     const val coreKtx = "1.3.1"
-    const val junit = "4.13"
-    const val junitTest = "1.1.1"
-    const val espresso = "3.2.0"
+
+    // Circle Indicator
+    const val circleIndicator = "2.1.2"
+
+    // Gradle Plugins
     const val ktlint = "9.3.0"
     const val detekt = "1.10.0"
     const val spotless = "5.1.0"
     const val dokka = "1.4-M3"
-    const val circleIndicator = "2.1.2"
+
+    // tests
+    const val junit = "4.13"
+    const val junitTest = "1.1.1"
+    const val espresso = "3.2.0"
+    const val mockito = "3.2.4"
+    const val androidXJUnit = "1.1.1"
+    const val truth = "1.0"
+    const val mockWebServer = "4.2.1"
+    const val androidXTestCore = "1.0.0"
+    const val runner = "1.2.0"
+    const val rules = "1.2.0"
 }
 
 object BuildPlugins {
@@ -94,10 +124,20 @@ object Libraries {
 }
 
 object TestLibraries {
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val jUnit = "junit:junit:${Versions.junit}"
     const val jUnitTest = "androidx.test.ext:junit:${Versions.junitTest}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-
+    const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
+    const val androidXJUnit = "androidx.test.ext:junit:${Versions.androidXJUnit}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
+    const val androidXTestCore = "androidx.test:core:${Versions.androidXTestCore}"
+    const val runner = "androidx.test:runner:${Versions.runner}"
+    const val rules = "androidx.test:rules:${Versions.rules}"
+    const val koinTest = "org.koin:koin-test:${Versions.koin}"
+    const val roomTest = "androidx.room:room-testing:${Versions.room}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }
 
 object BuildModules {
