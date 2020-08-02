@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="TrivagoTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorOnSecondary">@color/primaryTextColor</item>
+
+        <item name="textInputStyle">@style/TrivagoTextField</item>
+        <item name="toolbarStyle">@style/TrivagoToolbar</item>
+        <item name="materialButtonStyle">@style/TrivagoButton</item>
+
+        <!-- App default font -->
+        <item name="android:fontFamily">@font/oxygen_regular</item>
+    </style>
+
+    <style name="TrivagoTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="FullScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+</resources>
