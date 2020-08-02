@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 /**
  * CharacterFilmsRepository
  *
- * This class is responsible for handling anything related to character films
+ * This repository class is responsible for handling anything related to character films
  * @param starWarsAPI
  */
 class CharacterFilmsRepository(
