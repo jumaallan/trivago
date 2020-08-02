@@ -58,20 +58,21 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.indicator.attachToRecyclerView(binding.recyclerViewCharacterFilms, snapHelper)
         characterFilmsRecyclerViewAdapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
 
-
         binding.lifecycleOwner = this
 
-        characterDetailsViewModel.characterResponseState.observe(this, Observer {
+        characterDetailsViewModel.characterResponseState.observe(
+            this,
+            Observer {
 
-            // pass the species list to rv adapter
-            setUpSpecies(it.species)
+                // pass the species list to rv adapter
+                setUpSpecies(it.species)
 
-            // pass the planet to the planet view
-            binding.layoutCharacterPlanet.planet = it.planet
+                // pass the planet to the planet view
+                binding.layoutCharacterPlanet.planet = it.planet
 
-            // pass the film list to rv adapter
-            setUpFilms(it.films)
-        }
+                // pass the film list to rv adapter
+                setUpFilms(it.films)
+            }
         )
     }
 
