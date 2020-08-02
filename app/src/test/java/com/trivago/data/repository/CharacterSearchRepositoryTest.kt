@@ -21,7 +21,7 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
 
     @InternalCoroutinesApi
     @Test
-    fun searchStarWarsCharacters() {
+    fun `search for a character that exists and get results`() {
         runBlocking {
             val characterResponse = characterSearchRepository.searchStarWarsCharacters(
                 MockRequestDispatcher.EXISTING_CHARACTER_URL
@@ -31,10 +31,12 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
     }
 
     @Test
-    fun saveCharacter() {
-    }
-
-    @Test
-    fun getCharacters() {
+    fun `search for a character that doesn't exist and get no results`() {
+        runBlocking {
+            val characterResponse = characterSearchRepository.searchStarWarsCharacters(
+                MockRequestDispatcher.NON_EXISTENT_SEARCH_PARAMS
+            )
+            characterResponse.collect { Truth.assertThat(it).isEmpty() }
+        }
     }
 }
