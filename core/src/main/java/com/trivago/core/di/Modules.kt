@@ -7,7 +7,6 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.executors.AppExecutors
 import com.trivago.core.network.AuthInterceptor
 import com.trivago.core.settings.Settings
-import com.trivago.core.settings.SettingsConstants
 import com.trivago.core.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -69,7 +68,7 @@ val settingsModule: Module = module {
 
     single {
         androidContext().getSharedPreferences(
-            SettingsConstants.TRIVAGO_SETTINGS_NAME,
+            Settings.TRIVAGO_SETTINGS_NAME,
             Context.MODE_PRIVATE
         )
     }

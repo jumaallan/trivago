@@ -12,7 +12,7 @@ import androidx.core.content.edit
  *  @constructor creates an instance of the Settings class
  */
 class Settings(
-    private val settings: SharedPreferences
+    val settings: SharedPreferences
 ) {
 
     /**
@@ -20,7 +20,7 @@ class Settings(
      *
      * @return the bearer token, as a nullable string
      */
-    fun getBearerToken(): String? = settings.getString(SettingsConstants.BEARER_TOKEN_KEY, "")
+    fun getBearerToken(): String? = settings.getString(BEARER_TOKEN_KEY, "")
 
     /**
      * Saves the bearer token
@@ -29,7 +29,26 @@ class Settings(
      */
     fun setBearerToken(token: String) {
         settings.edit {
-            putString(SettingsConstants.BEARER_TOKEN_KEY, token)
+            putString(BEARER_TOKEN_KEY, token)
+        }
+    }
+
+    /**
+     * Fetches the current app theme
+     *
+     * @return returns the app them, as a string
+     */
+    fun getAppTheme(): String =
+        settings.getString(BEARER_TOKEN_KEY, PREFERENCE_THEME_DEF_VAL).toString()
+
+    /**
+     * Saves the app theme
+     *
+     * @param theme
+     */
+    fun setAppTheme(theme: String) {
+        settings.edit {
+            putString(PREFERENCE_THEME_KEY, PREFERENCE_THEME_DEF_VAL)
         }
     }
 
@@ -39,9 +58,12 @@ class Settings(
     fun clearData() {
         settings.edit { clear() }
     }
-}
 
-object SettingsConstants {
-    const val TRIVAGO_SETTINGS_NAME = "trivago_settings"
-    const val BEARER_TOKEN_KEY = "bearer_token"
+    companion object SettingsConstants {
+        const val TRIVAGO_SETTINGS_NAME = "trivago_settings"
+        const val BEARER_TOKEN_KEY = "bearer_token"
+
+        const val PREFERENCE_THEME_KEY = "theme"
+        const val PREFERENCE_THEME_DEF_VAL = "System"
+    }
 }
