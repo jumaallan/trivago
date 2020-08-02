@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
@@ -15,9 +16,9 @@ import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterSearchActivity : BaseActivity() {
@@ -52,9 +53,12 @@ class CharacterSearchActivity : BaseActivity() {
         binding.recyclerViewCharacters.adapter = charactersRecyclerViewAdapter
 
         lifecycleScope.launch {
-            characterSearchViewModel.searchStarWarsCharacters("Da")
-                .onEach { setUpViews(it) }
-                .launchIn(lifecycleScope)
+            withContext(Dispatchers.Main) {
+                characterSearchViewModel.searchStarWarsCharacters("Da")
+                    .observe(this@CharacterSearchActivity, Observer {
+                        setUpViews(it)
+                    })
+            }
         }
     }
 

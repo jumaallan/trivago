@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import com.trivago.R
 import com.trivago.core.data.models.Film
 import com.trivago.core.data.models.Species
+import com.trivago.core.utils.convertToInches
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
@@ -40,7 +41,7 @@ class CharacterDetailsActivity : BaseActivity() {
         // pass to character details layout
         binding.layoutCharacterDetails.birthYear = characterBirthYear
         binding.layoutCharacterDetails.heightInCm = characterHeight
-        binding.layoutCharacterDetails.heightInInches = characterHeight
+        binding.layoutCharacterDetails.heightInInches = convertToInches(characterHeight.toString())
 
         characterSpeciesRecyclerViewAdapter = CharacterSpeciesRecyclerViewAdapter()
         binding.layoutCharacterSpecies.recyclerViewSpecies.adapter =
