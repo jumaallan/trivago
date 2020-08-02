@@ -1,8 +1,8 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.StarWarsCharacter
-import com.trivago.core.data.network.CharacterResponse
 import com.trivago.data.dao.CharacterDao
 import com.trivago.data.model.Character
 import kotlinx.coroutines.flow.Flow
@@ -53,9 +53,3 @@ class CharacterSearchRepository(
     fun getCharacters(): Flow<List<Character>> =
         characterDao.getCharacters()
 }
-
-/**
- * Responsible for mapping the CharacterResponse to StarWarsCharacter
- */
-private fun CharacterResponse.toResponse(): StarWarsCharacter =
-    StarWarsCharacter(this.name, this.birthYear, this.height, this.url)

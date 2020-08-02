@@ -1,8 +1,8 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Species
-import com.trivago.core.data.network.SpeciesDetailResponse
 import com.trivago.core.utils.toHttps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -36,9 +36,3 @@ class CharacterSpeciesRepository(
         emit(species)
     }
 }
-
-/**
- * Responsible for mapping the SpeciesDetailResponse to Species
- */
-private fun SpeciesDetailResponse.toResponse(): Species =
-    Species(this.name, this.language)

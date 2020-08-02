@@ -1,8 +1,8 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Film
-import com.trivago.core.data.network.FilmDetailResponse
 import com.trivago.core.utils.toHttps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -36,9 +36,3 @@ class CharacterFilmsRepository(
         emit(films)
     }
 }
-
-/**
- * Responsible for mapping the FilmDetailResponse to Film
- */
-private fun FilmDetailResponse.toResponse(): Film =
-    Film(this.title, this.openingCrawl)

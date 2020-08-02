@@ -1,8 +1,8 @@
 package com.trivago.data.repository
 
 import com.trivago.core.data.api.StarWarsAPI
+import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Planet
-import com.trivago.core.data.network.PlanetDetailsResponse
 import com.trivago.core.utils.toHttps
 
 /**
@@ -30,9 +30,3 @@ class CharacterPlanetRepository(
         return planet.toResponse()
     }
 }
-
-/**
- * Responsible for mapping the PlanetDetailsResponse to Planet
- */
-private fun PlanetDetailsResponse.toResponse(): Planet =
-    Planet(this.name, this.population)
