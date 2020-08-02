@@ -42,27 +42,31 @@ On app start, the user lands on the character search screen. The user can search
 ## Tech-stack
 
 * Tech-stack
-    * [Kotlin](https://kotlinlang.org/) + [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations
-    * [KOIN](https://insert-koin.io/) - dependency injection
-    * [Retrofit](https://square.github.io/retrofit/) - networking
+    * [Kotlin](https://kotlinlang.org/) 
+    * [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations
+    * [Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) - handle the stream of data asynchronously that executes sequentially.
+    * [KOIN](https://insert-koin.io/) - a pragmatic lightweight dependency injection framework
+    * [Retrofit](https://square.github.io/retrofit/) - a type-safe REST client for Android
     * [Jetpack](https://developer.android.com/jetpack)
-        * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - notify views about database change
+        * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder
         * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform action when lifecycle state changes
         * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - store and manage UI-related data in a lifecycle conscious way
-    * [Coil](https://github.com/coil-kt/coil) - image loading library with Kotlin idiomatic API
     * [Stetho](http://facebook.github.io/stetho/) - application debugging tool
+    * [Timber](https://github.com/JakeWharton/timber) - a highly extensible android logger
 
 * Architecture
     * MVVM - application level
-    * [Android Architecture components](https://developer.android.com/topic/libraries/architecture) ([ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [SafeArgs](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args) plugin)
 * Tests
     * [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing) ([JUnit](https://junit.org/junit4/))
     * [Mockito](https://github.com/mockito/mockito) + [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
     * [Kluent](https://github.com/MarkusAmshove/Kluent)
 * Gradle
     * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
-    * Custom tasks
-    * Plugins ([Ktlint](https://github.com/JLLeitschuh/ktlint-gradle), [Detekt](https://github.com/arturbosch/detekt#with-gradle), [Versions](https://github.com/ben-manes/gradle-versions-plugin), [SafeArgs](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args))
+    * Plugins 
+        * ([Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
+        * [Detekt](https://github.com/arturbosch/detekt#with-gradle) 
+        * [Spotless](https://github.com/diffplug/spotless) 
+        * [Dokka](https://github.com/Kotlin/dokka))
 
 
 ## License
