@@ -27,7 +27,7 @@ internal open class BaseTest {
     lateinit var starWarsAPI: StarWarsAPI
 
     // database and dao
-    protected lateinit var database: Database
+    private lateinit var database: Database
     protected lateinit var characterDao: CharacterDao
 
     @Before
