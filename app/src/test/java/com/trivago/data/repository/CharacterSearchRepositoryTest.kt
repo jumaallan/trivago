@@ -40,4 +40,14 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
             characterResponse.collect { Truth.assertThat(it).isEmpty() }
         }
     }
+
+    @Test
+    fun saveCharacter() {
+
+    }
+
+    @Test
+    fun getCharacters() {
+
+    }
 }
