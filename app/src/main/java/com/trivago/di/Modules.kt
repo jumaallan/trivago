@@ -3,6 +3,8 @@ package com.trivago.di
 import androidx.room.Room
 import com.trivago.data.Database
 import com.trivago.data.repository.CharacterDetailsRepository
+import com.trivago.data.repository.CharacterFilmsRepository
+import com.trivago.data.repository.CharacterPlanetRepository
 import com.trivago.data.repository.CharacterSearchRepository
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
@@ -28,11 +30,13 @@ private val daoModule: Module = module {
 private val repositoryModule: Module = module {
     single { CharacterSearchRepository(get(), get()) }
     single { CharacterDetailsRepository(get()) }
+    single { CharacterFilmsRepository(get()) }
+    single { CharacterPlanetRepository(get()) }
 }
 
 private val viewModelModule: Module = module {
     viewModel { CharacterSearchViewModel(get()) }
-    viewModel { CharacterDetailsViewModel(get()) }
+    viewModel { CharacterDetailsViewModel(get(), get(), get()) }
 }
 
 val appModules: List<Module> = listOf(
