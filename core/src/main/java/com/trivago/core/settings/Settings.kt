@@ -17,12 +17,14 @@ class Settings(
 
     /**
      * Fetches the saved bearer token
+     *
      * @return the bearer token, as a nullable string
      */
     fun getBearerToken(): String? = settings.getString(SettingsConstants.BEARER_TOKEN_KEY, "")
 
     /**
      * Saves the bearer token
+     *
      * @param token
      */
     fun setBearerToken(token: String) {

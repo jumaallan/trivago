@@ -8,6 +8,11 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.getSystemService
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.toList
 
 /**
  * View Utils
@@ -17,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Responsible for dismissing the keyboard
+ *
  * @param windowToken
  */
 fun Context.dismissKeyboard(windowToken: IBinder) {
@@ -26,6 +32,7 @@ fun Context.dismissKeyboard(windowToken: IBinder) {
 
 /**
  * Responsible for creating a toast
+ *
  * @param message
  * @param duration
  */
@@ -35,6 +42,7 @@ fun Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
 
 /**
  * Responsible for creating a snackBar on a view
+ *
  * @param message
  */
 fun View.makeSnackbar(message: String) {
@@ -43,6 +51,7 @@ fun View.makeSnackbar(message: String) {
 
 /**
  * Responsible for creating a snackBar on an Activity
+ *
  * @param message
  */
 fun Activity.makeSnackbar(message: String) {
@@ -65,9 +74,20 @@ fun View.hide() {
 
 /**
  * Responsible for forcing an http url to https
+ *
  * @return the url in https, if an http url format is passed
  */
 fun String.toHttps(): String =
     if (!this.contains("https")) {
         this.replace("http", "https")
     } else this
+
+/**
+ * Responsible for converting Flow<List<T>> to a List<>
+ *
+ * @param T
+ * @return a List from a Flow<List<>>
+ */
+@FlowPreview
+suspend fun <T> Flow<List<T>>.flattenToList() =
+    flatMapConcat { it.asFlow() }.toList()
