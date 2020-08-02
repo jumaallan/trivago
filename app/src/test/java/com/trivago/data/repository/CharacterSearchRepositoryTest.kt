@@ -1,14 +1,16 @@
 package com.trivago.data.repository
 
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
 import com.trivago.BaseTest
 import com.trivago.dispatcher.MockRequestDispatcher
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 internal class CharacterSearchRepositoryTest : BaseTest() {
 
     private lateinit var characterSearchRepository: CharacterSearchRepository
@@ -19,7 +21,6 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
         characterSearchRepository = CharacterSearchRepository(starWarsAPI, characterDao)
     }
 
-    @InternalCoroutinesApi
     @Test
     fun `search for a character that exists and get results`() {
         runBlocking {
