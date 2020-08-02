@@ -4,19 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.trivago.core.utils.flattenToList
 import com.trivago.data.model.CharacterResponse
 import com.trivago.data.repository.CharacterFilmsRepository
 import com.trivago.data.repository.CharacterPlanetRepository
 import com.trivago.data.repository.CharacterSpeciesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * CharacterDetailsViewModel
+ *
+ * This viewmodel is responsible for handling character details from various repositories
+ * @param characterSpeciesRepository
+ * @param characterFilmsRepository
+ * @param characterPlanetRepository
+ *
+ */
 class CharacterDetailsViewModel(
     private val characterSpeciesRepository: CharacterSpeciesRepository,
     private val characterFilmsRepository: CharacterFilmsRepository,
@@ -36,6 +42,14 @@ class CharacterDetailsViewModel(
         )
     }
 
+    /**
+     * Responsible for initiating a call to fetch the character details
+     *      - fetch planet details
+     *      - fetch films list
+     *      - fetch species list
+     *
+     * @param characterUrl
+     */
     @FlowPreview
     fun getCharacterDetails(characterUrl: String) {
         viewModelScope.launch {
@@ -45,6 +59,11 @@ class CharacterDetailsViewModel(
         }
     }
 
+    /**
+     * Responsible for fetching species from the species repo, and saving the response to characterResponse
+     *
+     * @param characterUrl
+     */
     @FlowPreview
     private suspend fun fetchSpecies(characterUrl: String) {
         characterResponse.value = characterResponse.value?.copy(
@@ -52,6 +71,11 @@ class CharacterDetailsViewModel(
         )
     }
 
+    /**
+     * Responsible for fetching films from the films repo, and saving the response to characterResponse
+     *
+     * @param characterUrl
+     */
     @FlowPreview
     private suspend fun fetchFilms(characterUrl: String) {
         characterResponse.value = characterResponse.value?.copy(
@@ -59,13 +83,14 @@ class CharacterDetailsViewModel(
         )
     }
 
+    /**
+     * Responsible for fetching planets from the planets repo, and saving the response to characterResponse
+     *
+     * @param characterUrl
+     */
     private suspend fun fetchPlanet(characterUrl: String) {
         characterResponse.value = characterResponse.value?.copy(
             planet = characterPlanetRepository.fetchPlanet(characterUrl)
         )
     }
-
-    @FlowPreview
-    private suspend fun <T> Flow<List<T>>.flattenToList() =
-        flatMapConcat { it.asFlow() }.toList()
 }
