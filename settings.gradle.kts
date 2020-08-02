@@ -3,6 +3,7 @@ pluginManagement {
         jcenter()
         google()
         gradlePluginPortal()
+        maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 
     plugins {

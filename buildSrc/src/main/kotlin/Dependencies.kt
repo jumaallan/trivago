@@ -24,6 +24,7 @@ object Versions {
     const val ktlint = "9.3.0"
     const val detekt = "1.10.0"
     const val spotless = "5.1.0"
+    const val dokka = "1.4-M3"
     const val firebaseCrashlyticsPlugin = "2.1.0"
     const val circleIndicator = "2.1.2"
 }
@@ -47,6 +48,7 @@ object BuildPlugins {
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
     const val spotlessPlugin = "com.diffplug.spotless"
     const val firebaseCrashlyticsPlugin = "com.google.firebase.crashlytics"
+    const val dokkaPlugin = "org.jetbrains.dokka"
 }
 
 object Libraries {

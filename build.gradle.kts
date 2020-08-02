@@ -7,6 +7,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.spotlessPlugin) version Versions.spotless
+    id(BuildPlugins.dokkaPlugin) version Versions.dokka
 }
 
 allprojects {
@@ -14,6 +15,7 @@ allprojects {
         google()
         jcenter()
         maven(url = "https://jitpack.io")
+        maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 
     apply(plugin = BuildPlugins.ktlintPlugin)
