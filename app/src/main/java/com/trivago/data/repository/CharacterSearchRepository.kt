@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.flow
  * CharacterSearchRepository
  *
  * This repository class is responsible for handling anything related to character search
+ *
  * @param starWarsAPI
  * @param characterDao
  */

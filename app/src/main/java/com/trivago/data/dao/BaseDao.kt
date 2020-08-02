@@ -9,6 +9,7 @@ import androidx.room.Update
  * BaseDao<T>
  *
  * This dao interface makes it easy to abstract commonly used room operations
+ *
  * @param T takes in the data class
  */
 interface BaseDao<T> {

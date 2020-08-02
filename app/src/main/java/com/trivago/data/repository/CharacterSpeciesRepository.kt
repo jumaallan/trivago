@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.flow
  * CharacterSpeciesRepository
  *
  * This repository class is responsible for handling anything related to character species
+ *
  * @param starWarsAPI
  */
 class CharacterSpeciesRepository(

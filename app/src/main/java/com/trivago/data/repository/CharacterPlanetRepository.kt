@@ -9,6 +9,7 @@ import com.trivago.core.utils.toHttps
  * CharacterPlanetRepository
  *
  * This repository class is responsible for handling anything related to character planet
+ *
  * @param starWarsAPI
  */
 class CharacterPlanetRepository(
