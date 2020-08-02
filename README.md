@@ -23,10 +23,10 @@ Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get
 Implement a small but scalable app which interacts with the open [Star Wars API](https://swapi.dev/). The app should contain 2 main areas:
 
 - Character Search (Home Screen)
-
 - Character Details
 
 The following attributes should be displayed for the character details:
+
 : name
 : birth year
 : height (in cm and feet/inches)
