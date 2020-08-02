@@ -6,7 +6,6 @@ import com.facebook.stetho.Stetho
 import com.trivago.core.di.coreModules
 import com.trivago.core.utils.CrashlyticsTree
 import com.trivago.di.appModules
-import javax.annotation.Nullable
 import org.jetbrains.annotations.NotNull
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +13,16 @@ import org.koin.core.context.startKoin
 import org.koin.core.error.KoinAppAlreadyStartedException
 import org.koin.core.module.Module
 import timber.log.Timber
+import javax.annotation.Nullable
 
+/**
+ * Trivago
+ *
+ * This is the main application class, that instantiates a few things:
+ *      - KOIN : For dependency injection
+ *      - Stetho : To debug our shared preferences and room db. ONLY available on debug APK builds
+ *      - Timber : To ease logging in our application
+ */
 class Trivago : Application() {
 
     override fun onCreate() {
