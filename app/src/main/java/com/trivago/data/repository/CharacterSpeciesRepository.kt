@@ -7,7 +7,7 @@ import com.trivago.core.utils.toHttps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class CharacterDetailsRepository(
+class CharacterSpeciesRepository(
     private val starWarsAPI: StarWarsAPI
 ) {
 
