@@ -25,7 +25,7 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
     fun `search for a character that exists and get results`() {
         runBlocking {
             val characterResponse = characterSearchRepository.searchStarWarsCharacters(
-                MockRequestDispatcher.EXISTING_CHARACTER_URL
+                MockRequestDispatcher.NON_EXISTENT_SEARCH_PARAMS
             )
             characterResponse.collect { Truth.assertThat(it).isNotEmpty() }
         }
