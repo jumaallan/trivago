@@ -5,6 +5,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
 
+/**
+ * StarWars API
+ *
+ * This is the retrofit interface to handle the various calls to the star wars api. This file defines the various
+ * methods, the requests and responses from the various APIs
+ */
 interface StarWarsAPI {
 
     @GET("people/")
