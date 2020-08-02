@@ -8,11 +8,24 @@ import com.trivago.data.model.Character
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+/**
+ * CharacterSearchRepository
+ *
+ * This class is responsible for handling anything related to character search
+ * @param starWarsAPI
+ * @param characterDao
+ */
 class CharacterSearchRepository(
     private val starWarsAPI: StarWarsAPI,
     private val characterDao: CharacterDao
 ) {
 
+    /**
+     * SearchStarWarsCharacters is responsible for searching the character using the character name
+     *
+     * @param characterName
+     * @return a flowable list of the character
+     */
     suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
         flow {
             val characters = starWarsAPI.searchCharacters(characterName)
@@ -23,12 +36,25 @@ class CharacterSearchRepository(
             emit(starWarsCharacters)
         }
 
+    /**
+     * Responsible for saving/inserting a character into the database
+     *
+     * @param character
+     */
     suspend fun saveCharacter(character: Character) =
         characterDao.insert(character)
 
+    /**
+     * Responsible for fetching all characters from the db - for search suggestions purposes
+     *
+     * @return a flowable list of the characters
+     */
     fun getCharacters(): Flow<List<Character>> =
         characterDao.getCharacters()
 }
 
+/**
+ * Responsible for mapping the CharacterResponse to StarWarsCharacter
+ */
 private fun CharacterResponse.toResponse(): StarWarsCharacter =
     StarWarsCharacter(this.name, this.birthYear, this.height, this.url)

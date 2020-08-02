@@ -7,10 +7,24 @@ import com.trivago.core.utils.toHttps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+/**
+ * CharacterSpeciesRepository
+ *
+ * This class is responsible for handling anything related to character species
+ * @param starWarsAPI
+ */
 class CharacterSpeciesRepository(
     private val starWarsAPI: StarWarsAPI
 ) {
 
+    /**
+     * FetchSpecies is responsible for the following
+     *      - fetch species as a List<String>
+     *      - fetch species details for each specie
+     *
+     * @param characterUrl
+     * @return a flowable list of the the species
+     */
     suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> = flow {
         val speciesResponse = starWarsAPI.fetchSpecies(characterUrl.toHttps())
         val species = mutableListOf<Species>()
@@ -22,5 +36,8 @@ class CharacterSpeciesRepository(
     }
 }
 
+/**
+ * Responsible for mapping the SpeciesDetailResponse to Species
+ */
 private fun SpeciesDetailResponse.toResponse(): Species =
     Species(this.name, this.language)
