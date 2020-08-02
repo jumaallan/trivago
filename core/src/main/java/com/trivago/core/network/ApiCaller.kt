@@ -1,7 +1,6 @@
 package com.trivago.core.network
 
 import com.google.gson.GsonBuilder
-import com.trivago.core.data.network.ErrorResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

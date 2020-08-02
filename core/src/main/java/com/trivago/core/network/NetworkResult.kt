@@ -1,7 +1,5 @@
 package com.trivago.core.network
 
-import com.trivago.core.data.network.ErrorResponse
-
 /**
  * A generic class that holds a value with its loading status.
  * @param <T>
