@@ -5,6 +5,11 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.trivago.core.BuildConfig
 import timber.log.Timber
 
+/**
+ *  CrashlyticsTree
+ *
+ *  This is a utility class borrowed from the Google IO19 Android App. It allows us to log/send logs from (Timber)[https://github.com/JakeWharton/timber] to Firebase
+ */
 class CrashlyticsTree : Timber.Tree() {
 
     private val crashlytics = FirebaseCrashlytics.getInstance()
