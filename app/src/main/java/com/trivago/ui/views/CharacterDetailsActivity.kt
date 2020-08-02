@@ -35,7 +35,7 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.layoutCharacterDetails.heightInInches = characterHeight
 
         // pass to species details layout
-        // binding.layoutCharacterSpecies.species =
+//         binding.layoutCharacterSpecies.species =
 
         // pass to planet details layout
 //        binding.layoutCharacterPlanet.planet =

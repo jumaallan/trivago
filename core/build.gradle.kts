@@ -52,6 +52,10 @@ dependencies {
     implementation(Libraries.loggingInterceptor)
     implementation(Libraries.gson)
 
+    // Coroutines
+    implementation(Libraries.coroutines)
+    implementation(Libraries.coroutinesAndroid)
+
     // DI - KOIN
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)

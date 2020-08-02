@@ -63,6 +63,10 @@ dependencies {
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
 
+    // Coroutines
+    implementation(Libraries.coroutines)
+    implementation(Libraries.coroutinesAndroid)
+
     // DI - KOIN
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
