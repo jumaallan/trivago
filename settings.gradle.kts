@@ -3,6 +3,7 @@ pluginManagement {
         jcenter()
         google()
         gradlePluginPortal()
+        maven(url="https://dl.bintray.com/kotlin/dokka")
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 

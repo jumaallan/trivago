@@ -3,7 +3,6 @@ object Versions {
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val crashlytics = "17.1.1"
-    const val coil = "0.11.0"
     const val retrofit = "2.9.0"
     const val okhttp = "4.8.0"
     const val loggingInterceptor = "4.7.2"
@@ -16,8 +15,6 @@ object Versions {
     const val leakCanary = "2.4"
     const val kotlinVersion = "1.3.72"
     const val coreKtx = "1.3.1"
-    const val buildToolsVersion = "4.0.1"
-    const val navVersion = ""
     const val junit = "4.13"
     const val junitTest = "1.1.1"
     const val espresso = "3.2.0"
@@ -25,29 +22,18 @@ object Versions {
     const val detekt = "1.10.0"
     const val spotless = "5.1.0"
     const val dokka = "1.4-M3"
-    const val firebaseCrashlyticsPlugin = "2.1.0"
     const val circleIndicator = "2.1.2"
 }
 
 object BuildPlugins {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
-    const val kotlinGradlePlugin =
-        "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinAndroidExtensions = "org.jetbrains.kotlin.android.extensions"
-    const val dynamicFeature = "com.android.dynamic-feature"
     const val androidLibrary = "com.android.library"
-    const val kotlinKapt = "kotlin-kapt"
-    const val safeArgs = "androidx.navigation.safeargs.kotlin"
-    const val safeArgsGradlePlugin =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navVersion}"
     const val kapt = "kotlin-kapt"
-    const val ktlintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
     const val spotlessPlugin = "com.diffplug.spotless"
-    const val firebaseCrashlyticsPlugin = "com.google.firebase.crashlytics"
     const val dokkaPlugin = "org.jetbrains.dokka"
 }
 
@@ -60,9 +46,6 @@ object Libraries {
 
     // Firebase
     const val crashlytics = "com.google.firebase:firebase-crashlytics:${Versions.crashlytics}"
-
-    // Images
-    const val coil = "io.coil-kt:coil:${Versions.coil}"
 
     // Networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
@@ -114,7 +97,6 @@ object TestLibraries {
 
 object BuildModules {
     const val coreModule = ":core"
-    const val appModule = ":app"
 }
 
 object AndroidSdk {
