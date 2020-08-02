@@ -4,17 +4,15 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.models.Planet
 import com.trivago.core.data.network.PlanetDetailsResponse
 import com.trivago.core.utils.toHttps
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class CharacterPlanetRepository(
     private val starWarsAPI: StarWarsAPI
 ) {
 
-    suspend fun fetchPlanet(characterUrl: String): Flow<Planet> = flow {
+    suspend fun fetchPlanet(characterUrl: String): Planet {
         val planetResponse = starWarsAPI.fetchPlanet(characterUrl.toHttps())
         val planet = starWarsAPI.fetchPlanetDetails(planetResponse.homeworld.toHttps())
-        emit(planet.toResponse())
+        return planet.toResponse()
     }
 }
 
