@@ -75,6 +75,12 @@ dependencies {
     implementation(Libraries.koin)
     implementation(Libraries.koinViewModel)
 
+    // Network - Retrofit, OKHTTP
+    implementation(Libraries.retrofit)
+    implementation(Libraries.ohttp)
+    implementation(Libraries.loggingInterceptor)
+    implementation(Libraries.gson)
+
     // Lifecycle
     implementation(Libraries.viewModel)
     implementation(Libraries.livedata)
@@ -90,7 +96,18 @@ dependencies {
     implementation(Libraries.stetho)
 
     // tests
-    testImplementation(TestLibraries.jUnit)
+
     androidTestImplementation(TestLibraries.jUnitTest)
     androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.rules)
+
+    testImplementation(TestLibraries.jUnit)
+    testImplementation(TestLibraries.roomTest)
+    testImplementation(TestLibraries.koinTest)
+    testImplementation(TestLibraries.mockWebServer)
+    testImplementation(TestLibraries.mockito)
+    testImplementation(TestLibraries.truth)
+    testImplementation(TestLibraries.runner)
+    testImplementation(TestLibraries.androidXJUnit)
+    testImplementation(TestLibraries.coroutinesTest)
 }
