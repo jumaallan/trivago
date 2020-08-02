@@ -1,62 +1,45 @@
 ## \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️🚧 \] Trivago Interview Solution
 
-
-Delete the .git
-
 👀  Writing Trivago Interview Solution App using [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/), in 100% Kotlin, using Android Jetpack Components. 
 
 ### Prerequisites 
 
 Before every commit, make sure you run the following commands:
 
-* `./gradlew ktlintFormat`
+```shell script
+./gradlew ktlintFormat
 
-* `./gradlew ktlintCheck`
+./gradlew ktlintCheck
 
-* `./gradlew detekt`
+./gradlew detekt
 
-* `./gradlew spotlessApply`
+./gradlew spotlessApply
+```
 
-Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get any issues :)
+Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get any issues running the lint commands on the terminal :rocket:
 
 ### Background
 
-Implement a small but scalable app which interacts with the open [Star Wars API](https://swapi.dev/)
+Implement a small but scalable app which interacts with the open [Star Wars API](https://swapi.dev/). The app should contain 2 main areas:
 
-The app should contain 2 main areas:
+- Character Search (Home Screen)
 
-* Character Search (Home Screen)
-
-* Character Details
+- Character Details
 
 The following attributes should be displayed for the character details:
-
-* name
-
-* birth year
-
-* height (in cm and feet/inches)
-
-* name (species)
-
-* language (species)
-
-* homeworld (species)
-
-* population (planets)
-
-* films (movies the character appeared in)
-
-* opening crawl (detailed description of each movie)
-
+: name
+: birth year
+: height (in cm and feet/inches)
+: name (species)
+: language (species)
+: homeworld (species)
+: population (planets)
+: films (movies the character appeared in)
+: opening crawl (detailed description of each movie)
 
 On app start, the user lands on the character search screen. The user can search for characters from the Star Wars universe. The result of the search should display a character list. When tapping on a character, details are displayed as defined above.
 
 ## Tech-stack
-
-Min API level is set to [`16`](https://android-arsenal.com/api?level=16), so the presented approach is suitable for over
-[98% of devices](https://developer.android.com/about/dashboards) running Android. This project takes advantage of many
-popular libraries and tools of the Android ecosystem. Most of the libraries are in the stable version.
 
 * Tech-stack
     * [Kotlin](https://kotlinlang.org/) + [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations
@@ -81,20 +64,6 @@ popular libraries and tools of the Android ecosystem. Most of the libraries are 
     * Custom tasks
     * Plugins ([Ktlint](https://github.com/JLLeitschuh/ktlint-gradle), [Detekt](https://github.com/arturbosch/detekt#with-gradle), [Versions](https://github.com/ben-manes/gradle-versions-plugin), [SafeArgs](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args))
 
-
-## Getting started
-
-There are a few ways to open this project.
-
-### Android Studio
-
-1. Android Studio -> File -> New -> From Version control -> Git
-2. Enter `https://github.com/jumaallan/trivago.git` into URL field
-
-### Command line + Android Studio
-
-1. Run `git clone https://github.com/jumaallan/trivago.git`
-2. Android Studio -> File -> Open
 
 ## License
 ```
