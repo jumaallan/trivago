@@ -63,10 +63,10 @@ On app start, the user lands on the character search screen. The user can search
 * Gradle
     * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
     * Plugins 
-        * ([Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
+        * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
         * [Detekt](https://github.com/arturbosch/detekt#with-gradle) 
         * [Spotless](https://github.com/diffplug/spotless) 
-        * [Dokka](https://github.com/Kotlin/dokka))
+        * [Dokka](https://github.com/Kotlin/dokka)
 
 
 ## License
