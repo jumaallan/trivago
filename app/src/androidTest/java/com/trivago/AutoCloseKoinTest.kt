@@ -2,6 +2,7 @@ package com.trivago
 
 import org.junit.After
 import org.koin.core.context.stopKoin
+import org.koin.test.KoinTest
 
 /**
  * Extended Koin Test
