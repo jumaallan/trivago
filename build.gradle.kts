@@ -36,7 +36,3 @@ subprojects {
         parallel = true
     }
 }
-tasks.dokka{
-    outputFormat = "html"
-    outputDirectory = "$buildDir/dokka"
-}

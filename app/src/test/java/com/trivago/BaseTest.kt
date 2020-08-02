@@ -70,5 +70,4 @@ internal open class BaseTest {
             .readTimeout(60, TimeUnit.SECONDS)
             .build()
     }
-
 }

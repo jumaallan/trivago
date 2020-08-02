@@ -48,7 +48,7 @@ internal class MockRequestDispatcher : Dispatcher() {
                     .setResponseCode(HttpURLConnection.HTTP_OK)
                     .setBody(getJson("json/character_planet.json"))
             }
-            else -> throw IllegalArgumentException("Unknown Request Path ${request.path.toString()}")
+            else -> throw IllegalArgumentException("Unknown Request Path ${request.path}")
         }
     }
 
@@ -61,7 +61,6 @@ internal class MockRequestDispatcher : Dispatcher() {
         const val EXISTING_SEARCH_PARAMS = "Darth"
         const val NON_EXISTENT_SEARCH_PARAMS = "Zipa"
     }
-
 }
 
 fun getJson(path: String): String {
