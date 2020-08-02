@@ -105,6 +105,7 @@ dependencies {
     testImplementation(TestLibraries.roomTest)
     testImplementation(TestLibraries.koinTest)
     testImplementation(TestLibraries.mockWebServer)
+    testImplementation(TestLibraries.roboelectric)
     testImplementation(TestLibraries.mockito)
     testImplementation(TestLibraries.truth)
     testImplementation(TestLibraries.runner)

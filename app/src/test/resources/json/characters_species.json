@@ -1,0 +1,21 @@
+{
+  "average_height": "2.1",
+  "average_lifespan": "400",
+  "classification": "Mammal",
+  "created": "2014-12-10T16:44:31.486000Z",
+  "designation": "Sentient",
+  "edited": "2014-12-10T16:44:31.486000Z",
+  "eye_colors": "blue, green, yellow, brown, golden, red",
+  "hair_colors": "black, brown",
+  "homeworld": "/api/planets/1/",
+  "language": "Shyriiwook",
+  "name": "Wookie",
+  "people": [
+    "/api/people/1/"
+  ],
+  "films": [
+    "/api/films/1/"
+  ],
+  "skin_colors": "gray",
+  "url": "/api/species/1/"
+}

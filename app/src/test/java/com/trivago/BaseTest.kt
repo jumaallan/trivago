@@ -1,5 +1,8 @@
 package com.trivago
 
+import android.content.Context
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import com.google.gson.GsonBuilder
 import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.data.Database
@@ -47,6 +50,10 @@ internal open class BaseTest {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(StarWarsAPI::class.java)
+
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        database = Room.inMemoryDatabaseBuilder(context, Database::class.java).build()
+        characterDao = database.characterDao()
     }
 
     @After
