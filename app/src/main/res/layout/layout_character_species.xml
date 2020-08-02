@@ -26,6 +26,7 @@
                 android:padding="@dimen/padding_medium">
 
                 <LinearLayout
+                    android:id="@+id/headerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -47,8 +48,8 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:layout_weight=".5"
-                        android:textAlignment="textEnd"
                         android:text="@string/label_character_species_language"
+                        android:textAlignment="textEnd"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
@@ -63,6 +64,33 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="2"
                     tools:listitem="@layout/item_species" />
+
+                <LinearLayout
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_small"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_empty_icon"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_empty_results" />
+
+                    <TextView
+                        style="@style/cardTitles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/layout_species_no_info" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

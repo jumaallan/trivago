@@ -32,7 +32,7 @@ class CharacterDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_details)
 
-        characterDetailsViewModel.getCharacterDetails(characterUrl.toString())
+        getCharacterDetails()
 
         title = characterName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -77,12 +77,20 @@ class CharacterDetailsActivity : BaseActivity() {
         )
     }
 
+    @FlowPreview
+    private fun getCharacterDetails() {
+        characterDetailsViewModel.getCharacterDetails(characterUrl.toString())
+    }
+
     private fun setUpSpecies(characterSpeciesList: List<Species>?) {
         if (characterSpeciesList.isNullOrEmpty()) {
             binding.layoutCharacterSpecies.recyclerViewSpecies.hide()
-            // we can show some UI here - like nothing to show
+            binding.layoutCharacterSpecies.headerView.hide()
+            binding.layoutCharacterSpecies.emptyView.show()
         } else {
             binding.layoutCharacterSpecies.recyclerViewSpecies.show()
+            binding.layoutCharacterSpecies.headerView.show()
+            binding.layoutCharacterSpecies.emptyView.hide()
             characterSpeciesRecyclerViewAdapter.submitList(characterSpeciesList)
         }
     }

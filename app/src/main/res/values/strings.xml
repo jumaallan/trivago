@@ -33,4 +33,7 @@
     <string name="template_height_cm">%s cm</string>
     <string name="template_height_inches">%s inches</string>
 
+    <!--    Species Layout-->
+    <string name="layout_species_no_info">No species information available</string>
+
 </resources>
