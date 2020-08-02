@@ -42,7 +42,7 @@ object Versions {
     const val ktlint = "9.3.0"
     const val detekt = "1.10.0"
     const val spotless = "5.1.0"
-    const val dokka = "1.4-M3"
+    const val dokka = "0.10.1"
 
     // tests
     const val junit = "4.13"

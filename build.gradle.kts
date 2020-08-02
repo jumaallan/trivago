@@ -7,7 +7,7 @@ plugins {
     id(BuildPlugins.androidApplication) apply false
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
-//    id(BuildPlugins.dokkaPlugin) version Versions.dokka
+    id(BuildPlugins.dokkaPlugin) version Versions.dokka
 }
 
 allprojects {
@@ -15,10 +15,10 @@ allprojects {
         google()
         jcenter()
         maven(url = "https://jitpack.io")
-        maven(url = "https://dl.bintray.com/kotlin/dokka")
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 
+    apply(plugin = BuildPlugins.dokkaPlugin)
     apply(plugin = BuildPlugins.ktlintPlugin)
     ktlint {
         android.set(true)
@@ -35,4 +35,8 @@ subprojects {
         config = files("${project.rootDir}/detekt.yml")
         parallel = true
     }
+}
+tasks.dokka{
+    outputFormat = "html"
+    outputDirectory = "$buildDir/dokka"
 }
