@@ -24,7 +24,7 @@ class CharacterFilmsRepository(
      *      - fetch film details for each film
      *
      * @param characterUrl
-     * @return a flowable list of the the film
+     * @return a flow list of the the film
      */
     suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> = flow {
         val filmsResponse = starWarsAPI.fetchFilms(characterUrl.toHttps())

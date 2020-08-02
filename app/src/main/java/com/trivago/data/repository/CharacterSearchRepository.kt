@@ -25,7 +25,7 @@ class CharacterSearchRepository(
      * SearchStarWarsCharacters is responsible for searching the character using the character name
      *
      * @param characterName
-     * @return a flowable list of the character
+     * @return a flow list of the character
      */
     suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
         flow {
@@ -48,7 +48,7 @@ class CharacterSearchRepository(
     /**
      * Responsible for fetching all characters from the db - for search suggestions purposes
      *
-     * @return a flowable list of the characters
+     * @return a flow list of the characters
      */
     fun getCharacters(): Flow<List<Character>> =
         characterDao.getCharacters()
