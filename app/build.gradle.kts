@@ -5,6 +5,8 @@ plugins {
     id(BuildPlugins.kapt)
 }
 
+apply(from = "https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/gradle/projectDependencyGraph.gradle")
+
 android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
