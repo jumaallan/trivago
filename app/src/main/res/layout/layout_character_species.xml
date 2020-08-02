@@ -38,23 +38,8 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:layout_weight=".5"
-                        android:text="@string/label_character_species_name" />
-
-                    <TextView
-                        style="@style/cardData"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_weight=".5"
-                        tools:text="Yoda's Species" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        android:text="@string/label_character_species_name"
+                        android:textColor="@color/black" />
 
                     <TextView
                         style="@style/cardTitles"
@@ -63,18 +48,21 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:layout_weight=".5"
-                        android:text="@string/label_character_species_language" />
-
-                    <TextView
-                        style="@style/cardData"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_weight=".5"
-                        tools:text="Galactic basic" />
+                        android:text="@string/label_character_species_language"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSpecies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_species" />
 
             </LinearLayout>
 

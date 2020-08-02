@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="species"
+            type="com.trivago.core.data.models.Species" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/cardTitles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight=".5"
+            android:text="@{species.name}"
+            android:textSize="14sp"
+            tools:text="@sample/species.json/species/name" />
+
+        <TextView
+            style="@style/cardTitles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="4dp"
+            android:layout_weight=".5"
+            android:text="@{species.language}"
+            android:textSize="14sp"
+            tools:text="@sample/species.json/species/language" />
+
+    </LinearLayout>
+
+</layout>

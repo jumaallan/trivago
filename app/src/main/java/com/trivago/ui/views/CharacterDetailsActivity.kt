@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.trivago.R
 import com.trivago.core.data.models.Film
+import com.trivago.core.data.models.Species
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
 import com.trivago.ui.adapter.CharacterFilmsRecyclerViewAdapter
+import com.trivago.ui.adapter.CharacterSpeciesRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,6 +23,7 @@ class CharacterDetailsActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCharacterDetailsBinding
     private lateinit var characterFilmsRecyclerViewAdapter: CharacterFilmsRecyclerViewAdapter
+    private lateinit var characterSpeciesRecyclerViewAdapter: CharacterSpeciesRecyclerViewAdapter
     private val characterDetailsViewModel: CharacterDetailsViewModel by viewModel()
 
     @FlowPreview
@@ -39,6 +42,10 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.layoutCharacterDetails.heightInCm = characterHeight
         binding.layoutCharacterDetails.heightInInches = characterHeight
 
+        characterSpeciesRecyclerViewAdapter = CharacterSpeciesRecyclerViewAdapter()
+        binding.layoutCharacterSpecies.recyclerViewSpecies.adapter =
+            characterSpeciesRecyclerViewAdapter
+
         val layoutManagerStats = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCharacterFilms.layoutManager = layoutManagerStats
         val snapHelper = PagerSnapHelper()
@@ -51,21 +58,31 @@ class CharacterDetailsActivity : BaseActivity() {
         binding.indicator.attachToRecyclerView(binding.recyclerViewCharacterFilms, snapHelper)
         characterFilmsRecyclerViewAdapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
 
+
         binding.lifecycleOwner = this
 
-        characterDetailsViewModel.characterResponseState.observe(
-            this,
-            Observer {
+        characterDetailsViewModel.characterResponseState.observe(this, Observer {
 
-                // pass the species list to rv adapter
+            // pass the species list to rv adapter
+            setUpSpecies(it.species)
 
-                // pass the planet to the planet view
-                binding.layoutCharacterPlanet.planet = it.planet
+            // pass the planet to the planet view
+            binding.layoutCharacterPlanet.planet = it.planet
 
-                // pass the film list to rv adapter
-                setUpFilms(it.films)
-            }
+            // pass the film list to rv adapter
+            setUpFilms(it.films)
+        }
         )
+    }
+
+    private fun setUpSpecies(characterSpeciesList: List<Species>?) {
+        if (characterSpeciesList.isNullOrEmpty()) {
+            binding.layoutCharacterSpecies.recyclerViewSpecies.hide()
+            // we can show some UI here - like nothing to show
+        } else {
+            binding.layoutCharacterSpecies.recyclerViewSpecies.show()
+            characterSpeciesRecyclerViewAdapter.submitList(characterSpeciesList)
+        }
     }
 
     private fun setUpFilms(characterFilmsList: List<Film>?) {

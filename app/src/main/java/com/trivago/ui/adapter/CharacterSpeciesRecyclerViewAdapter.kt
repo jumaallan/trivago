@@ -5,17 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trivago.core.data.models.Film
-import com.trivago.databinding.ItemFilmBinding
+import com.trivago.core.data.models.Species
+import com.trivago.databinding.ItemSpeciesBinding
 
-internal class CharacterFilmsRecyclerViewAdapter :
-    ListAdapter<Film, CharacterFilmsRecyclerViewAdapter.ViewHolder>(
+internal class CharacterSpeciesRecyclerViewAdapter :
+    ListAdapter<Species, CharacterSpeciesRecyclerViewAdapter.ViewHolder>(
         CharacterFilmsDiffer
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemFilmBinding.inflate(inflater)
+        val binding = ItemSpeciesBinding.inflate(inflater)
         return ViewHolder(binding)
     }
 
@@ -23,25 +23,25 @@ internal class CharacterFilmsRecyclerViewAdapter :
         holder.bind(getItem(position))
     }
 
-    class ViewHolder(private val binding: ItemFilmBinding) :
+    class ViewHolder(private val binding: ItemSpeciesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(film: Film) {
-            binding.film = film
+        fun bind(species: Species) {
+            binding.species = species
             binding.executePendingBindings()
         }
     }
 
-    companion object CharacterFilmsDiffer : DiffUtil.ItemCallback<Film>() {
+    companion object CharacterFilmsDiffer : DiffUtil.ItemCallback<Species>() {
         override fun areItemsTheSame(
-            oldItem: Film,
-            newItem: Film
+            oldItem: Species,
+            newItem: Species
         ): Boolean =
-            oldItem.title == newItem.title
+            oldItem.name == newItem.name
 
         override fun areContentsTheSame(
-            oldItem: Film,
-            newItem: Film
+            oldItem: Species,
+            newItem: Species
         ): Boolean = oldItem == newItem
     }
 }
