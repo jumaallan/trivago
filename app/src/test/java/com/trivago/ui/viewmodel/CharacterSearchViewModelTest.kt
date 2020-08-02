@@ -1,9 +1,10 @@
 package com.trivago.ui.viewmodel
 
+import com.trivago.BaseViewModelTest
 import org.junit.Before
 import org.junit.Test
 
-class CharacterSearchViewModelTest {
+class CharacterSearchViewModelTest : BaseViewModelTest() {
 
     @Before
     fun setUp() {
