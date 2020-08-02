@@ -3,6 +3,7 @@ object Versions {
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val swiperefreshlayout = "1.1.0"
+    const val preference = "1.1.1"
     const val crashlytics = "17.1.1"
     const val retrofit = "2.9.0"
     const val okhttp = "4.8.0"
@@ -42,6 +43,7 @@ object Libraries {
     // androidX and Material
     const val material = "com.google.android.material:material:${Versions.material}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+    const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
     const val swiperefreshlayout =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swiperefreshlayout}"
     const val constraintLayout =

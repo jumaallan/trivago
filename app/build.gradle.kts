@@ -59,6 +59,7 @@ dependencies {
     implementation(Libraries.constraintLayout)
     implementation(Libraries.appCompat)
     implementation(Libraries.swiperefreshlayout)
+    implementation(Libraries.preference)
     implementation(Libraries.material)
 
     // Room

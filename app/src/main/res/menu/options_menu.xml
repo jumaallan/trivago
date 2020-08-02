@@ -11,4 +11,11 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom" />
 
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="never" />
+
 </menu>

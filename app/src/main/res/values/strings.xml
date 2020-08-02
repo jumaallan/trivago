@@ -7,6 +7,11 @@
 
     <!--    Menu-->
     <string name="menu_search">Search</string>
+    <string name="menu_settings">Settings</string>
+
+    <!--    Theme-->
+    <string name="def">Default</string>
+    <string name="title_theme_preference">Theme</string>
 
     <!--    Labels-->
     <string name="label_character_height">Height</string>
