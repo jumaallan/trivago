@@ -42,17 +42,19 @@ On app start, the user lands on the character search screen. The user can search
 ## Tech-stack
 
 * Tech-stack
-    * [Kotlin](https://kotlinlang.org/) 
-    * [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations
+    * [Kotlin](https://kotlinlang.org/) - a cross-platform, statically typed, general-purpose programming language with type inference.
+    * [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations.
     * [Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) - handle the stream of data asynchronously that executes sequentially.
-    * [KOIN](https://insert-koin.io/) - a pragmatic lightweight dependency injection framework
-    * [Retrofit](https://square.github.io/retrofit/) - a type-safe REST client for Android
+    * [KOIN](https://insert-koin.io/) - a pragmatic lightweight dependency injection framework.
+    * [Retrofit](https://square.github.io/retrofit/) - a type-safe REST client for Android.
     * [Jetpack](https://developer.android.com/jetpack)
-        * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder
-        * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform action when lifecycle state changes
-        * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - store and manage UI-related data in a lifecycle conscious way
-    * [Stetho](http://facebook.github.io/stetho/) - application debugging tool
-    * [Timber](https://github.com/JakeWharton/timber) - a highly extensible android logger
+        * [Room](https://developer.android.com/topic/libraries/architecture/room) - a persistence library provides an abstraction layer over SQLite.
+        * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder.
+        * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform action when lifecycle state changes.
+        * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - store and manage UI-related data in a lifecycle conscious way.
+    * [Stetho](http://facebook.github.io/stetho/) - application debugging tool.
+    * [Timber](https://github.com/JakeWharton/timber) - a highly extensible android logger.
+    * [Leak Canary](https://github.com/square/leakcanary) - a memory leak detection library for Android.
 
 * Architecture
     * MVVM - application level
@@ -61,12 +63,12 @@ On app start, the user lands on the character search screen. The user can search
     * [Mockito](https://github.com/mockito/mockito) + [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
     * [Kluent](https://github.com/MarkusAmshove/Kluent)
 * Gradle
-    * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - For reference purposes, here's an [article explaining the migration](https://medium.com/@evanschepsiror/migrating-to-kotlin-dsl-4ee0d6d5c977)
+    * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - For reference purposes, here's an [article explaining the migration](https://medium.com/@evanschepsiror/migrating-to-kotlin-dsl-4ee0d6d5c977).
     * Plugins 
-        * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
-        * [Detekt](https://github.com/arturbosch/detekt#with-gradle) 
-        * [Spotless](https://github.com/diffplug/spotless) 
-        * [Dokka](https://github.com/Kotlin/dokka)
+        * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) - creates convenient tasks in your Gradle project that run ktlint checks or do code auto format.
+        * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language.
+        * [Spotless](https://github.com/diffplug/spotless) - format java, groovy, markdown and license headers using gradle.
+        * [Dokka](https://github.com/Kotlin/dokka) - a documentation engine for Kotlin, performing the same function as javadoc for Java.
 
 
 ## License
