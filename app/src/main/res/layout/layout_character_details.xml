@@ -67,7 +67,7 @@
                     <TextView
                         style="@style/cardTitles"
                         android:layout_width="0dp"
-                        android:layout_weight=".5"
+                        android:layout_weight=".25"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/label_character_height" />
@@ -90,7 +90,7 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:text="@{String.format(@string/template_height_inches, heightInInches)}"
-                        tools:text="12 Inches" />
+                        tools:text="12.546 Inches" />
 
                 </LinearLayout>
 
