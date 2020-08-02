@@ -94,17 +94,23 @@ dependencies {
     // Circle Indicator
     implementation(Libraries.circleIndicator)
 
-    // debug
+    // Debug - for debug builds only
     implementation(Libraries.timber)
     implementation(Libraries.leakCanary)
     implementation(Libraries.stetho)
 
-    // tests
-
-    androidTestImplementation(TestLibraries.jUnitTest)
+    // UI Tests
     androidTestImplementation(TestLibraries.espresso)
-    androidTestImplementation(TestLibraries.rules)
 
+    // Instrumentation Tests
+    androidTestImplementation(TestLibraries.runner)
+    androidTestImplementation(TestLibraries.rules)
+    androidTestImplementation(TestLibraries.koinTest)
+    androidTestImplementation(TestLibraries.androidXJUnit)
+    androidTestImplementation(TestLibraries.androidXTestCore)
+    androidTestImplementation(TestLibraries.mockWebServer)
+
+    // Unit Tests
     testImplementation(TestLibraries.jUnit)
     testImplementation(TestLibraries.roomTest)
     testImplementation(TestLibraries.koinTest)
