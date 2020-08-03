@@ -8,6 +8,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.dokkaPlugin) version Versions.dokka
+    jacoco
 }
 
 allprojects {
@@ -20,6 +21,7 @@ allprojects {
 
     apply(plugin = BuildPlugins.dokkaPlugin)
     apply(plugin = BuildPlugins.ktlintPlugin)
+    apply(plugin = BuildPlugins.spotlessPlugin)
     ktlint {
         android.set(true)
         verbose.set(true)

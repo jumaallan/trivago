@@ -3,6 +3,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id(BuildPlugins.kapt)
+    jacoco
 }
 
 apply(from = "https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/gradle/projectDependencyGraph.gradle")
@@ -50,6 +51,14 @@ android {
 kapt {
     arguments {
         arg("room.incremental", "true")
+    }
+}
+spotless {
+    kotlin {
+        licenseHeaderFile(
+            rootProject.file("spotless/copyright.kt"),
+            "^(package|object|import|interface)"
+        )
     }
 }
 
