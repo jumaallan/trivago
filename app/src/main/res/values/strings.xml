@@ -38,6 +38,9 @@
     <string name="template_height_cm">%s cm</string>
     <string name="template_height_inches">%s inches</string>
 
+    <!--    Search Layout-->
+    <string name="layout_search_no_info">No star wars character. \n\nSearch for Star Wars Characters here</string>
+
     <!--    Species Layout-->
     <string name="layout_species_no_info">No species information available</string>
 

@@ -35,9 +35,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_search)
-
-        title = resources.getString(R.string.app_name)
-
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
@@ -74,9 +71,10 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     private fun setUpViews(charactersList: List<StarWarsCharacter>) {
         if (charactersList.isNullOrEmpty()) {
             binding.recyclerViewCharacters.hide()
-            // we can show some UI here - like nothing to show
+            binding.emptyView.show()
         } else {
             binding.recyclerViewCharacters.show()
+            binding.emptyView.hide()
             charactersRecyclerViewAdapter.submitList(charactersList)
         }
     }
