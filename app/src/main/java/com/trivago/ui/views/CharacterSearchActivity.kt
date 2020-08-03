@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var binding: ActivityCharacterSearchBinding
@@ -40,14 +39,17 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.characterSearchViewModel = characterSearchViewModel
 
         binding.listView.hide()
-        characterSearchViewModel.getCharacters().observe(this, Observer { it ->
-            it.forEach {
-                stringSuggestionArray.add(it.name)
+        characterSearchViewModel.getCharacters().observe(
+            this,
+            Observer {
+                it.forEach {
+                    stringSuggestionArray.add(it.name)
+                }
+                adapter =
+                    ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
+                binding.listView.adapter = adapter
             }
-            adapter =
-                ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
-            binding.listView.adapter = adapter
-        })
+        )
 
         binding.listView.onItemClickListener = OnItemClickListener { parent, _, position, _ ->
             val selectedItem =
