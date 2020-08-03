@@ -22,7 +22,6 @@ import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
-
 class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var binding: ActivityCharacterSearchBinding
