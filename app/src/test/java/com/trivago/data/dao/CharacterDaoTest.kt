@@ -6,10 +6,10 @@ import com.trivago.data.model.Character
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Test
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
@@ -22,9 +22,13 @@ internal class CharacterDaoTest : BaseTest() {
     @ExperimentalCoroutinesApi
     @Test
     fun `test inserting and retrieving characters`() = runBlockingTest {
-        val testCharacters = listOf(Character(1, "Darth Vader", "", "", ""), Character(2, "Yoda", "", "", ""), Character(3, "Biggs Dark", "", "", ""))
+        val testCharacters = listOf(
+            Character("Darth Vader", "", "", ""),
+            Character("Yoda", "", "", ""),
+            Character("Biggs Dark", "", "", "")
+        )
         characterDao.insert(testCharacters)
         val character = characterDao.getCharacters().first().toList()[0]
-        assertThat(character.rowId, `is`(testCharacters[0].rowId))
+        assertThat(character.name, `is`(testCharacters[0].name))
     }
 }
