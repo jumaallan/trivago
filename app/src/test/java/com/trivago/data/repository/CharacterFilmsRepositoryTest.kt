@@ -22,7 +22,7 @@ internal class CharacterFilmsRepositoryTest : BaseTest() {
     }
 
     @Test
-    fun fetchFilms() {
+    fun `test fetching films using existing character url`() {
         runBlocking {
             val filmsResponse =
                 characterFilmsRepository.fetchFilms(MockRequestDispatcher.EXISTING_CHARACTER_URL)
@@ -31,4 +31,5 @@ internal class CharacterFilmsRepositoryTest : BaseTest() {
             }
         }
     }
+
 }

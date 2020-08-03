@@ -21,7 +21,7 @@ internal class CharacterPlanetRepositoryTest : BaseTest() {
     }
 
     @Test
-    fun fetchPlanet() {
+    fun `test fetching planet using an existing character url`() {
         runBlocking {
             val planet =
                 characterPlanetRepository.fetchPlanet(MockRequestDispatcher.EXISTING_CHARACTER_URL)
