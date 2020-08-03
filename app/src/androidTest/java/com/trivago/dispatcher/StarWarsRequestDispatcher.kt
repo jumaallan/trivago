@@ -70,5 +70,4 @@ internal class StarWarsRequestDispatcher : Dispatcher() {
         const val NON_EXISTENT_SEARCH_PARAMS = "Zipa"
         const val ERROR_SEARCH_PARAMS = "Error"
     }
-
 }

@@ -12,11 +12,9 @@ class CharacterDetailsViewModelTest : BaseViewModelTest() {
 
     @Test
     fun getCharacterResponseState() {
-
     }
 
     @Test
     fun getCharacterDetails() {
-
     }
 }

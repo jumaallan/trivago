@@ -43,11 +43,9 @@ internal class CharacterSearchRepositoryTest : BaseTest() {
 
     @Test
     fun saveCharacter() {
-
     }
 
     @Test
     fun getCharacters() {
-
     }
 }
