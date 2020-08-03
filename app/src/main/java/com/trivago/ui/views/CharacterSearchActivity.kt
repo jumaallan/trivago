@@ -2,7 +2,6 @@ package com.trivago.ui.views
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
@@ -20,8 +19,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
-class CharacterSearchActivity : BaseActivity() {
+class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var binding: ActivityCharacterSearchBinding
     private lateinit var charactersRecyclerViewAdapter: CharactersRecyclerViewAdapter
@@ -30,14 +30,11 @@ class CharacterSearchActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_search)
+
+        title = resources.getString(R.string.app_name)
+
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
-
-        if (Intent.ACTION_SEARCH == intent.action) {
-            intent.getStringExtra(SearchManager.QUERY)?.also { query ->
-                // characterSearchViewModel.searchStarWarsCharacters(query)
-            }
-        }
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -83,8 +80,19 @@ class CharacterSearchActivity : BaseActivity() {
         (menu.findItem(R.id.menu_search).actionView as SearchView).apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             setIconifiedByDefault(false)
+            setOnQueryTextListener(this@CharacterSearchActivity)
         }
 
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        Timber.d("Query 1 $query")
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        Timber.d("Query 2 $newText")
         return true
     }
 }
