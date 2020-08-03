@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.Menu
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -21,7 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
+
 
 class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
@@ -30,6 +31,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     private val characterSearchViewModel: CharacterSearchViewModel by viewModel()
 
     var adapter: ArrayAdapter<String>? = null
+    private val stringSuggestionArray: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +41,20 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
         binding.listView.hide()
         characterSearchViewModel.getCharacters().observe(this, Observer { it ->
-            val stringSuggestionArray = arrayOf<String>()
             it.forEach {
-                stringSuggestionArray.plus(it.name)
-                Timber.d("Query response ${it.name}")
+                stringSuggestionArray.add(it.name)
             }
             adapter =
                 ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
             binding.listView.adapter = adapter
         })
+
+        binding.listView.onItemClickListener = OnItemClickListener { parent, _, position, _ ->
+            val selectedItem =
+                parent.getItemAtPosition(position) as String
+            searchStarWarsCharacter(selectedItem)
+            binding.listView.hide()
+        }
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -61,10 +68,12 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         }
 
         binding.recyclerViewCharacters.adapter = charactersRecyclerViewAdapter
+    }
 
+    private fun searchStarWarsCharacter(characterName: String) {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                characterSearchViewModel.searchStarWarsCharacters("Da")
+                characterSearchViewModel.searchStarWarsCharacters(characterName = characterName)
                     .observe(
                         this@CharacterSearchActivity,
                         Observer {
@@ -101,19 +110,19 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        Timber.d("Query 1 $query")
         binding.listView.hide()
         characterSearchViewModel.saveCharacter(
             Character(
                 query.toString(), "", "", ""
             )
         )
+        searchStarWarsCharacter(query.toString())
         return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        Timber.d("onQueryTextChange: newText is %s", newText)
         binding.listView.show()
+        binding.emptyView.hide()
         adapter?.filter?.filter(newText)
         return true
     }
