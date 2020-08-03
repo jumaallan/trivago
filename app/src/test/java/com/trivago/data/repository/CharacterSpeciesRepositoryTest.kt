@@ -24,7 +24,7 @@ internal class CharacterSpeciesRepositoryTest : BaseTest() {
 
     @InternalCoroutinesApi
     @Test
-    fun fetchSpecies() {
+    fun `test fetching species using an existing character url`() {
         runBlocking {
             val speciesResponse =
                 characterSpeciesRepository.fetchSpecies(MockRequestDispatcher.EXISTING_CHARACTER_URL)

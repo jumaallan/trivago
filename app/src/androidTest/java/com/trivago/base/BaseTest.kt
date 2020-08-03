@@ -22,5 +22,4 @@ open class BaseTest : KoinTest {
     open fun tearDown() {
         mockWebServer.shutdown()
     }
-
 }

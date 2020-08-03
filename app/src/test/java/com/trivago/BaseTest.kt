@@ -52,7 +52,7 @@ internal open class BaseTest {
             .create(StarWarsAPI::class.java)
 
         val context = ApplicationProvider.getApplicationContext<Context>()
-        database = Room.inMemoryDatabaseBuilder(context, Database::class.java).build()
+        database = Room.inMemoryDatabaseBuilder(context, Database::class.java).allowMainThreadQueries().build()
         characterDao = database.characterDao()
     }
 
