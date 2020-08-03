@@ -1,6 +1,7 @@
 package com.trivago.data
 
-val characterDetails = """
+val characterDetails =
+    """
     {
       "birth_year": "19 BBY",
       "eye_color": "Blue",
@@ -27,9 +28,10 @@ val characterDetails = """
         "/api/vehicles/14/"
       ]
     }
-""".trimIndent()
+    """.trimIndent()
 
-val characterFilms = """
+val characterFilms =
+    """
     {
       "characters": [
         "/api/people/1/"
@@ -56,9 +58,10 @@ val characterFilms = """
         "/api/vehicles/1/"
       ]
     }
-""".trimIndent()
+    """.trimIndent()
 
-val characterPlanet = """
+val characterPlanet =
+    """
     {
       "climate": "Arid",
       "created": "2014-12-09T13:50:49.641000Z",
@@ -79,9 +82,10 @@ val characterPlanet = """
       "terrain": "Dessert",
       "url": "/api/planets/1/"
     }
-""".trimIndent()
+    """.trimIndent()
 
-val characterSpecies = """
+val characterSpecies =
+    """
     {
       "average_height": "2.1",
       "average_lifespan": "400",
@@ -103,18 +107,20 @@ val characterSpecies = """
       "skin_colors": "gray",
       "url": "/api/species/1/"
     }
-""".trimIndent()
+    """.trimIndent()
 
-val searchNoMatch = """
+val searchNoMatch =
+    """
     {
       "count": 0,
       "next": null,
       "previous": null,
       "results": []
     }
-""".trimIndent()
+    """.trimIndent()
 
-val searchSuccess = """
+val searchSuccess =
+    """
     {
       "count": 1,
       "next": null,
@@ -146,10 +152,11 @@ val searchSuccess = """
         }
       ]
     }
-""".trimIndent()
+    """.trimIndent()
 
-val notFound = """
+val notFound =
+    """
     {
       "detail": "Not found"
     }
-""".trimIndent()
+    """.trimIndent()

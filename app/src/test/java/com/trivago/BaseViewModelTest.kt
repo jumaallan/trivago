@@ -21,5 +21,4 @@ abstract class BaseViewModelTest : AutoCloseKoinTest() {
     @ExperimentalCoroutinesApi
     @get:Rule
     open val coroutineTestRule = CoroutineTestRule()
-
 }
