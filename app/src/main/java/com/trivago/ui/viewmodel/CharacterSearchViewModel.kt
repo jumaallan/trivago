@@ -3,9 +3,13 @@ package com.trivago.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.data.model.Character
 import com.trivago.data.repository.CharacterSearchRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * CharacterSearchViewModel
@@ -31,8 +35,13 @@ class CharacterSearchViewModel(
      *
      * @param character
      */
-    suspend fun saveCharacter(character: Character) =
-        characterSearchRepository.saveCharacter(character)
+    fun saveCharacter(character: Character) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                characterSearchRepository.saveCharacter(character)
+            }
+        }
+    }
 
     /**
      * Responsible for fetching all characters from the repos - for search suggestions purposes

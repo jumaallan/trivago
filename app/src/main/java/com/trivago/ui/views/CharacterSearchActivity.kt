@@ -13,6 +13,7 @@ import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
+import com.trivago.data.model.Character
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
@@ -29,7 +30,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     private val characterSearchViewModel: CharacterSearchViewModel by viewModel()
 
     var adapter: ArrayAdapter<String>? = null
-    private val stringSuggestionArray = arrayOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +37,17 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
-        adapter =
-            ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
-        binding.listView.adapter = adapter
+        binding.listView.hide()
+        characterSearchViewModel.getCharacters().observe(this, Observer { it ->
+            val stringSuggestionArray = arrayOf<String>()
+            it.forEach {
+                stringSuggestionArray.plus(it.name)
+                Timber.d("Query response ${it.name}")
+            }
+            adapter =
+                ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
+            binding.listView.adapter = adapter
+        })
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -94,11 +102,18 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         Timber.d("Query 1 $query")
+        binding.listView.hide()
+        characterSearchViewModel.saveCharacter(
+            Character(
+                query.toString(), "", "", ""
+            )
+        )
         return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
         Timber.d("onQueryTextChange: newText is %s", newText)
+        binding.listView.show()
         adapter?.filter?.filter(newText)
         return true
     }
