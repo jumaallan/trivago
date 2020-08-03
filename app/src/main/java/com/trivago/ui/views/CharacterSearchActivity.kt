@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -21,11 +22,15 @@ import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
+
 class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var binding: ActivityCharacterSearchBinding
     private lateinit var charactersRecyclerViewAdapter: CharactersRecyclerViewAdapter
     private val characterSearchViewModel: CharacterSearchViewModel by viewModel()
+
+    var adapter: ArrayAdapter<String>? = null
+    private val stringSuggestionArray = arrayOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,10 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
+
+        adapter =
+            ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
+        binding.listView.adapter = adapter
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -92,7 +101,8 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        Timber.d("Query 2 $newText")
+        Timber.d("onQueryTextChange: newText is %s", newText)
+        adapter?.filter?.filter(newText)
         return true
     }
 }
