@@ -3,35 +3,299 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="birthYear"
+            type="String" />
+
+        <variable
+            name="heightInCm"
+            type="String" />
+
+        <variable
+            name="heightInInches"
+            type="String" />
+
+        <variable
+            name="planet"
+            type="com.trivago.core.data.models.Planet" />
+
+        <variable
+            name="characterDetailsViewModel"
+            type="com.trivago.ui.viewmodel.CharacterDetailsViewModel" />
+
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/characterDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/padding_small"
             tools:context=".ui.views.CharacterDetailsActivity">
 
-            <include
-                android:id="@+id/layout_character_details"
-                layout="@layout/layout_character_details" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCharacterDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <include
-                android:id="@+id/layout_character_species"
-                layout="@layout/layout_character_species" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
 
-            <include
-                android:id="@+id/layout_character_planet"
-                layout="@layout/layout_character_planet" />
+                    <TextView
+                        style="@style/cardTitles"
+                        android:id="@+id/textViewCharacterBirthYear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/label_character_birth_year"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        style="@style/cardData"
+                        android:id="@+id/textViewBirthYear"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{birthYear}"
+                        tools:text="869BBY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                    <TextView
+                        style="@style/cardTitles"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/label_character_height"
+                        app:layout_constraintTop_toBottomOf="@id/textViewCharacterBirthYear"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        style="@style/cardData"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        android:text="@{String.format(@string/template_height_cm, heightInCm)}"
+                        tools:text="100 CM"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/textViewCharacterHeight"/>
+
+                    <TextView
+                        style="@style/cardData"
+                        android:id="@+id/textViewCharacterHeight"
+                        android:layout_width="0dp"
+                        android:layout_weight=".25"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="4dp"
+                        android:text="@{String.format(@string/template_height_inches, heightInInches)}"
+                        tools:text="12.546 Inches"
+                        app:layout_constraintTop_toBottomOf="@id/textViewBirthYear"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCharacterSpecies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterDetails"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/headerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            style="@style/cardTitles"
+                            android:id="@+id/textViewSpeciesName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/label_character_species_name"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"/>
+
+                        <TextView
+                            style="@style/cardTitles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/label_character_species_language"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewSpecies"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:layout_marginEnd="@dimen/margin_small"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_species"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/emptyView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_small"
+                        android:visibility="gone"
+                        tools:visibility="gone"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_empty_icon"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_empty_results"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            style="@style/cardTitles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_normal"
+                            android:gravity="center_horizontal"
+                            android:text="@string/layout_species_no_info"
+                            app:layout_constraintTop_toBottomOf="@id/iv_empty_icon"
+                            app:layout_constraintStart_toStartOf="@id/iv_empty_icon"
+                            app:layout_constraintEnd_toEndOf="@id/iv_empty_icon"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCharacterPlanet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterSpecies"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <TextView
+                        style="@style/cardTitles"
+                        android:id="@+id/texViewPlanetNameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/label_character_planet_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        style="@style/cardData"
+                        android:id="@+id/textViewPlanetName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="@{planet.name}"
+                        tools:text="Tatooine"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        style="@style/cardTitles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/label_character_planet_language"
+                        app:layout_constraintTop_toBottomOf="@id/texViewPlanetNameLabel"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        style="@style/cardData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="@{planet.population}"
+                        tools:text="200,000"
+                        app:layout_constraintTop_toBottomOf="@id/textViewPlanetName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewCharacterFilms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_film" />
+                tools:listitem="@layout/item_film"
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterPlanet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <me.relex.circleindicator.CircleIndicator2
                 android:id="@+id/indicator"
@@ -45,9 +309,12 @@
                 app:ci_height="12dp"
                 app:ci_margin="5dp"
                 app:ci_orientation="horizontal"
-                app:ci_width="12dp" />
+                app:ci_width="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerViewCharacterFilms"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

@@ -12,7 +12,6 @@ fun View.makeSnackbar(message: String) {
     Snackbar.make(this, message, Snackbar.LENGTH_SHORT).show()
 }
 
-
 /**
  * Responsible for showing a view, toggle visibility to View.VISIBLE
  */

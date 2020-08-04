@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.toList
 
-
 /**
  * Responsible for converting Flow<List<T>> to a List<>
  *

@@ -39,12 +39,12 @@ class CharacterDetailsActivity : BaseActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         // pass to character details layout
-        binding.layoutCharacterDetails.birthYear = characterBirthYear
-        binding.layoutCharacterDetails.heightInCm = characterHeight
-        binding.layoutCharacterDetails.heightInInches = convertToInches(characterHeight.toString())
+        binding.birthYear = characterBirthYear
+        binding.heightInCm = characterHeight
+        binding.heightInInches = convertToInches(characterHeight.toString())
 
         characterSpeciesRecyclerViewAdapter = CharacterSpeciesRecyclerViewAdapter()
-        binding.layoutCharacterSpecies.recyclerViewSpecies.adapter =
+        binding.recyclerViewSpecies.adapter =
             characterSpeciesRecyclerViewAdapter
 
         val layoutManagerStats = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -69,7 +69,7 @@ class CharacterDetailsActivity : BaseActivity() {
                 setUpSpecies(it.species)
 
                 // pass the planet to the planet view
-                binding.layoutCharacterPlanet.planet = it.planet
+                binding.planet = it.planet
 
                 // pass the film list to rv adapter
                 setUpFilms(it.films)
@@ -84,13 +84,13 @@ class CharacterDetailsActivity : BaseActivity() {
 
     private fun setUpSpecies(characterSpeciesList: List<Species>?) {
         if (characterSpeciesList.isNullOrEmpty()) {
-            binding.layoutCharacterSpecies.recyclerViewSpecies.hide()
-            binding.layoutCharacterSpecies.headerView.hide()
-            binding.layoutCharacterSpecies.emptyView.show()
+            binding.recyclerViewSpecies.hide()
+            binding.headerView.hide()
+            binding.emptyView.show()
         } else {
-            binding.layoutCharacterSpecies.recyclerViewSpecies.show()
-            binding.layoutCharacterSpecies.headerView.show()
-            binding.layoutCharacterSpecies.emptyView.hide()
+            binding.recyclerViewSpecies.show()
+            binding.headerView.show()
+            binding.emptyView.hide()
             characterSpeciesRecyclerViewAdapter.submitList(characterSpeciesList)
         }
     }
