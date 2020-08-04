@@ -5,8 +5,10 @@ import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.data.dao.CharacterDao
 import com.trivago.data.model.Character
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 
 /**
  * CharacterSearchRepository
@@ -28,13 +30,16 @@ class CharacterSearchRepository(
      * @return a flow list of the character
      */
     suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
-        flow {
-            val characters = starWarsAPI.searchCharacters(characterName)
-            val starWarsCharacters = mutableListOf<StarWarsCharacter>()
-            for (starWarsCharacter in characters.results) {
-                starWarsCharacters.add(starWarsCharacter.toResponse())
+        withContext(Dispatchers.IO) {
+            flow {
+
+                val characters = starWarsAPI.searchCharacters(characterName)
+                val starWarsCharacters = mutableListOf<StarWarsCharacter>()
+                for (starWarsCharacter in characters.results) {
+                    starWarsCharacters.add(starWarsCharacter.toResponse())
+                }
+                emit(starWarsCharacters)
             }
-            emit(starWarsCharacters)
         }
 
     /**
