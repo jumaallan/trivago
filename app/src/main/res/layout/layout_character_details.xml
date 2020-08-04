@@ -28,73 +28,69 @@
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="@dimen/padding_medium">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
-
                     <TextView
                         style="@style/cardTitles"
+                        android:id="@+id/textViewCharacterBirthYear"
                         android:layout_width="0dp"
-                        android:layout_weight=".5"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/label_character_birth_year" />
+                        android:text="@string/label_character_birth_year"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
                     <TextView
                         style="@style/cardData"
+                        android:id="@+id/textViewBirthYear"
                         android:layout_width="0dp"
                         android:layout_marginTop="4dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5"
                         android:text="@{birthYear}"
-                        tools:text="869BBY" />
+                        tools:text="869BBY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/cardTitles"
                         android:layout_width="0dp"
-                        android:layout_weight=".25"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/label_character_height" />
+                        android:text="@string/label_character_height"
+                        app:layout_constraintTop_toBottomOf="@id/textViewCharacterBirthYear"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
                     <TextView
                         style="@style/cardData"
                         android:layout_width="0dp"
-                        android:layout_weight=".25"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginEnd="@dimen/spacing_large"
                         android:text="@{String.format(@string/template_height_cm, heightInCm)}"
-                        tools:text="100 CM" />
+                        tools:text="100 CM"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/textViewCharacterHeight"/>
 
                     <TextView
                         style="@style/cardData"
+                        android:id="@+id/textViewCharacterHeight"
                         android:layout_width="0dp"
                         android:layout_weight=".25"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:text="@{String.format(@string/template_height_inches, heightInInches)}"
-                        tools:text="12.546 Inches" />
+                        tools:text="12.546 Inches"
+                        app:layout_constraintTop_toBottomOf="@id/textViewBirthYear"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
-                </LinearLayout>
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
