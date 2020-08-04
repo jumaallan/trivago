@@ -118,7 +118,6 @@ dependencies {
     androidTestImplementation(TestLibraries.androidXJUnit)
     androidTestImplementation(TestLibraries.androidXTestCore)
     androidTestImplementation(TestLibraries.mockWebServer)
-    androidTestImplementation(TestLibraries.kakao)
 
     // Unit Tests
     testImplementation(TestLibraries.jUnit)
