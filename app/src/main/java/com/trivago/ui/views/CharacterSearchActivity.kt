@@ -2,6 +2,7 @@ package com.trivago.ui.views
 
 import android.app.SearchManager
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.widget.AdapterView.OnItemClickListener
@@ -127,5 +128,15 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.emptyView.hide()
         adapter?.filter?.filter(newText)
         return true
+    }
+
+    override fun onBackPressed() {
+        // Workaround for https://issuetracker.google.com/issues/139738913
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            finishAfterTransition()
+        } else {
+            super.onBackPressed()
+        }
+
     }
 }
