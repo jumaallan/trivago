@@ -16,10 +16,9 @@
 
         <TextView
             style="@style/cardTitles"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_weight=".5"
             android:text="@{species.name}"
             android:textSize="14sp"
             tools:text="@sample/species.json/species/name"
@@ -29,16 +28,15 @@
 
         <TextView
             style="@style/cardTitles"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginTop="4dp"
             android:text="@{species.language}"
             android:textSize="14sp"
-            android:textAlignment="textEnd"
             tools:text="@sample/species.json/species/language"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

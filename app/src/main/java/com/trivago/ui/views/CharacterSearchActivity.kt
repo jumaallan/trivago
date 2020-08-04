@@ -137,6 +137,5 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         } else {
             super.onBackPressed()
         }
-
     }
 }

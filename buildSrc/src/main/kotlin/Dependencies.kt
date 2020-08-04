@@ -2,7 +2,7 @@ object Versions {
     // Material and androidX
     const val material = "1.3.0-alpha02"
     const val appCompat = "1.1.0"
-    const val constraintLayout = "1.1.3"
+    const val constraintLayout = "2.0.0-rc1"
     const val swiperefreshlayout = "1.1.0"
     const val preference = "1.1.1"
 
@@ -57,6 +57,7 @@ object Versions {
     const val runner = "1.2.0"
     const val rules = "1.2.0"
     const val archComponentTest = "2.1.0"
+    const val kakao = "2.3.0"
 }
 
 object BuildPlugins {
@@ -143,6 +144,7 @@ object TestLibraries {
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     const val archComponentTest =
         "androidx.arch.core:core-testing:${Versions.archComponentTest}"
+    const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
 }
 
 object BuildModules {
