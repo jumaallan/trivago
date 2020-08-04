@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="birthYear"
             type="String" />
@@ -45,9 +46,9 @@
                 app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -55,25 +56,25 @@
                     android:padding="@dimen/padding_medium">
 
                     <TextView
-                        style="@style/cardTitles"
                         android:id="@+id/textViewCharacterBirthYear"
+                        style="@style/cardTitles"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/label_character_birth_year"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        style="@style/cardData"
                         android:id="@+id/textViewBirthYear"
+                        style="@style/cardData"
                         android:layout_width="0dp"
-                        android:layout_marginTop="4dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="@{birthYear}"
-                        tools:text="869BBY"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="869BBY" />
 
 
                     <TextView
@@ -82,8 +83,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/label_character_height"
-                        app:layout_constraintTop_toBottomOf="@id/textViewCharacterBirthYear"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textViewCharacterBirthYear" />
 
                     <TextView
                         style="@style/cardData"
@@ -93,23 +94,23 @@
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_marginEnd="@dimen/spacing_large"
                         android:text="@{String.format(@string/template_height_cm, heightInCm)}"
-                        tools:text="100 CM"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/textViewCharacterHeight"/>
+                        app:layout_constraintEnd_toStartOf="@id/textViewCharacterHeight"
+                        tools:text="100 CM" />
 
                     <TextView
-                        style="@style/cardData"
                         android:id="@+id/textViewCharacterHeight"
+                        style="@style/cardData"
                         android:layout_width="0dp"
-                        android:layout_weight=".25"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
+                        android:layout_weight=".25"
                         android:text="@{String.format(@string/template_height_inches, heightInInches)}"
-                        tools:text="12.546 Inches"
-                        app:layout_constraintTop_toBottomOf="@id/textViewBirthYear"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/textViewBirthYear"
+                        tools:text="12.546 Inches" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,9 +123,9 @@
                 app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:layout_constraintTop_toBottomOf="@id/cardCharacterDetails"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterDetails">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -135,23 +136,23 @@
                         android:id="@+id/headerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            style="@style/cardTitles"
                             android:id="@+id/textViewSpeciesName"
+                            style="@style/cardTitles"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_small"
                             android:layout_marginTop="4dp"
                             android:text="@string/label_character_species_name"
                             android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             style="@style/cardTitles"
@@ -162,9 +163,9 @@
                             android:text="@string/label_character_species_language"
                             android:textAlignment="textEnd"
                             android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toTopOf="@id/recyclerViewSpecies"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerViewSpecies"
@@ -174,11 +175,11 @@
                             android:layout_marginTop="@dimen/margin_small"
                             android:layout_marginEnd="@dimen/margin_small"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            tools:itemCount="2"
-                            tools:listitem="@layout/item_species"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_species" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -189,20 +190,20 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_small"
                         android:visibility="gone"
-                        tools:visibility="gone"
-                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="gone">
 
                         <ImageView
                             android:id="@+id/iv_empty_icon"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/ic_empty_results"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             style="@style/cardTitles"
@@ -211,9 +212,9 @@
                             android:layout_marginTop="@dimen/margin_normal"
                             android:gravity="center_horizontal"
                             android:text="@string/layout_species_no_info"
-                            app:layout_constraintTop_toBottomOf="@id/iv_empty_icon"
+                            app:layout_constraintEnd_toEndOf="@id/iv_empty_icon"
                             app:layout_constraintStart_toStartOf="@id/iv_empty_icon"
-                            app:layout_constraintEnd_toEndOf="@id/iv_empty_icon"/>
+                            app:layout_constraintTop_toBottomOf="@id/iv_empty_icon" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -228,9 +229,9 @@
                 app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:layout_constraintTop_toBottomOf="@id/cardCharacterSpecies"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterSpecies">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -238,27 +239,27 @@
                     android:padding="@dimen/padding_medium">
 
                     <TextView
-                        style="@style/cardTitles"
                         android:id="@+id/texViewPlanetNameLabel"
+                        style="@style/cardTitles"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:text="@string/label_character_planet_name"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        style="@style/cardData"
                         android:id="@+id/textViewPlanetName"
+                        style="@style/cardData"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@{planet.name}"
-                        tools:text="Tatooine"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Tatooine" />
 
                     <TextView
                         style="@style/cardTitles"
@@ -267,9 +268,9 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:text="@string/label_character_planet_language"
-                        app:layout_constraintTop_toBottomOf="@id/texViewPlanetNameLabel"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/texViewPlanetNameLabel" />
 
                     <TextView
                         style="@style/cardData"
@@ -278,10 +279,10 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@{planet.population}"
-                        tools:text="200,000"
-                        app:layout_constraintTop_toBottomOf="@id/textViewPlanetName"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/textViewPlanetName"
+                        tools:text="200,000" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -291,11 +292,11 @@
                 android:id="@+id/recyclerViewCharacterFilms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_film"
-                app:layout_constraintTop_toBottomOf="@id/cardCharacterPlanet"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterPlanet"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_film" />
 
             <me.relex.circleindicator.CircleIndicator2
                 android:id="@+id/indicator"
@@ -310,9 +311,9 @@
                 app:ci_margin="5dp"
                 app:ci_orientation="horizontal"
                 app:ci_width="12dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recyclerViewCharacterFilms"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerViewCharacterFilms" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
