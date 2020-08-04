@@ -1,4 +1,4 @@
-## \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️🚧 \] Trivago Interview Solution
+## Trivago Interview Solution
 
 👀  Writing Trivago Interview Solution App using [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/), in 100% Kotlin, using Android Jetpack Components. 
 
@@ -57,7 +57,7 @@ On app start, the user lands on the character search screen. The user can search
     * [Leak Canary](https://github.com/square/leakcanary) - a memory leak detection library for Android.
 
 * Architecture
-    * MVVM - application level
+    * MVVM - Model View View Model
 * Tests
     * [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing) ([JUnit](https://junit.org/junit4/))
     * [Mockito](https://github.com/mockito/mockito) + [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
@@ -69,6 +69,8 @@ On app start, the user lands on the character search screen. The user can search
         * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language.
         * [Spotless](https://github.com/diffplug/spotless) - format java, groovy, markdown and license headers using gradle.
         * [Dokka](https://github.com/Kotlin/dokka) - a documentation engine for Kotlin, performing the same function as javadoc for Java.
+* CI/CD
+    * Github Actions 
 
 
 ## License
