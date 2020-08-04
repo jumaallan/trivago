@@ -4,8 +4,10 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Film
 import com.trivago.core.utils.toHttps
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 
 /**
  * CharacterFilmsRepository
@@ -26,13 +28,15 @@ class CharacterFilmsRepository(
      * @param characterUrl
      * @return a flow list of the the film
      */
-    suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> = flow {
-        val filmsResponse = starWarsAPI.fetchFilms(characterUrl.toHttps())
-        val films = mutableListOf<Film>()
-        for (filmUrl in filmsResponse.films) {
-            val film = starWarsAPI.fetchFilmDetails(filmUrl.toHttps())
-            films.add(film.toResponse())
+    suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> = withContext(Dispatchers.IO) {
+        flow {
+            val filmsResponse = starWarsAPI.fetchFilms(characterUrl.toHttps())
+            val films = mutableListOf<Film>()
+            for (filmUrl in filmsResponse.films) {
+                val film = starWarsAPI.fetchFilmDetails(filmUrl.toHttps())
+                films.add(film.toResponse())
+            }
+            emit(films)
         }
-        emit(films)
     }
 }
