@@ -71,6 +71,11 @@ On app start, the user lands on the character search screen. The user can search
         * [Dokka](https://github.com/Kotlin/dokka) - a documentation engine for Kotlin, performing the same function as javadoc for Java.
 * CI/CD
     * Github Actions 
+    
+    
+## Dependencies
+
+All the dependencies (external libraries) are defined in the single place - Gradle `buildSrc` folder. This approach allows to easily manage dependencies and use the same dependency version across all modules. 
 
 
 ## License
