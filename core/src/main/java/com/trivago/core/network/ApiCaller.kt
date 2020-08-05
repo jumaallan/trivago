@@ -57,7 +57,6 @@ suspend fun <T> flowSafeApiCall(
     }
 }.flowOn(dispatcher)
 
-
 private fun convertErrorBody(throwable: HttpException): ErrorResponse? = try {
     throwable.response()?.errorBody()?.charStream()?.let {
         val gson = GsonBuilder()
