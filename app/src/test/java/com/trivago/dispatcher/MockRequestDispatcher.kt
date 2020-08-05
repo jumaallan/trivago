@@ -7,7 +7,7 @@ import okhttp3.mockwebserver.RecordedRequest
 import java.io.File
 import java.net.HttpURLConnection
 
-internal class MockRequestDispatcher : Dispatcher() {
+open class MockRequestDispatcher : Dispatcher() {
 
     override fun dispatch(request: RecordedRequest): MockResponse {
         return when (request.path) {

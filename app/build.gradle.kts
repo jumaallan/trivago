@@ -21,7 +21,7 @@ android {
         versionCode = AndroidSdk.versionCode
         versionName = AndroidSdk.versionName
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.trivago.runner.MockTestRunner"
     }
 
     compileOptions {
@@ -110,6 +110,7 @@ dependencies {
 
     // UI Tests
     androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.kakao)
 
     // Instrumentation Tests
     androidTestImplementation(TestLibraries.runner)
@@ -118,7 +119,7 @@ dependencies {
     androidTestImplementation(TestLibraries.androidXJUnit)
     androidTestImplementation(TestLibraries.androidXTestCore)
     androidTestImplementation(TestLibraries.mockWebServer)
-    androidTestImplementation(TestLibraries.kakao)
+    androidTestImplementation(TestLibraries.mockK)
 
     // Unit Tests
     testImplementation(TestLibraries.jUnit)

@@ -32,15 +32,9 @@ class CharacterDetailsViewModel(
     val characterResponseState: LiveData<CharacterResponse>
         get() = characterResponse
 
-    private var characterResponse = MutableLiveData<CharacterResponse>()
+    private var characterResponse =
+        MutableLiveData<CharacterResponse>(CharacterResponse(null, null, null))
 
-    init {
-        characterResponse.value = CharacterResponse(
-            null,
-            null,
-            null
-        )
-    }
 
     /**
      * Responsible for initiating a call to fetch the character details
