@@ -59,6 +59,7 @@ object Versions {
     const val archComponentTest = "2.1.0"
     const val kakao = "2.3.0"
     const val mockK = "1.10.0"
+    const val liveDataTesting = "1.1.2"
 }
 
 object BuildPlugins {
@@ -148,6 +149,7 @@ object TestLibraries {
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
     const val mockK = "io.mockk:mockk:${Versions.mockK}"
     const val androidMockK = "io.mockk:mockk-android:${Versions.mockK}"
+    const val liveDataTesting = "com.jraska.livedata:testing-ktx:${Versions.liveDataTesting}"
 }
 
 object BuildModules {

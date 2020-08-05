@@ -135,5 +135,5 @@ dependencies {
     testImplementation(TestLibraries.androidXJUnit)
     testImplementation(TestLibraries.coroutinesTest)
     testImplementation(TestLibraries.archComponentTest)
-    testImplementation("com.jraska.livedata:testing-ktx:1.1.2")
+    testImplementation(TestLibraries.liveDataTesting)
 }
