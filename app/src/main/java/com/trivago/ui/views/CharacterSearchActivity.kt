@@ -13,8 +13,8 @@ import androidx.lifecycle.Observer
 import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
+import com.trivago.core.utils.observeOnce
 import com.trivago.core.utils.show
-import com.trivago.data.model.Character
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
@@ -37,14 +37,10 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.characterSearchViewModel = characterSearchViewModel
 
         binding.listView.hide()
-        val starWarsCharacters = mutableListOf<StarWarsCharacter>()
-        characterSearchViewModel.getCharacters().observe(
+        characterSearchViewModel.getCharacters().observeOnce(
             this,
             Observer {
-                it.forEach {character ->
-                    starWarsCharacters.add(character.toResponse())
-                }
-                showPreviousSearches(starWarsCharacters)
+                showPreviousSearches(it.map { character -> character.toResponse() })
             }
         )
 
@@ -63,6 +59,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 characterBirthYear = it.birthYear,
                 characterHeight = it.height
             )
+            saveCharacters(listOf(it))
             startActivity(intent)
         }
 
@@ -75,18 +72,12 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 this@CharacterSearchActivity,
                 Observer {
                     setUpViews(it)
-//                    saveCharacters(it)
                 }
             )
     }
 
-    // TODO GET RID OF THIS !!!!!!
-    private fun saveCharacters(it: List<StarWarsCharacter>) {
-        val characters = mutableListOf<Character>()
-        it.forEach {starWarCharacter ->
-            characters.add(starWarCharacter.toResponse())
-        }
-        characterSearchViewModel.saveCharacters(characters)
+    private fun saveCharacters(characters: List<StarWarsCharacter>) {
+        characterSearchViewModel.saveCharacters(characters.map { it.toResponse() })
     }
 
     private fun setUpViews(charactersList: List<StarWarsCharacter>) {

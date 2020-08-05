@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.databinding.ItemCharacterBinding
+import timber.log.Timber
 
 typealias CharacterClickListener = (StarWarsCharacter) -> Unit
 
@@ -45,12 +46,21 @@ internal class CharactersRecyclerViewAdapter(
         override fun areItemsTheSame(
             oldItem: StarWarsCharacter,
             newItem: StarWarsCharacter
-        ): Boolean =
-            oldItem.url == newItem.url
+        ): Boolean {
+            Timber.i("items the same")
+            Timber.i(oldItem.toString())
+            Timber.i(newItem.toString())
+            return oldItem.url == newItem.url
+        }
 
         override fun areContentsTheSame(
             oldItem: StarWarsCharacter,
             newItem: StarWarsCharacter
-        ): Boolean = oldItem == newItem
+        ): Boolean {
+            Timber.i("contents the same")
+            Timber.i(oldItem.toString())
+            Timber.i(newItem.toString())
+            return oldItem == newItem
+        }
     }
 }
