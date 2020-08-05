@@ -9,10 +9,8 @@ import com.trivago.data.model.Character
 fun Character.toResponse(): StarWarsCharacter =
     StarWarsCharacter(this.name, this.birthYear, this.height, this.url)
 
-
 /**
  * Responsible for mapping the StarWarsCharacter to Character
  */
 fun StarWarsCharacter.toResponse(): Character =
     Character(this.name, this.birthYear, this.height, this.url)
-

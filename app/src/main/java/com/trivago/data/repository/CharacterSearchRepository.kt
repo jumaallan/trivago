@@ -33,7 +33,7 @@ class CharacterSearchRepository(
      * @param characterName
      * @return a flow list of the character
      */
-    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
+    fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
         flow {
 
             val characters = starWarsAPI.searchCharacters(characterName)
@@ -68,5 +68,4 @@ class CharacterSearchRepository(
      */
     suspend fun saveCharacters(characters: List<Character>) =
         characterDao.insert(characters)
-
 }

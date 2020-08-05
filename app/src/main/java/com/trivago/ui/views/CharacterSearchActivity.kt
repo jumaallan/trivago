@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
@@ -20,9 +19,6 @@ import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
 import com.trivago.utils.toResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
@@ -45,7 +41,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         characterSearchViewModel.getCharacters().observe(
             this,
             Observer {
-                it.forEach {character ->
+                it.forEach { character ->
                     starWarsCharacters.add(character.toResponse())
                 }
                 showPreviousSearches(starWarsCharacters)
@@ -74,23 +70,20 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun searchStarWarsCharacter(characterName: String) {
-        lifecycleScope.launch {
-            withContext(Dispatchers.Main) {
-                characterSearchViewModel.searchStarWarsCharacters(characterName = characterName)
-                    .observe(
-                        this@CharacterSearchActivity,
-                        Observer {
-                            setUpViews(it)
-                            saveCharacters(it)
-                        }
-                    )
-            }
-        }
+        characterSearchViewModel.searchStarWarsCharacters(characterName = characterName)
+            .observe(
+                this@CharacterSearchActivity,
+                Observer {
+                    setUpViews(it)
+//                    saveCharacters(it)
+                }
+            )
     }
 
+    // TODO GET RID OF THIS !!!!!!
     private fun saveCharacters(it: List<StarWarsCharacter>) {
         val characters = mutableListOf<Character>()
-        it.forEach {starWarCharacter ->
+        it.forEach { starWarCharacter ->
             characters.add(starWarCharacter.toResponse())
         }
         characterSearchViewModel.saveCharacters(characters)
@@ -101,7 +94,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()
@@ -115,7 +107,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()

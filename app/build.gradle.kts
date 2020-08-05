@@ -135,4 +135,5 @@ dependencies {
     testImplementation(TestLibraries.androidXJUnit)
     testImplementation(TestLibraries.coroutinesTest)
     testImplementation(TestLibraries.archComponentTest)
+    testImplementation(TestLibraries.liveDataTesting)
 }

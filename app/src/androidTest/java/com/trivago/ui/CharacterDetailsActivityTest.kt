@@ -160,7 +160,6 @@ class CharacterDetailsActivityTest : BaseTest() {
         Unit
     }
 
-
     @Test
     fun filmInfoIsDisplayed(): Unit = runBlocking {
         every { themeViewModel.getAppTheme() } returns TrivagoSharedPreferenceLiveData(
@@ -197,14 +196,20 @@ class CharacterDetailsActivityTest : BaseTest() {
 class CharacterDetailsScreen : Screen<CharacterDetailsScreen>() {
     val birthYear = KTextView { withId(R.id.textViewBirthYear) }
     val height = KTextView { withId(R.id.textViewHeightCm) }
-    val speciesList = KRecyclerView({ withId(R.id.recyclerViewSpecies) }, itemTypeBuilder = {
-        itemType(::SpeciesItem)
-    })
+    val speciesList = KRecyclerView(
+        { withId(R.id.recyclerViewSpecies) },
+        itemTypeBuilder = {
+            itemType(::SpeciesItem)
+        }
+    )
     val planetName = KTextView { withId(R.id.textViewPlanetName) }
     val planetPopulation = KTextView { withId(R.id.textViewPlanetPopulation) }
-    val filmsList = KRecyclerView({ withId(R.id.recyclerViewCharacterFilms) }, itemTypeBuilder = {
-        itemType(::FilmsItem)
-    })
+    val filmsList = KRecyclerView(
+        { withId(R.id.recyclerViewCharacterFilms) },
+        itemTypeBuilder = {
+            itemType(::FilmsItem)
+        }
+    )
 }
 
 class SpeciesItem(parent: Matcher<View>) : KRecyclerItem<SpeciesItem>(parent) {
