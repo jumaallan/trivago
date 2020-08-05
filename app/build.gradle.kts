@@ -136,5 +136,4 @@ dependencies {
     testImplementation(TestLibraries.coroutinesTest)
     testImplementation(TestLibraries.archComponentTest)
     testImplementation("com.jraska.livedata:testing-ktx:1.1.2")
-
 }

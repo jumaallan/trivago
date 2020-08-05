@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -13,7 +12,6 @@ import androidx.lifecycle.Observer
 import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
-import com.trivago.core.utils.observeOnce
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
@@ -36,20 +34,12 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
-        binding.listView.hide()
-        characterSearchViewModel.getCharacters().observeOnce(
+        characterSearchViewModel.getCharacters().observe(
             this,
             Observer {
-                showPreviousSearches(it.map { character -> character.toResponse() })
+                showPreviousSearches(it.map { character -> character.toResponse() }.asReversed())
             }
         )
-
-        binding.listView.onItemClickListener = OnItemClickListener { parent, _, position, _ ->
-            val selectedItem =
-                parent.getItemAtPosition(position) as String
-            searchStarWarsCharacter(selectedItem)
-            binding.listView.hide()
-        }
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -85,7 +75,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()
@@ -99,7 +88,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()
@@ -123,13 +111,11 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        binding.listView.hide()
         searchStarWarsCharacter(query.toString())
         return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        binding.listView.show()
         binding.emptyView.hide()
         adapter?.filter?.filter(newText)
         return true

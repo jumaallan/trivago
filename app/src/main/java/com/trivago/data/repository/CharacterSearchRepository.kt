@@ -68,5 +68,4 @@ class CharacterSearchRepository(
      */
     suspend fun saveCharacters(characters: List<Character>) =
         characterDao.insert(characters)
-
 }
