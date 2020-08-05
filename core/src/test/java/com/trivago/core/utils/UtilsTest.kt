@@ -13,4 +13,16 @@ class UtilsTest {
         val inches = convertToInches("120")
         Truth.assertThat(inches).isEqualTo("47.244")
     }
+
+    @Test
+    fun `given a null string https is the output`() {
+        val url: String? = null
+        Truth.assertThat("https").isEqualTo(url.toHttps())
+    }
+
+    @Test
+    fun `given htpp as a string https is the output`() {
+        val url: String? = "http"
+        Truth.assertThat("https").isEqualTo(url.toHttps())
+    }
 }

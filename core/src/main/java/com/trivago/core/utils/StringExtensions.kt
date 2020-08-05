@@ -5,7 +5,10 @@ package com.trivago.core.utils
  *
  * @return the url in https, if an http url format is passed
  */
-fun String.toHttps(): String =
-    if (!this.contains("https")) {
-        this.replace("http", "https")
-    } else this
+fun String?.toHttps(): String {
+    // Default to https
+    val url = this ?: "https"
+    return if (!url.contains("https")) {
+        url.replace("http", "https")
+    } else url
+}
