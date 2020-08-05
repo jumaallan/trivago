@@ -55,5 +55,14 @@ class CharacterSearchRepository(
      *
      * @return a flow list of the characters
      */
-    fun getCharacters(): Flow<List<Character>> = characterDao.getCharacters()
+    fun getCharacters(): Flow<List<Character>>  = characterDao.getCharacters()
+
+    /**
+     * Responsible for saving/inserting a list of character into the database
+     *
+     * @param characters
+     */
+    suspend fun saveCharacters(characters: List<Character>) =
+        characterDao.insert(characters)
+
 }

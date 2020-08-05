@@ -23,6 +23,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            style="@style/cardTitles"
+            android:id="@+id/textViewPreviousLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_search_previous_label"
+            android:textSize="14sp"
+            android:layout_margin="@dimen/spacing_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCharacters"
             android:layout_width="match_parent"
@@ -31,16 +42,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/listView"
+            app:layout_constraintTop_toBottomOf="@id/textViewPreviousLabel"
             tools:itemCount="5"
             tools:listitem="@layout/item_character" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/emptyView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:orientation="vertical"
             android:padding="@dimen/margin_small"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +62,11 @@
                 android:id="@+id/iv_empty_icon"
                 android:layout_width="170dp"
                 android:layout_height="140dp"
-                android:src="@drawable/ic_star_wars_no_bg" />
+                android:src="@drawable/ic_star_wars_no_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 style="@style/cardTitles"
@@ -62,9 +75,13 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:gravity="center_horizontal"
                 android:text="@string/layout_search_no_info"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_empty_icon"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

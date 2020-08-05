@@ -50,4 +50,17 @@ class CharacterSearchViewModel(
      */
     fun getCharacters(): LiveData<List<Character>> =
         characterSearchRepository.getCharacters().asLiveData()
+
+    /**
+     * Responsible for passing characters to the repo, to save to the database
+     *
+     * @param characters
+     */
+    fun saveCharacters(characters: List<Character>) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                characterSearchRepository.saveCharacters(characters)
+            }
+        }
+    }
 }
