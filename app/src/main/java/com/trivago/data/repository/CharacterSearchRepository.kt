@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.withContext
 
 /**
  * CharacterSearchRepository
@@ -23,7 +22,7 @@ import kotlinx.coroutines.withContext
 class CharacterSearchRepository(
     private val starWarsAPI: StarWarsAPI,
     private val characterDao: CharacterDao,
-    private val ioDispatcher : CoroutineDispatcher = Dispatchers.IO
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
     /**

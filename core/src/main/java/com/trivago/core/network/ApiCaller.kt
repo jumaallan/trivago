@@ -36,7 +36,7 @@ suspend fun <T> safeApiCall(
     }
 }
 
-suspend fun <T> flowSafeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T) : Flow<NetworkResult<T>> {
+suspend fun <T> flowSafeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Flow<NetworkResult<T>> {
     return flow {
         try {
             emit(NetworkResult.Loading)

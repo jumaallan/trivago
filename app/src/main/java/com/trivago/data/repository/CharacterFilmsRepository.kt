@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.withContext
 
 /**
  * CharacterFilmsRepository
@@ -20,7 +19,7 @@ import kotlinx.coroutines.withContext
  */
 class CharacterFilmsRepository(
     private val starWarsAPI: StarWarsAPI,
-    private val ioDispatcher : CoroutineDispatcher = Dispatchers.IO
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
     /**
