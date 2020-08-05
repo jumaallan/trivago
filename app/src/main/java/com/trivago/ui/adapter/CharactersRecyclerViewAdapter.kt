@@ -46,7 +46,7 @@ internal class CharactersRecyclerViewAdapter(
             oldItem: StarWarsCharacter,
             newItem: StarWarsCharacter
         ): Boolean =
-            oldItem.name == newItem.name
+            oldItem.url == newItem.url
 
         override fun areContentsTheSame(
             oldItem: StarWarsCharacter,

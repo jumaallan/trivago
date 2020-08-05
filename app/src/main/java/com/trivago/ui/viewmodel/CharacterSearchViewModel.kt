@@ -7,9 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.data.model.Character
 import com.trivago.data.repository.CharacterSearchRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * CharacterSearchViewModel
@@ -27,7 +25,7 @@ class CharacterSearchViewModel(
      * @param characterName
      * @return a livedata object of star wars character
      */
-    suspend fun searchStarWarsCharacters(characterName: String): LiveData<List<StarWarsCharacter>> =
+    fun searchStarWarsCharacters(characterName: String): LiveData<List<StarWarsCharacter>> =
         characterSearchRepository.searchStarWarsCharacters(characterName).asLiveData()
 
     /**
@@ -37,9 +35,7 @@ class CharacterSearchViewModel(
      */
     fun saveCharacter(character: Character) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                characterSearchRepository.saveCharacter(character)
-            }
+            characterSearchRepository.saveCharacter(character)
         }
     }
 
@@ -58,9 +54,7 @@ class CharacterSearchViewModel(
      */
     fun saveCharacters(characters: List<Character>) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                characterSearchRepository.saveCharacters(characters)
-            }
+            characterSearchRepository.saveCharacters(characters)
         }
     }
 }

@@ -38,6 +38,7 @@ import org.koin.test.mock.declare
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
+
 class CharacterDetailsActivityTest : BaseTest() {
 
     private val context =
