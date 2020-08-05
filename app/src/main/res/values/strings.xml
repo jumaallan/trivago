@@ -40,6 +40,7 @@
 
     <!--    Search Layout-->
     <string name="layout_search_no_info">No star wars character. \n\nSearch for Star Wars Characters here</string>
+    <string name="layout_search_previous_label">Your previous searches...</string>
 
     <!--    Species Layout-->
     <string name="layout_species_no_info">No species information available</string>
