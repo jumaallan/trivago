@@ -12,7 +12,7 @@ import org.junit.Test
 class CharacterSearchViewModelTest : BaseViewModelTest() {
 
     private val repo = mockk<CharacterSearchRepository>()
-    lateinit var characterSearchViewModel: CharacterSearchViewModel
+    private lateinit var characterSearchViewModel: CharacterSearchViewModel
 
     @Before
     fun setUp() {
@@ -27,7 +27,7 @@ class CharacterSearchViewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun `test that repo's saveCHaracter is called with right parameters`() {
+    fun `test that repo's saveCharacter is called with right parameters`() {
         val character = Character("name", "2020", "2", "http://test")
         coEvery { repo.saveCharacter(any()) } just Runs
         characterSearchViewModel.saveCharacter(character)
