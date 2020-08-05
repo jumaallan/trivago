@@ -58,6 +58,7 @@ object Versions {
     const val rules = "1.2.0"
     const val archComponentTest = "2.1.0"
     const val kakao = "2.3.0"
+    const val mockK = "1.10.0"
 }
 
 object BuildPlugins {
@@ -145,6 +146,7 @@ object TestLibraries {
     const val archComponentTest =
         "androidx.arch.core:core-testing:${Versions.archComponentTest}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
+    const val mockK = "io.mockk:mockk:${Versions.mockK}"
 }
 
 object BuildModules {
