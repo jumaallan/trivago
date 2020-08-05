@@ -30,15 +30,13 @@ class CharacterFilmsRepository(
      * @param characterUrl
      * @return a flow list of the the film
      */
-    suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> {
-        return flow {
-            val filmsResponse = starWarsAPI.fetchFilms(characterUrl.toHttps())
-            val films = mutableListOf<Film>()
-            for (filmUrl in filmsResponse.films) {
-                val film = starWarsAPI.fetchFilmDetails(filmUrl.toHttps())
-                films.add(film.toResponse())
-            }
-            emit(films)
-        }.flowOn(ioDispatcher)
-    }
+    suspend fun fetchFilms(characterUrl: String): Flow<List<Film>> = flow {
+        val filmsResponse = starWarsAPI.fetchFilms(characterUrl.toHttps())
+        val films = mutableListOf<Film>()
+        for (filmUrl in filmsResponse.films) {
+            val film = starWarsAPI.fetchFilmDetails(filmUrl.toHttps())
+            films.add(film.toResponse())
+        }
+        emit(films)
+    }.flowOn(ioDispatcher)
 }

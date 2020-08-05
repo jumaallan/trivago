@@ -30,15 +30,13 @@ class CharacterSpeciesRepository(
      * @param characterUrl
      * @return a flow list of the the species
      */
-    suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> {
-        return flow {
-            val speciesResponse = starWarsAPI.fetchSpecies(characterUrl.toHttps())
-            val species = mutableListOf<Species>()
-            for (specieUrl in speciesResponse.species) {
-                val specie = starWarsAPI.fetchSpeciesDetails(specieUrl.toHttps())
-                species.add(specie.toResponse())
-            }
-            emit(species)
-        }.flowOn(ioDispatcher)
-    }
+    suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> = flow {
+        val speciesResponse = starWarsAPI.fetchSpecies(characterUrl.toHttps())
+        val species = mutableListOf<Species>()
+        for (specieUrl in speciesResponse.species) {
+            val specie = starWarsAPI.fetchSpeciesDetails(specieUrl.toHttps())
+            species.add(specie.toResponse())
+        }
+        emit(species)
+    }.flowOn(ioDispatcher)
 }
