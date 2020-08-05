@@ -147,6 +147,7 @@ object TestLibraries {
         "androidx.arch.core:core-testing:${Versions.archComponentTest}"
     const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
     const val mockK = "io.mockk:mockk:${Versions.mockK}"
+    const val androidMockK = "io.mockk:mockk-android:${Versions.mockK}"
 }
 
 object BuildModules {

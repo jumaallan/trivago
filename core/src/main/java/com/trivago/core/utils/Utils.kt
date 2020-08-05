@@ -1,6 +1,5 @@
 package com.trivago.core.utils
 
-import android.text.TextUtils
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -12,7 +11,7 @@ import java.math.RoundingMode
  */
 fun convertToInches(centimeters: String): String {
     return when {
-        TextUtils.isEmpty(centimeters) -> {
+        centimeters.isBlank() -> {
             "0"
         }
         else -> {

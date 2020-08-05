@@ -8,8 +8,10 @@ import com.trivago.data.model.Character
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 
 /**
  * CharacterSearchRepository
@@ -40,6 +42,8 @@ class CharacterSearchRepository(
                 starWarsCharacters.add(starWarsCharacter.toResponse())
             }
             emit(starWarsCharacters)
+        }.catch { e ->
+            Timber.e(e, "Star Wars character search failed. Character: $characterName")
         }.flowOn(ioDispatcher)
 
     /**
@@ -55,7 +59,7 @@ class CharacterSearchRepository(
      *
      * @return a flow list of the characters
      */
-    fun getCharacters(): Flow<List<Character>>  = characterDao.getCharacters()
+    fun getCharacters(): Flow<List<Character>> = characterDao.getCharacters()
 
     /**
      * Responsible for saving/inserting a list of character into the database

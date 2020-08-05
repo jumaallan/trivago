@@ -120,12 +120,13 @@ dependencies {
     androidTestImplementation(TestLibraries.androidXJUnit)
     androidTestImplementation(TestLibraries.androidXTestCore)
     androidTestImplementation(TestLibraries.mockWebServer)
-    androidTestImplementation(TestLibraries.mockK)
+    androidTestImplementation(TestLibraries.androidMockK)
 
     // Unit Tests
     testImplementation(TestLibraries.jUnit)
     testImplementation(TestLibraries.roomTest)
     testImplementation(TestLibraries.koinTest)
+    testImplementation(TestLibraries.mockK)
     testImplementation(TestLibraries.mockWebServer)
     testImplementation(TestLibraries.roboelectric)
     testImplementation(TestLibraries.mockito)

@@ -7,8 +7,10 @@ import com.trivago.core.utils.toHttps
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 
 /**
  * CharacterFilmsRepository
@@ -38,5 +40,7 @@ class CharacterFilmsRepository(
             films.add(film.toResponse())
         }
         emit(films)
+    }.catch { e ->
+        Timber.e(e, "Fetch Films API call failed. Character URL: $characterUrl")
     }.flowOn(ioDispatcher)
 }
