@@ -4,8 +4,6 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Planet
 import com.trivago.core.utils.toHttps
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 /**
  * CharacterPlanetRepository
@@ -26,9 +24,9 @@ class CharacterPlanetRepository(
      * @param characterUrl
      * @return the planet details
      */
-    suspend fun fetchPlanet(characterUrl: String): Planet = withContext(Dispatchers.IO) {
+    suspend fun fetchPlanet(characterUrl: String): Planet {
         val planetResponse = starWarsAPI.fetchPlanet(characterUrl.toHttps())
         val planet = starWarsAPI.fetchPlanetDetails(planetResponse.homeworld.toHttps())
-        return@withContext planet.toResponse()
+        return planet.toResponse()
     }
 }
