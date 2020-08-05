@@ -20,7 +20,7 @@ internal class CharacterSpeciesRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemSpeciesBinding.inflate(inflater,parent,false)
+        val binding = ItemSpeciesBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
