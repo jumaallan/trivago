@@ -4,9 +4,11 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Species
 import com.trivago.core.utils.toHttps
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 
 /**
@@ -17,7 +19,8 @@ import kotlinx.coroutines.withContext
  * @param starWarsAPI
  */
 class CharacterSpeciesRepository(
-    private val starWarsAPI: StarWarsAPI
+    private val starWarsAPI: StarWarsAPI,
+    private val ioDispatcher : CoroutineDispatcher = Dispatchers.IO
 ) {
 
     /**
@@ -28,9 +31,8 @@ class CharacterSpeciesRepository(
      * @param characterUrl
      * @return a flow list of the the species
      */
-    suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> =
-        withContext(Dispatchers.IO) {
-            flow {
+    suspend fun fetchSpecies(characterUrl: String): Flow<List<Species>> {
+            return flow {
                 val speciesResponse = starWarsAPI.fetchSpecies(characterUrl.toHttps())
                 val species = mutableListOf<Species>()
                 for (specieUrl in speciesResponse.species) {
@@ -38,6 +40,6 @@ class CharacterSpeciesRepository(
                     species.add(specie.toResponse())
                 }
                 emit(species)
-            }
+            }.flowOn(ioDispatcher)
         }
 }

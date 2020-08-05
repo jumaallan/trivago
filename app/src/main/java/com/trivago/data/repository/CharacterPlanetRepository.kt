@@ -4,6 +4,7 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Planet
 import com.trivago.core.utils.toHttps
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

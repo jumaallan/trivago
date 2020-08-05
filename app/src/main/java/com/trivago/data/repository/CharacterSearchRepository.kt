@@ -5,9 +5,11 @@ import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.data.dao.CharacterDao
 import com.trivago.data.model.Character
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 
 /**
@@ -20,7 +22,8 @@ import kotlinx.coroutines.withContext
  */
 class CharacterSearchRepository(
     private val starWarsAPI: StarWarsAPI,
-    private val characterDao: CharacterDao
+    private val characterDao: CharacterDao,
+    private val ioDispatcher : CoroutineDispatcher = Dispatchers.IO
 ) {
 
     /**
@@ -29,18 +32,17 @@ class CharacterSearchRepository(
      * @param characterName
      * @return a flow list of the character
      */
-    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
-        withContext(Dispatchers.IO) {
-            flow {
+    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> {
+        return flow {
 
-                val characters = starWarsAPI.searchCharacters(characterName)
-                val starWarsCharacters = mutableListOf<StarWarsCharacter>()
-                for (starWarsCharacter in characters.results) {
-                    starWarsCharacters.add(starWarsCharacter.toResponse())
-                }
-                emit(starWarsCharacters)
+            val characters = starWarsAPI.searchCharacters(characterName)
+            val starWarsCharacters = mutableListOf<StarWarsCharacter>()
+            for (starWarsCharacter in characters.results) {
+                starWarsCharacters.add(starWarsCharacter.toResponse())
             }
-        }
+            emit(starWarsCharacters)
+        }.flowOn(ioDispatcher)
+    }
 
     /**
      * Responsible for saving/inserting a character into the database
@@ -55,6 +57,5 @@ class CharacterSearchRepository(
      *
      * @return a flow list of the characters
      */
-    fun getCharacters(): Flow<List<Character>> =
-        characterDao.getCharacters()
+    fun getCharacters(): Flow<List<Character>> = characterDao.getCharacters()
 }
