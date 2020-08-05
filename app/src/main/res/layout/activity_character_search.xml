@@ -15,14 +15,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.views.CharacterSearchActivity">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             style="@style/cardTitles"
             android:id="@+id/textViewPreviousLabel"

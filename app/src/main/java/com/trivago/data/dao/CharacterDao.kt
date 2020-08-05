@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CharacterDao : BaseDao<Character> {
 
-    @Query("SELECT * FROM Character LIMIT 5")
+    @Query("SELECT * FROM Character")
     fun getCharacters(): Flow<List<Character>>
 }

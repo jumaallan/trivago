@@ -1,6 +1,9 @@
 package com.trivago.core.utils
 
 import android.view.View
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -24,4 +27,16 @@ fun View.show() {
  */
 fun View.hide() {
     visibility = View.GONE
+}
+
+fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
+    observe(
+        lifecycleOwner,
+        object : Observer<T> {
+            override fun onChanged(t: T?) {
+                observer.onChanged(t)
+                removeObserver(this)
+            }
+        }
+    )
 }

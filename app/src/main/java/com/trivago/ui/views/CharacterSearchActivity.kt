@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -14,7 +13,6 @@ import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
-import com.trivago.data.model.Character
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
@@ -36,24 +34,12 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
-        binding.listView.hide()
-        val starWarsCharacters = mutableListOf<StarWarsCharacter>()
         characterSearchViewModel.getCharacters().observe(
             this,
             Observer {
-                it.forEach { character ->
-                    starWarsCharacters.add(character.toResponse())
-                }
-                showPreviousSearches(starWarsCharacters)
+                showPreviousSearches(it.map { character -> character.toResponse() }.asReversed())
             }
         )
-
-        binding.listView.onItemClickListener = OnItemClickListener { parent, _, position, _ ->
-            val selectedItem =
-                parent.getItemAtPosition(position) as String
-            searchStarWarsCharacter(selectedItem)
-            binding.listView.hide()
-        }
 
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
@@ -63,6 +49,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 characterBirthYear = it.birthYear,
                 characterHeight = it.height
             )
+            saveCharacters(listOf(it))
             startActivity(intent)
         }
 
@@ -75,18 +62,12 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 this@CharacterSearchActivity,
                 Observer {
                     setUpViews(it)
-//                    saveCharacters(it)
                 }
             )
     }
 
-    // TODO GET RID OF THIS !!!!!!
-    private fun saveCharacters(it: List<StarWarsCharacter>) {
-        val characters = mutableListOf<Character>()
-        it.forEach { starWarCharacter ->
-            characters.add(starWarCharacter.toResponse())
-        }
-        characterSearchViewModel.saveCharacters(characters)
+    private fun saveCharacters(characters: List<StarWarsCharacter>) {
+        characterSearchViewModel.saveCharacters(characters.map { it.toResponse() })
     }
 
     private fun setUpViews(charactersList: List<StarWarsCharacter>) {
@@ -130,13 +111,11 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        binding.listView.hide()
         searchStarWarsCharacter(query.toString())
         return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        binding.listView.show()
         binding.emptyView.hide()
         adapter?.filter?.filter(newText)
         return true
