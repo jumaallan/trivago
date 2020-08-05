@@ -31,8 +31,8 @@ class CharacterSearchRepository(
      * @param characterName
      * @return a flow list of the character
      */
-    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> {
-        return flow {
+    suspend fun searchStarWarsCharacters(characterName: String): Flow<List<StarWarsCharacter>> =
+        flow {
 
             val characters = starWarsAPI.searchCharacters(characterName)
             val starWarsCharacters = mutableListOf<StarWarsCharacter>()
@@ -41,7 +41,6 @@ class CharacterSearchRepository(
             }
             emit(starWarsCharacters)
         }.flowOn(ioDispatcher)
-    }
 
     /**
      * Responsible for saving/inserting a character into the database

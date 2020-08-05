@@ -159,7 +159,6 @@
                             style="@style/cardTitles"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_small"
                             android:layout_marginTop="4dp"
                             android:text="@string/label_character_species_language"
                             android:textAlignment="textEnd"
@@ -183,7 +182,6 @@
                             tools:itemCount="2"
                             tools:listitem="@layout/item_species" />
 
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -196,7 +194,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="gone">
+                        tools:visibility="visible">
 
                         <ImageView
                             android:id="@+id/iv_empty_icon"

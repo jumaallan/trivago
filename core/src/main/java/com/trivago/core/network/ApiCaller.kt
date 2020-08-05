@@ -14,61 +14,58 @@ import java.io.IOException
 suspend fun <T> safeApiCall(
     dispatcher: CoroutineDispatcher,
     apiCall: suspend () -> T
-): NetworkResult<T> {
-    return withContext(dispatcher) {
-        try {
-            NetworkResult.Loading
-            NetworkResult.Success(apiCall.invoke())
-        } catch (throwable: Throwable) {
-            Timber.e(throwable)
-            when (throwable) {
-                is IOException -> NetworkResult.NetworkError
-                is HttpException -> {
-                    val code = throwable.code()
-                    val errorResponse = convertErrorBody(throwable)
-                    NetworkResult.ServerError(code, errorResponse)
-                }
-                else -> {
-                    NetworkResult.ServerError(null, null)
-                }
+): NetworkResult<T> = withContext(dispatcher) {
+    try {
+        NetworkResult.Loading
+        NetworkResult.Success(apiCall.invoke())
+    } catch (throwable: Throwable) {
+        Timber.e(throwable)
+        when (throwable) {
+            is IOException -> NetworkResult.NetworkError
+            is HttpException -> {
+                val code = throwable.code()
+                val errorResponse = convertErrorBody(throwable)
+                NetworkResult.ServerError(code, errorResponse)
+            }
+            else -> {
+                NetworkResult.ServerError(null, null)
             }
         }
     }
 }
 
-suspend fun <T> flowSafeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Flow<NetworkResult<T>> {
-    return flow {
-        try {
-            emit(NetworkResult.Loading)
-            emit(NetworkResult.Success(apiCall.invoke()))
-        } catch (throwable: Throwable) {
-            Timber.e(throwable)
-            when (throwable) {
-                is IOException -> emit(NetworkResult.NetworkError)
-                is HttpException -> {
-                    val code = throwable.code()
-                    val errorResponse = convertErrorBody(throwable)
-                    emit(NetworkResult.ServerError(code, errorResponse))
-                }
-                else -> {
-                    emit(NetworkResult.ServerError(null, null))
-                }
+suspend fun <T> flowSafeApiCall(
+    dispatcher: CoroutineDispatcher,
+    apiCall: suspend () -> T
+): Flow<NetworkResult<T>> = flow {
+    try {
+        emit(NetworkResult.Loading)
+        emit(NetworkResult.Success(apiCall.invoke()))
+    } catch (throwable: Throwable) {
+        Timber.e(throwable)
+        when (throwable) {
+            is IOException -> emit(NetworkResult.NetworkError)
+            is HttpException -> {
+                val code = throwable.code()
+                val errorResponse = convertErrorBody(throwable)
+                emit(NetworkResult.ServerError(code, errorResponse))
+            }
+            else -> {
+                emit(NetworkResult.ServerError(null, null))
             }
         }
-    }.flowOn(dispatcher)
-}
-
-private fun convertErrorBody(throwable: HttpException): ErrorResponse? {
-    return try {
-        throwable.response()?.errorBody()?.charStream()?.let {
-            val gson = GsonBuilder()
-                .create()
-            gson.fromJson(it, ErrorResponse::class.java)
-        }
-    } catch (exception: Exception) {
-        Timber.e(exception)
-        null
     }
+}.flowOn(dispatcher)
+
+private fun convertErrorBody(throwable: HttpException): ErrorResponse? = try {
+    throwable.response()?.errorBody()?.charStream()?.let {
+        val gson = GsonBuilder()
+            .create()
+        gson.fromJson(it, ErrorResponse::class.java)
+    }
+} catch (exception: Exception) {
+    Timber.e(exception)
+    null
 }
 
 inline fun <T> getResult(
