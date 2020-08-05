@@ -2,6 +2,9 @@ package com.trivago.core.network
 
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Response
@@ -31,6 +34,28 @@ suspend fun <T> safeApiCall(
             }
         }
     }
+}
+
+suspend fun <T> flowSafeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T) : Flow<NetworkResult<T>> {
+    return flow {
+        try {
+            emit(NetworkResult.Loading)
+            emit(NetworkResult.Success(apiCall.invoke()))
+        } catch (throwable: Throwable) {
+            Timber.e(throwable)
+            when (throwable) {
+                is IOException -> emit(NetworkResult.NetworkError)
+                is HttpException -> {
+                    val code = throwable.code()
+                    val errorResponse = convertErrorBody(throwable)
+                    emit(NetworkResult.ServerError(code, errorResponse))
+                }
+                else -> {
+                    emit(NetworkResult.ServerError(null, null))
+                }
+            }
+        }
+    }.flowOn(dispatcher)
 }
 
 private fun convertErrorBody(throwable: HttpException): ErrorResponse? {
