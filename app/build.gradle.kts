@@ -53,6 +53,7 @@ kapt {
         arg("room.incremental", "true")
     }
 }
+
 spotless {
     kotlin {
         licenseHeaderFile(
