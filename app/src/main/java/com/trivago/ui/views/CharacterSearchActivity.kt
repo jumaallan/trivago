@@ -19,6 +19,7 @@ import com.trivago.data.model.Character
 import com.trivago.databinding.ActivityCharacterSearchBinding
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
+import com.trivago.utils.toResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -40,15 +41,14 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         binding.characterSearchViewModel = characterSearchViewModel
 
         binding.listView.hide()
+        val starWarsCharacters = mutableListOf<StarWarsCharacter>()
         characterSearchViewModel.getCharacters().observe(
             this,
             Observer {
-                it.forEach {
-                    stringSuggestionArray.add(it.name)
+                it.forEach {character ->
+                    starWarsCharacters.add(character.toResponse())
                 }
-                adapter =
-                    ArrayAdapter(this, android.R.layout.simple_list_item_1, stringSuggestionArray)
-                binding.listView.adapter = adapter
+                showPreviousSearches(starWarsCharacters)
             }
         )
 
@@ -81,19 +81,45 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                         this@CharacterSearchActivity,
                         Observer {
                             setUpViews(it)
+                            saveCharacters(it)
                         }
                     )
             }
         }
     }
 
+    private fun saveCharacters(it: List<StarWarsCharacter>) {
+        val characters = mutableListOf<Character>()
+        it.forEach {starWarCharacter ->
+            characters.add(starWarCharacter.toResponse())
+        }
+        characterSearchViewModel.saveCharacters(characters)
+    }
+
     private fun setUpViews(charactersList: List<StarWarsCharacter>) {
         if (charactersList.isNullOrEmpty()) {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
+            binding.textViewPreviousLabel.hide()
+
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()
+            binding.textViewPreviousLabel.hide()
+            charactersRecyclerViewAdapter.submitList(charactersList)
+        }
+    }
+
+    private fun showPreviousSearches(charactersList: List<StarWarsCharacter>) {
+        if (charactersList.isNullOrEmpty()) {
+            binding.recyclerViewCharacters.hide()
+            binding.emptyView.show()
+            binding.textViewPreviousLabel.hide()
+
+        } else {
+            binding.recyclerViewCharacters.show()
+            binding.emptyView.hide()
+            binding.textViewPreviousLabel.show()
             charactersRecyclerViewAdapter.submitList(charactersList)
         }
     }
@@ -114,11 +140,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         binding.listView.hide()
-        characterSearchViewModel.saveCharacter(
-            Character(
-                query.toString(), "", "", ""
-            )
-        )
         searchStarWarsCharacter(query.toString())
         return true
     }
