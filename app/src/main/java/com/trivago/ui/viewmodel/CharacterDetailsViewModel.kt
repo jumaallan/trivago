@@ -35,7 +35,6 @@ class CharacterDetailsViewModel(
     private var characterResponse =
         MutableLiveData<CharacterResponse>(CharacterResponse(null, null, null))
 
-
     /**
      * Responsible for initiating a call to fetch the character details
      *      - fetch planet details
@@ -45,17 +44,17 @@ class CharacterDetailsViewModel(
      * @param characterUrl
      */
     @FlowPreview
-    fun getCharacterDetails(characterUrl: String) {
-        viewModelScope.launch {
-            withContext(Dispatchers.Main) { fetchPlanet(characterUrl) }
-            withContext(Dispatchers.Main) { fetchFilms(characterUrl) }
-            withContext(Dispatchers.Main) { fetchSpecies(characterUrl) }
+    fun getCharacterDetails(characterUrl: String) = viewModelScope.launch {
+        withContext(Dispatchers.Main) {
+            fetchPlanet(characterUrl)
+            fetchFilms(characterUrl)
+            fetchSpecies(characterUrl)
         }
     }
 
     /**
      * Responsible for fetching species from the species repo, and saving the response to characterResponse
-     *
+     *fetchSpecies(characterUrl)
      * @param characterUrl
      */
     @FlowPreview
