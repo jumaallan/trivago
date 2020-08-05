@@ -7,8 +7,10 @@ package com.trivago.core.utils
  */
 fun String?.toHttps(): String {
     // Default to https
-    val url = this ?: "https"
-    return if (!url.contains("https")) {
-        url.replace("http", "https")
+    val http = "http"
+    val https = "https"
+    val url = this ?: https
+    return if (!url.contains(https)) {
+        url.replace(http, https)
     } else url
 }
