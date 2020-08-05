@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.flowOf
 import org.junit.Before
 import org.junit.Test
 
-
 class CharacterSearchViewModelTest : BaseViewModelTest() {
 
     private val repo = mockk<CharacterSearchRepository>()

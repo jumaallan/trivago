@@ -44,7 +44,6 @@ class CharacterSearchActivityTest : BaseTest() {
 
     private val characterSearchRepository = mockk<CharacterSearchRepository>()
 
-
     override fun setup() {
         super.setup()
         declare { mockk<ThemeViewModel>() }
@@ -159,17 +158,17 @@ class CharacterSearchActivityTest : BaseTest() {
                 }
             }
         }
-
     }
-
 }
-
 
 class CharacterSearchScreen : Screen<CharacterSearchScreen>() {
     val noCharacters = KTextView { withId(R.id.noCharacters) }
-    val charactersList = KRecyclerView({ withId(R.id.recyclerViewCharacters) }, itemTypeBuilder = {
-        itemType(::CharacterItem)
-    })
+    val charactersList = KRecyclerView(
+        { withId(R.id.recyclerViewCharacters) },
+        itemTypeBuilder = {
+            itemType(::CharacterItem)
+        }
+    )
 }
 
 class CharacterItem(parent: Matcher<View>) : KRecyclerItem<CharacterItem>(parent) {

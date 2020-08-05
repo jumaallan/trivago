@@ -41,7 +41,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
         characterSearchViewModel.getCharacters().observe(
             this,
             Observer {
-                it.forEach {character ->
+                it.forEach { character ->
                     starWarsCharacters.add(character.toResponse())
                 }
                 showPreviousSearches(starWarsCharacters)
@@ -83,7 +83,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     // TODO GET RID OF THIS !!!!!!
     private fun saveCharacters(it: List<StarWarsCharacter>) {
         val characters = mutableListOf<Character>()
-        it.forEach {starWarCharacter ->
+        it.forEach { starWarCharacter ->
             characters.add(starWarCharacter.toResponse())
         }
         characterSearchViewModel.saveCharacters(characters)
@@ -94,7 +94,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()
@@ -108,7 +107,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             binding.recyclerViewCharacters.hide()
             binding.emptyView.show()
             binding.textViewPreviousLabel.hide()
-
         } else {
             binding.recyclerViewCharacters.show()
             binding.emptyView.hide()

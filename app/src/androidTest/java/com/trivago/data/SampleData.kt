@@ -165,7 +165,6 @@ val notFound =
     }
     """.trimIndent()
 
-
 val dummyPlanet = Planet(
     "Tatooine",
     "120000"
