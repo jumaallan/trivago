@@ -40,7 +40,6 @@ class CharacterSearchActivityTest : BaseTest() {
         InstrumentationRegistry.getInstrumentation().targetContext.applicationContext
     private val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     private val themeViewModel: ThemeViewModel by inject()
-    private val characterSearchViewModel: CharacterSearchViewModel by inject()
 
     private val characterSearchRepository = mockk<CharacterSearchRepository>()
 
