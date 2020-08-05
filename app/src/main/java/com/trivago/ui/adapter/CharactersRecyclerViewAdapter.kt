@@ -45,15 +45,11 @@ internal class CharactersRecyclerViewAdapter(
         override fun areItemsTheSame(
             oldItem: StarWarsCharacter,
             newItem: StarWarsCharacter
-        ): Boolean {
-            return oldItem.url == newItem.url
-        }
+        ): Boolean = oldItem.url == newItem.url
 
         override fun areContentsTheSame(
             oldItem: StarWarsCharacter,
             newItem: StarWarsCharacter
-        ): Boolean {
-            return oldItem == newItem
-        }
+        ): Boolean = oldItem == newItem
     }
 }
