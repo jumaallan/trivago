@@ -69,6 +69,7 @@ On app start, the user lands on the character search screen. The user can search
         * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language.
         * [Spotless](https://github.com/diffplug/spotless) - format java, groovy, markdown and license headers using gradle.
         * [Dokka](https://github.com/Kotlin/dokka) - a documentation engine for Kotlin, performing the same function as javadoc for Java.
+        * [jacoco](https://github.com/jacoco/jacoco) - a Code Coverage Library
 * CI/CD
     * Github Actions 
     

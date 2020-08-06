@@ -16,11 +16,11 @@ fun convertToInches(centimeters: String): String {
         }
         else -> {
             (
-                    BigDecimal(centimeters.toDouble() * 0.393701).setScale(
-                        3,
-                        RoundingMode.HALF_EVEN
-                    )
-                    ).toString()
+                BigDecimal(centimeters.toDouble() * 0.393701).setScale(
+                    3,
+                    RoundingMode.HALF_EVEN
+                )
+                ).toString()
         }
     }
 }
