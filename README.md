@@ -85,6 +85,10 @@ This sections mentions some of the issues that I have come across:
 
 - UI Tests fail on an Emulator running API 26 (Android 8), and are successful on an Emulator running API 29 (Android 10)
 
+- dokka documentation task doesn't work when run from the top level Trivago task
+
+- The spotless plugin doesn't apply the license header, and the jacoco plugin doesn't work as expected. Need more research on how to set them up using gradle plugins
+
 ## License
 ```
 MIT License
