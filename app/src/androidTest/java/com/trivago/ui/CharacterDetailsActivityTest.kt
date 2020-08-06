@@ -92,6 +92,7 @@ class CharacterDetailsActivityTest : BaseTest() {
             }
         }
         Unit
+        Screen.idle(3000)
     }
 
     @Test
@@ -125,6 +126,7 @@ class CharacterDetailsActivityTest : BaseTest() {
             }
         }
         Unit
+        Screen.idle(3000)
     }
 
     @Test
@@ -158,6 +160,7 @@ class CharacterDetailsActivityTest : BaseTest() {
             }
         }
         Unit
+        Screen.idle(3000)
     }
 
     @Test
@@ -190,6 +193,7 @@ class CharacterDetailsActivityTest : BaseTest() {
             }
         }
         Unit
+        Screen.idle(3000)
     }
 }
 

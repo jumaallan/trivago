@@ -9,6 +9,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.agoda.kakao.recycler.KRecyclerItem
 import com.agoda.kakao.recycler.KRecyclerView
 import com.agoda.kakao.screen.Screen
+import com.agoda.kakao.screen.Screen.Companion.idle
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
@@ -65,6 +66,7 @@ class CharacterSearchActivityTest : BaseTest() {
         onScreen<CharacterSearchScreen> {
             noCharacters.isDisplayed()
         }
+        idle(3000)
     }
 
     @Test
@@ -95,6 +97,7 @@ class CharacterSearchActivityTest : BaseTest() {
                 }
             }
         }
+        idle(3000)
     }
 
     @Test
@@ -157,6 +160,7 @@ class CharacterSearchActivityTest : BaseTest() {
                 }
             }
         }
+        idle(3000)
     }
 }
 
