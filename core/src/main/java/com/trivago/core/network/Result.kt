@@ -1,12 +1,24 @@
 package com.trivago.core.network
 
-sealed class Result<T> {
+sealed class Result<out T> {
 
-    data class Success<T>(val data: T?) : Result<T>()
+    /**
+     * This is used to represent successful results
+     */
+    data class Success<out T>(val data: T) : Result<T>()
 
-    data class Error<T>(val error: ResultException) : Result<T>()
+    /**
+     * Used to represent errors that resulted from an IO operation
+     */
+    data class Error(
+        val errorMessage: String? = null,
+        val exception: Throwable? = null
+    ) : Result<Nothing>()
 
-    data class Loading<T>(val show: Boolean) : Result<T>()
+    /**
+     * Used to represent Loading status of an IO operation
+     */
+    object Loading : Result<Nothing>()
 
     fun isSuccess(): Boolean = this is Success
 }

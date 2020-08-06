@@ -64,7 +64,6 @@ class CharacterDetailsActivity : BaseActivity() {
         characterDetailsViewModel.characterResponseState.observe(
             this,
             Observer {
-
                 // pass the species list to rv adapter
                 setUpSpecies(it.species)
 
@@ -101,6 +100,7 @@ class CharacterDetailsActivity : BaseActivity() {
             // we can show some UI here - like nothing to show
         } else {
             binding.recyclerViewCharacterFilms.show()
+            binding.filmsProgressBar.hide()
             characterFilmsRecyclerViewAdapter.submitList(characterFilmsList)
         }
     }

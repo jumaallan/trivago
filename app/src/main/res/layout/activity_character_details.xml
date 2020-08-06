@@ -175,11 +175,11 @@
                             android:layout_marginStart="@dimen/margin_small"
                             android:layout_marginTop="@dimen/margin_small"
                             android:layout_marginEnd="@dimen/margin_small"
-                            app:layout_constraintTop_toTopOf="@+id/specieTitles"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/specieTitles"
                             tools:itemCount="2"
                             tools:listitem="@layout/item_species" />
 
@@ -299,6 +299,15 @@
                 app:layout_constraintTop_toBottomOf="@id/cardCharacterPlanet"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_film" />
+
+            <ProgressBar
+                android:id="@+id/filmsProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardCharacterPlanet" />
 
             <me.relex.circleindicator.CircleIndicator2
                 android:id="@+id/indicator"
