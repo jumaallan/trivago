@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.gson.GsonBuilder
 import com.trivago.core.BuildConfig
 import com.trivago.core.data.api.StarWarsAPI
-import com.trivago.core.executors.AppExecutors
 import com.trivago.core.network.AuthInterceptor
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.Constants
@@ -78,13 +77,8 @@ val settingsModule: Module = module {
     }
 }
 
-private val appExecutorsModule: Module = module {
-    single { AppExecutors.getInstance() }
-}
-
 val coreModules: List<Module> = listOf(
     networkingModule,
     apiModule,
-    settingsModule,
-    appExecutorsModule
+    settingsModule
 )
