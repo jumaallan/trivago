@@ -25,7 +25,7 @@ internal class CharacterPlanetRepositoryTest : BaseTest() {
         runBlocking {
             val planet =
                 characterPlanetRepository.fetchPlanet(MockRequestDispatcher.EXISTING_CHARACTER_URL)
-            Truth.assertThat(planet.name).matches("Tatooine")
+            Truth.assertThat(planet?.name).matches("Tatooine")
         }
     }
 }

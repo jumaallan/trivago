@@ -9,10 +9,8 @@ import com.trivago.data.model.CharacterResponse
 import com.trivago.data.repository.CharacterFilmsRepository
 import com.trivago.data.repository.CharacterPlanetRepository
 import com.trivago.data.repository.CharacterSpeciesRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * CharacterDetailsViewModel
@@ -45,11 +43,9 @@ class CharacterDetailsViewModel(
      */
     @FlowPreview
     fun getCharacterDetails(characterUrl: String) = viewModelScope.launch {
-        withContext(Dispatchers.Main) {
-            fetchPlanet(characterUrl)
-            fetchFilms(characterUrl)
-            fetchSpecies(characterUrl)
-        }
+        fetchPlanet(characterUrl)
+        fetchFilms(characterUrl)
+        fetchSpecies(characterUrl)
     }
 
     /**

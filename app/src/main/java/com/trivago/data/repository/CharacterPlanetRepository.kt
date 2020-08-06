@@ -4,6 +4,7 @@ import com.trivago.core.data.api.StarWarsAPI
 import com.trivago.core.data.mappers.toResponse
 import com.trivago.core.data.models.Planet
 import com.trivago.core.utils.toHttps
+import timber.log.Timber
 
 /**
  * CharacterPlanetRepository
@@ -24,9 +25,14 @@ class CharacterPlanetRepository(
      * @param characterUrl
      * @return the planet details
      */
-    suspend fun fetchPlanet(characterUrl: String): Planet {
-        val planetResponse = starWarsAPI.fetchPlanet(characterUrl.toHttps())
-        val planet = starWarsAPI.fetchPlanetDetails(planetResponse.homeworld.toHttps())
-        return planet.toResponse()
+    suspend fun fetchPlanet(characterUrl: String): Planet? {
+        return try {
+            val planetResponse = starWarsAPI.fetchPlanet(characterUrl.toHttps())
+            val planet = starWarsAPI.fetchPlanetDetails(planetResponse.homeworld.toHttps())
+            planet.toResponse()
+        } catch (t: Throwable) {
+            Timber.e(t, "Fetch Planet API call failed. Character URL: $characterUrl")
+            null
+        }
     }
 }

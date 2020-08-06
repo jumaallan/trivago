@@ -48,7 +48,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 characterBirthYear = it.birthYear,
                 characterHeight = it.height
             )
-            saveCharacters(listOf(it))
+            saveCharacter(it)
             startActivity(intent)
         }
 
@@ -65,8 +65,8 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             )
     }
 
-    private fun saveCharacters(characters: List<StarWarsCharacter>) {
-        characterSearchViewModel.saveCharacters(characters.map { it.toResponse() })
+    private fun saveCharacter(character: StarWarsCharacter) {
+        characterSearchViewModel.saveCharacter(character.toResponse())
     }
 
     private fun setUpViews(charactersList: List<StarWarsCharacter>) {
