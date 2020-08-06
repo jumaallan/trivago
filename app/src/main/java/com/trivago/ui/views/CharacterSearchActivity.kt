@@ -26,7 +26,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
     private val characterSearchViewModel: CharacterSearchViewModel by viewModel()
 
     var adapter: ArrayAdapter<String>? = null
-    private val stringSuggestionArray: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
