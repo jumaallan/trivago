@@ -11,4 +11,11 @@
     <color name="white">#FFFFFF</color>
 
     <color name="grey">#E3E2DF</color>
+
+    <color name="group1">#4A7BA7</color>
+    <color name="group2">#10CAC9</color>
+    <color name="group3">#F5A623</color>
+    <color name="group4">#FF7D50</color>
+    <color name="group5">#C03823</color>
+    <color name="group6">#9ECC9F</color>
 </resources>
