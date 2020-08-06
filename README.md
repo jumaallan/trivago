@@ -78,6 +78,11 @@ On app start, the user lands on the character search screen. The user can search
 
 All the dependencies (external libraries) are defined in the single place - Gradle `buildSrc` folder. This approach allows to easily manage dependencies and use the same dependency version across all modules. 
 
+## Some notable issues
+
+This sections mentions some of the issues that I have come across:
+
+- UI Tests fail on an Emulator running API 26 (Android 8), and are successful on an Emulator running API 29 (Android 10)
 
 ## License
 ```
