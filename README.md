@@ -62,6 +62,7 @@ On app start, the user lands on the character search screen. The user can search
     * [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing) ([JUnit](https://junit.org/junit4/))
     * [Mockito](https://github.com/mockito/mockito) + [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
     * [Kluent](https://github.com/MarkusAmshove/Kluent)
+    * [Kakao](https://github.com/agoda-com/Kakao)
 * Gradle
     * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - For reference purposes, here's an [article explaining the migration](https://medium.com/@evanschepsiror/migrating-to-kotlin-dsl-4ee0d6d5c977).
     * Plugins 
