@@ -18,7 +18,8 @@ import com.trivago.ui.viewmodel.CharacterSearchViewModel
 import com.trivago.utils.toResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CharacterSearchActivity : BindingActivity<ActivityCharacterSearchBinding>(),
+class CharacterSearchActivity :
+    BindingActivity<ActivityCharacterSearchBinding>(),
     SearchView.OnQueryTextListener {
 
     private lateinit var charactersRecyclerViewAdapter: CharactersRecyclerViewAdapter

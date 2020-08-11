@@ -41,7 +41,6 @@ abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
                 }
             }
         )
-
     }
 
     override fun onDestroy() {
@@ -51,4 +50,3 @@ abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
         super.onDestroy()
     }
 }
-

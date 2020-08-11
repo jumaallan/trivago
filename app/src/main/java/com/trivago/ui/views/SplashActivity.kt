@@ -5,8 +5,6 @@ package com.trivago.ui.views
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.Window
-import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import com.trivago.R
 import com.trivago.core.utils.makeStatusBarTransparent
 import com.trivago.databinding.ActivitySplashBinding
