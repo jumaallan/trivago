@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.trivago.R
 import com.trivago.core.data.models.StarWarsCharacter
@@ -19,9 +18,9 @@ import com.trivago.ui.viewmodel.CharacterSearchViewModel
 import com.trivago.utils.toResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
+class CharacterSearchActivity : BindingActivity<ActivityCharacterSearchBinding>(),
+    SearchView.OnQueryTextListener {
 
-    private lateinit var binding: ActivityCharacterSearchBinding
     private lateinit var charactersRecyclerViewAdapter: CharactersRecyclerViewAdapter
     private val characterSearchViewModel: CharacterSearchViewModel by viewModel()
 
@@ -29,7 +28,6 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_character_search)
         binding.lifecycleOwner = this
         binding.characterSearchViewModel = characterSearchViewModel
 
@@ -128,4 +126,7 @@ class CharacterSearchActivity : BaseActivity(), SearchView.OnQueryTextListener {
             super.onBackPressed()
         }
     }
+
+    override val layoutResId: Int
+        get() = R.layout.activity_character_search
 }

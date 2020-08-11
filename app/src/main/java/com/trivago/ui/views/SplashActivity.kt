@@ -9,17 +9,17 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import com.trivago.R
 import com.trivago.core.utils.makeStatusBarTransparent
+import com.trivago.databinding.ActivitySplashBinding
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : BindingActivity<ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.window.setFlags(
-            FLAG_FULLSCREEN,
-            FLAG_FULLSCREEN
-        )
-        setContentView(R.layout.activity_splash)
+//        requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        this.window.setFlags(
+//            FLAG_FULLSCREEN,
+//            FLAG_FULLSCREEN
+//        )
 
         makeStatusBarTransparent()
 
@@ -32,4 +32,7 @@ class SplashActivity : BaseActivity() {
             2000
         )
     }
+
+    override val layoutResId: Int
+        get() = R.layout.activity_splash
 }

@@ -3,7 +3,6 @@ package com.trivago.ui.views
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -20,9 +19,8 @@ import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CharacterDetailsActivity : BaseActivity() {
+class CharacterDetailsActivity : BindingActivity<ActivityCharacterDetailsBinding>() {
 
-    private lateinit var binding: ActivityCharacterDetailsBinding
     private lateinit var characterFilmsRecyclerViewAdapter: CharacterFilmsRecyclerViewAdapter
     private lateinit var characterSpeciesRecyclerViewAdapter: CharacterSpeciesRecyclerViewAdapter
     private val characterDetailsViewModel: CharacterDetailsViewModel by viewModel()
@@ -30,7 +28,7 @@ class CharacterDetailsActivity : BaseActivity() {
     @FlowPreview
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_character_details)
+        binding.lifecycleOwner = this
 
         getCharacterDetails()
 
@@ -138,4 +136,7 @@ class CharacterDetailsActivity : BaseActivity() {
         onBackPressed()
         return true
     }
+
+    override val layoutResId: Int
+        get() = R.layout.activity_character_details
 }
