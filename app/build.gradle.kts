@@ -11,8 +11,8 @@ plugins {
 android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
 
-    dataBinding.isEnabled = true
-    viewBinding.isEnabled = true
+    android.buildFeatures.dataBinding = true
+    android.buildFeatures.viewBinding = true
 
     defaultConfig {
         applicationId = "com.trivago"
