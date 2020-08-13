@@ -10,8 +10,14 @@ class UtilsTest {
 
     @Test
     fun `given centimeters and convert to inches`() {
-        val inches = convertToInches("120")
+        val inches = "120".toInches()
         Truth.assertThat(inches).isEqualTo("47.244")
+    }
+
+    @Test
+    fun `given empty centimeter and convert to inches`() {
+        val inches = "".toInches()
+        Truth.assertThat(inches).isEqualTo("0")
     }
 
     @Test
