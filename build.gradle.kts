@@ -8,6 +8,7 @@ plugins {
     id(BuildPlugins.kotlinAndroid) apply false
     id(BuildPlugins.kotlinAndroidExtensions) apply false
     id(BuildPlugins.dokkaPlugin) version Versions.dokka
+    id(BuildPlugins.gradleVersionsPlugin) version Versions.gradleVersionsPlugin
     jacoco
 }
 
