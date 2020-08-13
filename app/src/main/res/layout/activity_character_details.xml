@@ -6,24 +6,12 @@
     <data>
 
         <variable
-            name="birthYear"
-            type="String" />
-
-        <variable
-            name="heightInCm"
-            type="String" />
-
-        <variable
-            name="heightInInches"
-            type="String" />
+            name="starWarsCharacter"
+            type="com.trivago.core.data.models.StarWarsCharacter" />
 
         <variable
             name="planet"
             type="com.trivago.core.data.models.Planet" />
-
-        <variable
-            name="characterDetailsViewModel"
-            type="com.trivago.ui.viewmodel.CharacterDetailsViewModel" />
 
     </data>
 
@@ -71,7 +59,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@{birthYear}"
+                        android:text="@{starWarsCharacter.birthYear}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="869BBY" />
@@ -94,7 +82,7 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_marginEnd="@dimen/spacing_large"
-                        android:text="@{String.format(@string/template_height_cm, heightInCm)}"
+                        android:text="@{String.format(@string/template_height_cm, starWarsCharacter.heightCM)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/textViewCharacterHeight"
                         tools:text="100 CM" />
@@ -107,7 +95,7 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="4dp"
                         android:layout_weight=".25"
-                        android:text="@{String.format(@string/template_height_inches, heightInInches)}"
+                        android:text="@{String.format(@string/template_height_inches, starWarsCharacter.heightInches)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textViewBirthYear"
