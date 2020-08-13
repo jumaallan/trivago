@@ -13,6 +13,7 @@ import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
 import com.trivago.base.BaseTest
+import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.TrivagoSharedPreferenceLiveData
 import com.trivago.data.dummyFilms
@@ -49,6 +50,14 @@ class CharacterDetailsActivityTest : BaseTest() {
     private val characterFilmsRepository = mockk<CharacterFilmsRepository>()
     private val characterPlanetRepository = mockk<CharacterPlanetRepository>()
 
+    private val starWarsCharacter = StarWarsCharacter(
+        "Test",
+        "2020",
+        "160",
+        "20",
+        "http://some-url"
+    )
+
     @Before
     override fun setup() {
         super.setup()
@@ -74,10 +83,7 @@ class CharacterDetailsActivityTest : BaseTest() {
         coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(dummySpecies)
         val intent = CharacterDetailsActivity.createIntent(
             context,
-            "Test",
-            "http://some-url",
-            "2020",
-            "160"
+            starWarsCharacter
         )
         ActivityScenario.launch<CharacterDetailsActivity>(intent)
 
@@ -107,10 +113,7 @@ class CharacterDetailsActivityTest : BaseTest() {
         coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(dummySpecies)
         val intent = CharacterDetailsActivity.createIntent(
             context,
-            "Test",
-            "http://some-url",
-            "2020",
-            "160"
+            starWarsCharacter
         )
         ActivityScenario.launch<CharacterDetailsActivity>(intent)
 
@@ -141,10 +144,7 @@ class CharacterDetailsActivityTest : BaseTest() {
         coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(dummySpecies)
         val intent = CharacterDetailsActivity.createIntent(
             context,
-            "Test",
-            "http://some-url",
-            "2020",
-            "160"
+            starWarsCharacter
         )
         ActivityScenario.launch<CharacterDetailsActivity>(intent)
 
@@ -175,10 +175,7 @@ class CharacterDetailsActivityTest : BaseTest() {
         coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(dummySpecies)
         val intent = CharacterDetailsActivity.createIntent(
             context,
-            "Test",
-            "http://some-url",
-            "2020",
-            "160"
+            starWarsCharacter
         )
         ActivityScenario.launch<CharacterDetailsActivity>(intent)
 
