@@ -8,34 +8,34 @@ import com.trivago.core.data.network.CharacterResponse
 import com.trivago.core.data.network.FilmDetailResponse
 import com.trivago.core.data.network.PlanetDetailsResponse
 import com.trivago.core.data.network.SpeciesDetailResponse
-import com.trivago.core.utils.convertToInches
+import com.trivago.core.utils.toInches
 
 /**
  * Responsible for mapping the FilmDetailResponse to Film
  */
 fun FilmDetailResponse.toResponse(): Film =
-    Film(this.title, this.openingCrawl)
+    Film(title = this.title, openingCrawl = this.openingCrawl)
 
 /**
  * Responsible for mapping the PlanetDetailsResponse to Planet
  */
 fun PlanetDetailsResponse.toResponse(): Planet =
-    Planet(this.name, this.population)
+    Planet(name = this.name, population = this.population)
 
 /**
  * Responsible for mapping the CharacterResponse to StarWarsCharacter
  */
 fun CharacterResponse.toResponse(): StarWarsCharacter =
     StarWarsCharacter(
-        this.name,
-        this.birthYear,
-        this.height,
-        convertToInches(this.height),
-        this.url
+        name = this.name,
+        birthYear = this.birthYear,
+        heightCM = this.height,
+        heightInches = this.height.toInches(),
+        url = this.url
     )
 
 /**
  * Responsible for mapping the SpeciesDetailResponse to Species
  */
 fun SpeciesDetailResponse.toResponse(): Species =
-    Species(this.name, this.language)
+    Species(name = this.name, language = this.language)
