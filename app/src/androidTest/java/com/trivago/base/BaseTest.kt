@@ -8,7 +8,7 @@ import org.koin.test.KoinTest
 
 open class BaseTest : KoinTest {
 
-    protected lateinit var mockWebServer: MockWebServer
+    private lateinit var mockWebServer: MockWebServer
 
     @Before
     open fun setup() {
