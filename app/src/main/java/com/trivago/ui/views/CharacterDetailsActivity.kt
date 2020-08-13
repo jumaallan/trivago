@@ -3,13 +3,14 @@ package com.trivago.ui.views
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.trivago.R
 import com.trivago.core.data.models.Film
 import com.trivago.core.data.models.Species
-import com.trivago.core.utils.convertToInches
+import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
@@ -32,14 +33,12 @@ class CharacterDetailsActivity : BindingActivity<ActivityCharacterDetailsBinding
 
         getCharacterDetails()
 
-        title = characterName
+        title = starWarsCharacter?.name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         // pass to character details layout
-        binding.birthYear = characterBirthYear
-        binding.heightInCm = characterHeight
-        binding.heightInInches = convertToInches(characterHeight.toString())
+        binding.starWarsCharacter = starWarsCharacter
 
         characterSpeciesRecyclerViewAdapter = CharacterSpeciesRecyclerViewAdapter()
         binding.recyclerViewSpecies.adapter =
@@ -76,7 +75,7 @@ class CharacterDetailsActivity : BindingActivity<ActivityCharacterDetailsBinding
 
     @FlowPreview
     private fun getCharacterDetails() {
-        characterDetailsViewModel.getCharacterDetails(characterUrl.toString())
+        characterDetailsViewModel.getCharacterDetails(starWarsCharacter?.url.toString())
     }
 
     private fun setUpSpecies(characterSpeciesList: List<Species>?) {
@@ -103,32 +102,23 @@ class CharacterDetailsActivity : BindingActivity<ActivityCharacterDetailsBinding
         }
     }
 
-    private val characterName get() = intent.getStringExtra(CHARACTER_NAME)
-    private val characterUrl get() = intent.getStringExtra(CHARACTER_URL)
-    private val characterBirthYear get() = intent.getStringExtra(CHARACTER_BIRTH_YEAR)
-    private val characterHeight get() = intent.getStringExtra(CHARACTER_HEIGHT)
+    private val starWarsCharacter
+        get() = intent.getParcelableExtra<StarWarsCharacter>(
+            STAR_WARS_CHARACTER
+        )
 
     companion object {
 
         fun createIntent(
             context: Context,
-            characterName: String,
-            characterUrl: String,
-            characterBirthYear: String,
-            characterHeight: String
+            starWarsCharacter: Parcelable
         ): Intent {
             return Intent(context, CharacterDetailsActivity::class.java).apply {
-                putExtra(CHARACTER_NAME, characterName)
-                putExtra(CHARACTER_URL, characterUrl)
-                putExtra(CHARACTER_BIRTH_YEAR, characterBirthYear)
-                putExtra(CHARACTER_HEIGHT, characterHeight)
+                putExtra(STAR_WARS_CHARACTER, starWarsCharacter)
             }
         }
 
-        private const val CHARACTER_NAME = "characterName"
-        private const val CHARACTER_URL = "characterUrl"
-        private const val CHARACTER_BIRTH_YEAR = "characterBirthYear"
-        private const val CHARACTER_HEIGHT = "characterHeight"
+        private const val STAR_WARS_CHARACTER = "starWarsCharacter"
     }
 
     override fun onSupportNavigateUp(): Boolean {

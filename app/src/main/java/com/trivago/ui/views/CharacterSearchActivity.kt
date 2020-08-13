@@ -42,10 +42,7 @@ class CharacterSearchActivity :
         charactersRecyclerViewAdapter = CharactersRecyclerViewAdapter {
             val intent = CharacterDetailsActivity.createIntent(
                 context = this,
-                characterName = it.name,
-                characterUrl = it.url,
-                characterBirthYear = it.birthYear,
-                characterHeight = it.height
+                starWarsCharacter = it
             )
             saveCharacter(it)
             startActivity(intent)
