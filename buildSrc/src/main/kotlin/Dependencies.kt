@@ -43,6 +43,7 @@ object Versions {
     const val detekt = "1.10.0"
     const val spotless = "5.1.0"
     const val dokka = "0.10.1"
+    const val gradleVersionsPlugin = "0.28.0"
 
     // tests
     const val junit = "4.13"
@@ -72,6 +73,7 @@ object BuildPlugins {
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
     const val spotlessPlugin = "com.diffplug.spotless"
     const val dokkaPlugin = "org.jetbrains.dokka"
+    const val gradleVersionsPlugin = "com.github.ben-manes.versions"
 }
 
 object Libraries {
