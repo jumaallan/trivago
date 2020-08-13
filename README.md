@@ -16,6 +16,12 @@ Before every commit, make sure you run the following commands:
 ./gradlew spotlessApply
 ```
 
+To check for dependency updates, run the following command:
+
+```shell script
+./gradlew dependencyUpdate
+```
+
 Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get any issues running the lint commands on the terminal :rocket:
 
 ### Background
