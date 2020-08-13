@@ -108,8 +108,8 @@ class CharacterSearchActivityTest : BaseTest() {
             "Light"
         )
         val character = Character("name", "2020", "2", "http://test")
-        val starWarsCharacter = StarWarsCharacter("name", "2020", "2", "http://test")
-        val starWarsCharacter2 = StarWarsCharacter("name2", "2020", "2", "http://test2")
+        val starWarsCharacter = StarWarsCharacter("name", "2020", "2", "1", "http://test")
+        val starWarsCharacter2 = StarWarsCharacter("name2", "2020", "2", "1", "http://test2")
         every { characterSearchRepository.getCharacters() } returns flowOf(listOf(character))
 
         val scenario = ActivityScenario.launch(CharacterSearchActivity::class.java)
