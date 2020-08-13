@@ -8,6 +8,7 @@ import com.trivago.core.data.network.CharacterResponse
 import com.trivago.core.data.network.FilmDetailResponse
 import com.trivago.core.data.network.PlanetDetailsResponse
 import com.trivago.core.data.network.SpeciesDetailResponse
+import com.trivago.core.utils.convertToInches
 
 /**
  * Responsible for mapping the FilmDetailResponse to Film
@@ -25,7 +26,13 @@ fun PlanetDetailsResponse.toResponse(): Planet =
  * Responsible for mapping the CharacterResponse to StarWarsCharacter
  */
 fun CharacterResponse.toResponse(): StarWarsCharacter =
-    StarWarsCharacter(this.name, this.birthYear, this.height, this.url)
+    StarWarsCharacter(
+        this.name,
+        this.birthYear,
+        this.height,
+        convertToInches(this.height),
+        this.url
+    )
 
 /**
  * Responsible for mapping the SpeciesDetailResponse to Species
