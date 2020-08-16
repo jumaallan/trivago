@@ -21,7 +21,7 @@ class CharacterDetailsViewModelTest : BaseViewModelTest() {
     private val characterFilmsRepository = mockk<CharacterFilmsRepository>()
     private val characterPlanetRepository = mockk<CharacterPlanetRepository>()
     private val characterSpeciesRepository = mockk<CharacterSpeciesRepository>()
-    lateinit var characterDetailsViewModel: CharacterDetailsViewModel
+    private lateinit var characterDetailsViewModel: CharacterDetailsViewModel
 
     @Before
     fun setUp() {
