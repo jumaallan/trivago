@@ -50,7 +50,7 @@ class CharacterDetailsViewModel(
 
     /**
      * Responsible for fetching species from the species repo, and saving the response to characterResponse
-     *fetchSpecies(characterUrl)
+     *
      * @param characterUrl
      */
     @FlowPreview
