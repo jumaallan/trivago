@@ -12,7 +12,6 @@ import com.agoda.kakao.screen.Screen
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
-import com.trivago.base.BaseTest
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.TrivagoSharedPreferenceLiveData
@@ -34,12 +33,13 @@ import org.hamcrest.Matcher
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.test.inject
+import org.koin.core.inject
+import org.koin.test.KoinTest
 import org.koin.test.mock.declare
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class CharacterDetailsActivityTest : BaseTest() {
+class CharacterDetailsActivityTest : KoinTest {
 
     private val context =
         InstrumentationRegistry.getInstrumentation().targetContext.applicationContext
@@ -59,8 +59,7 @@ class CharacterDetailsActivityTest : BaseTest() {
     )
 
     @Before
-    override fun setup() {
-        super.setup()
+    fun setup() {
         declare { mockk<ThemeViewModel>() }
         declare {
             CharacterDetailsViewModel(

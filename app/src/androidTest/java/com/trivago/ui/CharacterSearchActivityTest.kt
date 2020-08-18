@@ -13,7 +13,6 @@ import com.agoda.kakao.screen.Screen.Companion.idle
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
-import com.trivago.base.BaseTest
 import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.TrivagoSharedPreferenceLiveData
@@ -29,13 +28,15 @@ import kotlinx.coroutines.flow.flowOf
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.Matcher
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.test.KoinTest
 import org.koin.test.inject
 import org.koin.test.mock.declare
 
 @RunWith(AndroidJUnit4::class)
-class CharacterSearchActivityTest : BaseTest() {
+class CharacterSearchActivityTest : KoinTest {
 
     private val context =
         InstrumentationRegistry.getInstrumentation().targetContext.applicationContext
@@ -44,8 +45,8 @@ class CharacterSearchActivityTest : BaseTest() {
 
     private val characterSearchRepository = mockk<CharacterSearchRepository>()
 
-    override fun setup() {
-        super.setup()
+    @Before
+    fun setup() {
         declare { mockk<ThemeViewModel>() }
         declare {
             CharacterSearchViewModel(characterSearchRepository)
