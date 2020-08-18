@@ -2,16 +2,18 @@ package com.trivago.ui.viewmodel
 
 import com.jraska.livedata.test
 import com.trivago.BaseViewModelTest
-import com.trivago.core.data.models.Film
-import com.trivago.core.data.models.Planet
-import com.trivago.core.data.models.Species
 import com.trivago.data.model.CharacterResponse
 import com.trivago.data.repository.CharacterFilmsRepository
 import com.trivago.data.repository.CharacterPlanetRepository
 import com.trivago.data.repository.CharacterSpeciesRepository
+import com.trivago.data.sample.characterUrl
+import com.trivago.data.sample.film
+import com.trivago.data.sample.planet
+import com.trivago.data.sample.species
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.flowOf
 import org.junit.Before
 import org.junit.Test
@@ -32,35 +34,23 @@ class CharacterDetailsViewModelTest : BaseViewModelTest() {
         )
     }
 
+    @FlowPreview
     @Test
     fun `test get character details are fetched successfully`() {
-        coEvery { characterFilmsRepository.fetchFilms(any()) } returns flowOf(
-            listOf(
-                Film(
-                    "test",
-                    "test"
-                )
-            )
-        )
-        coEvery { characterPlanetRepository.fetchPlanet(any()) } returns Planet("test", "1000")
-        coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(
-            listOf(
-                Species(
-                    "test",
-                    "english"
-                )
-            )
-        )
-        characterDetailsViewModel.getCharacterDetails("http://test")
-        coVerify { characterFilmsRepository.fetchFilms("http://test") }
-        coVerify { characterPlanetRepository.fetchPlanet("http://test") }
-        coVerify { characterSpeciesRepository.fetchSpecies("http://test") }
+        coEvery { characterFilmsRepository.fetchFilms(any()) } returns flowOf(film)
+        coEvery { characterPlanetRepository.fetchPlanet(any()) } returns planet
+        coEvery { characterSpeciesRepository.fetchSpecies(any()) } returns flowOf(species)
+
+        characterDetailsViewModel.getCharacterDetails(characterUrl)
+        coVerify { characterFilmsRepository.fetchFilms(characterUrl) }
+        coVerify { characterPlanetRepository.fetchPlanet(characterUrl) }
+        coVerify { characterSpeciesRepository.fetchSpecies(characterUrl) }
 
         characterDetailsViewModel.characterResponseState.test().assertValue(
             CharacterResponse(
-                Planet("test", "1000"),
-                listOf(Film("test", "test")),
-                listOf(Species("test", "english"))
+                planet,
+                film,
+                species
             )
         )
     }
