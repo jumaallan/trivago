@@ -12,7 +12,6 @@ import com.agoda.kakao.screen.Screen
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
-import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.TrivagoSharedPreferenceLiveData
 import com.trivago.data.dummyFilms
@@ -21,6 +20,7 @@ import com.trivago.data.dummySpecies
 import com.trivago.data.repository.CharacterFilmsRepository
 import com.trivago.data.repository.CharacterPlanetRepository
 import com.trivago.data.repository.CharacterSpeciesRepository
+import com.trivago.data.starWarsCharacter
 import com.trivago.ui.viewmodel.CharacterDetailsViewModel
 import com.trivago.ui.viewmodel.ThemeViewModel
 import com.trivago.ui.views.CharacterDetailsActivity
@@ -49,14 +49,6 @@ class CharacterDetailsActivityTest : KoinTest {
     private val characterSpeciesRepository = mockk<CharacterSpeciesRepository>()
     private val characterFilmsRepository = mockk<CharacterFilmsRepository>()
     private val characterPlanetRepository = mockk<CharacterPlanetRepository>()
-
-    private val starWarsCharacter = StarWarsCharacter(
-        "Test",
-        "2020",
-        "160",
-        "20",
-        "http://some-url"
-    )
 
     @Before
     fun setup() {

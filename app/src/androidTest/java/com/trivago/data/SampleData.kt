@@ -3,6 +3,20 @@ package com.trivago.data
 import com.trivago.core.data.models.Film
 import com.trivago.core.data.models.Planet
 import com.trivago.core.data.models.Species
+import com.trivago.core.data.models.StarWarsCharacter
+import com.trivago.data.model.Character
+
+val starWarsCharacter = StarWarsCharacter(
+    "Test",
+    "2020",
+    "160",
+    "20",
+    "http://some-url"
+)
+
+val starWarsCharacterTwo = StarWarsCharacter("name2", "2020", "2", "1", "http://test2")
+
+val character = Character("name", "2020", "2", "http://test")
 
 val dummyPlanet = Planet(
     "Tatooine",

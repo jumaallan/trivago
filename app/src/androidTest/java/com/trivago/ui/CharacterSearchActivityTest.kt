@@ -13,11 +13,12 @@ import com.agoda.kakao.screen.Screen.Companion.idle
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KTextView
 import com.trivago.R
-import com.trivago.core.data.models.StarWarsCharacter
 import com.trivago.core.settings.Settings
 import com.trivago.core.utils.TrivagoSharedPreferenceLiveData
-import com.trivago.data.model.Character
+import com.trivago.data.character
 import com.trivago.data.repository.CharacterSearchRepository
+import com.trivago.data.starWarsCharacter
+import com.trivago.data.starWarsCharacterTwo
 import com.trivago.ui.adapter.CharactersRecyclerViewAdapter
 import com.trivago.ui.viewmodel.CharacterSearchViewModel
 import com.trivago.ui.viewmodel.ThemeViewModel
@@ -77,7 +78,7 @@ class CharacterSearchActivityTest : KoinTest {
             Settings.PREFERENCE_THEME_KEY,
             "Light"
         )
-        val character = Character("name", "2020", "2", "http://test")
+
         every { characterSearchRepository.getCharacters() } returns flowOf(listOf(character))
 
         ActivityScenario.launch(CharacterSearchActivity::class.java)
@@ -108,9 +109,7 @@ class CharacterSearchActivityTest : KoinTest {
             Settings.PREFERENCE_THEME_KEY,
             "Light"
         )
-        val character = Character("name", "2020", "2", "http://test")
-        val starWarsCharacter = StarWarsCharacter("name", "2020", "2", "1", "http://test")
-        val starWarsCharacter2 = StarWarsCharacter("name2", "2020", "2", "1", "http://test2")
+
         every { characterSearchRepository.getCharacters() } returns flowOf(listOf(character))
 
         val scenario = ActivityScenario.launch(CharacterSearchActivity::class.java)
@@ -130,7 +129,7 @@ class CharacterSearchActivityTest : KoinTest {
                 firstChild<CharacterItem> {
                     isDisplayed()
                     name {
-                        hasText("name")
+                        hasText("Test")
                     }
 
                     description {
@@ -143,7 +142,7 @@ class CharacterSearchActivityTest : KoinTest {
         scenario.onActivity {
             val recyclerView = it.findViewById<RecyclerView>(R.id.recyclerViewCharacters)
             val adapter = recyclerView.adapter as CharactersRecyclerViewAdapter
-            adapter.submitList(mutableListOf(starWarsCharacter2))
+            adapter.submitList(mutableListOf(starWarsCharacterTwo))
             assertThat(recyclerView.adapter?.itemCount, `is`(1))
         }
 
