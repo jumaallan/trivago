@@ -1,7 +1,6 @@
 package com.trivago
 
 import android.app.Application
-import com.trivago.di.testModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,7 +20,6 @@ class TrivagoTest : Application() {
             startKoin {
                 androidLogger()
                 androidContext(applicationContext)
-                modules(testModules)
             }
         } catch (error: KoinAppAlreadyStartedException) {
             Timber.e(error.localizedMessage)
