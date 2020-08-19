@@ -16,7 +16,6 @@ suspend fun <T> safeApiCall(
     apiCall: suspend () -> T
 ): NetworkResult<T> = withContext(dispatcher) {
     try {
-        NetworkResult.Loading
         NetworkResult.Success(apiCall.invoke())
     } catch (throwable: Throwable) {
         Timber.e(throwable)
@@ -24,6 +23,7 @@ suspend fun <T> safeApiCall(
             is IOException -> NetworkResult.NetworkError
             is HttpException -> {
                 val code = throwable.code()
+
                 val errorResponse = convertErrorBody(throwable)
                 NetworkResult.ServerError(code, errorResponse)
             }
@@ -39,7 +39,6 @@ suspend fun <T> flowSafeApiCall(
     apiCall: suspend () -> T
 ): Flow<NetworkResult<T>> = flow {
     try {
-        emit(NetworkResult.Loading)
         emit(NetworkResult.Success(apiCall.invoke()))
     } catch (throwable: Throwable) {
         Timber.e(throwable)
