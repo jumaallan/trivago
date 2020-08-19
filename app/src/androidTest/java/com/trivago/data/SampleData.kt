@@ -4,6 +4,7 @@ import com.trivago.core.data.models.Film
 import com.trivago.core.data.models.Planet
 import com.trivago.core.data.models.Species
 import com.trivago.core.data.models.StarWarsCharacter
+import com.trivago.core.network.NetworkResult
 import com.trivago.data.model.Character
 
 val starWarsCharacter = StarWarsCharacter(
@@ -18,10 +19,12 @@ val starWarsCharacterTwo = StarWarsCharacter("name2", "2020", "2", "1", "http://
 
 val character = Character("name", "2020", "2", "http://test")
 
-val dummyPlanet = Planet(
+val planet = Planet(
     "Tatooine",
     "120000"
 )
+
+val dummyPlanet: NetworkResult<Planet> = NetworkResult.Success(planet)
 
 val dummyFilms = listOf(
     Film(
