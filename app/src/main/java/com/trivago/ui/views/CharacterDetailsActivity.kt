@@ -11,6 +11,7 @@ import com.trivago.R
 import com.trivago.core.data.models.Film
 import com.trivago.core.data.models.Species
 import com.trivago.core.data.models.StarWarsCharacter
+import com.trivago.core.network.NetworkResult
 import com.trivago.core.utils.hide
 import com.trivago.core.utils.show
 import com.trivago.databinding.ActivityCharacterDetailsBinding
@@ -65,7 +66,17 @@ class CharacterDetailsActivity : BindingActivity<ActivityCharacterDetailsBinding
                 setUpSpecies(it.species)
 
                 // pass the planet to the planet view
-                binding.planet = it.planet
+                when (val planetResponse = it.planet) {
+                    is NetworkResult.Success -> {
+                        binding.planet = planetResponse.data
+                    }
+                    is NetworkResult.ServerError -> {
+                        // planetResponse.errorBody?.message ?: "A network error occurred"
+                    }
+                    is NetworkResult.NetworkError -> {
+                        // "A network error occurred when making your request"
+                    }
+                }
 
                 // pass the film list to rv adapter
                 setUpFilms(it.films)
