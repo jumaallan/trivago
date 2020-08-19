@@ -23,15 +23,4 @@ sealed class NetworkResult<out R> {
      * Used to represent connectivity errors (a request that didn't result in a response)
      */
     object NetworkError : NetworkResult<Nothing>()
-
-    /**
-     * Used to represent Loading status of a network call
-     */
-    object Loading : NetworkResult<Nothing>()
 }
-
-/**
- * `true` if [NetworkResult] is of type [NetworkResult.Success] & holds non-null [NetworkResult.Success.data].
- */
-val NetworkResult<*>.succeeded
-    get() = this is NetworkResult.Success && data != null
