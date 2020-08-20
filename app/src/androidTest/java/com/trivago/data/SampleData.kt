@@ -15,9 +15,9 @@ val starWarsCharacter = StarWarsCharacter(
     "http://some-url"
 )
 
-val starWarsCharacterTwo = StarWarsCharacter("name2", "2020", "2", "1", "http://test2")
+val starWarsCharacterTwo = StarWarsCharacter("Character Two", "2020", "2", "1", "http://test2")
 
-val character = Character("name", "2020", "2", "http://test")
+val character = Character("Test", "2020", "2", "http://test")
 
 val planet = Planet(
     "Tatooine",

@@ -90,7 +90,7 @@ class CharacterSearchActivityTest : KoinTest {
                 firstChild<CharacterItem> {
                     isDisplayed()
                     name {
-                        hasText("name")
+                        hasText("Test")
                     }
 
                     description {
@@ -151,7 +151,7 @@ class CharacterSearchActivityTest : KoinTest {
                 firstChild<CharacterItem> {
                     isDisplayed()
                     name {
-                        hasText("name2")
+                        hasText("Character Two")
                     }
 
                     description {
