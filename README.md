@@ -7,7 +7,7 @@
 Before every commit, make sure you run the following commands:
 
 ```shell script
-./checkCodeQuality
+./codeAnalysis
 ```
 
 To check for dependency updates, run the following command:
