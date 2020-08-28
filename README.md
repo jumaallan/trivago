@@ -7,13 +7,7 @@
 Before every commit, make sure you run the following commands:
 
 ```shell script
-./gradlew ktlintFormat
-
-./gradlew ktlintCheck
-
-./gradlew detekt
-
-./gradlew spotlessApply
+./checkCodeQuality
 ```
 
 To check for dependency updates, run the following command:
