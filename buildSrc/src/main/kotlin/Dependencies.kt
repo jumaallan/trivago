@@ -1,30 +1,30 @@
 object Versions {
     // Material and androidX
     const val material = "1.3.0-alpha02"
-    const val appCompat = "1.1.0"
-    const val constraintLayout = "2.0.0-rc1"
-    const val swiperefreshlayout = "1.1.0"
+    const val appCompat = "1.3.0-alpha02"
+    const val constraintLayout = "2.0.1"
+    const val swiperefreshlayout = "1.2.0-alpha01"
     const val preference = "1.1.1"
 
     // Firebase
-    const val crashlytics = "17.1.1"
+    const val crashlytics = "17.2.1"
 
     //Networking
     const val retrofit = "2.9.0"
-    const val okhttp = "4.8.0"
-    const val loggingInterceptor = "4.7.2"
+    const val okhttp = "4.8.1"
+    const val loggingInterceptor = "4.8.1"
 
     //DI - KOIN
     const val koin = "2.1.5"
 
     // Room db
-    const val room = "2.2.5"
+    const val room = "2.3.0-alpha02"
 
     // Lifecycle
-    const val lifecycle = "2.3.0-alpha06"
+    const val lifecycle = "2.3.0-alpha07"
 
     // Coroutines
-    const val coroutines = "1.3.7"
+    const val coroutines = "1.3.9"
 
     // Logging - debug builds
     const val timber = "4.7.1"
@@ -32,32 +32,32 @@ object Versions {
     const val leakCanary = "2.4"
 
     // Kotlin
-    const val kotlinVersion = "1.3.72"
-    const val coreKtx = "1.3.1"
+    const val kotlinVersion = "1.4.0"
+    const val coreKtx = "1.5.0-alpha02"
 
     // Circle Indicator
-    const val circleIndicator = "2.1.2"
+    const val circleIndicator = "2.1.4"
 
     // Gradle Plugins
     const val ktlint = "9.3.0"
-    const val detekt = "1.10.0"
-    const val spotless = "5.1.0"
-    const val dokka = "0.10.1"
-    const val gradleVersionsPlugin = "0.28.0"
+    const val detekt = "1.12.0"
+    const val spotless = "5.3.0"
+    const val dokka = "1.4.0-rc-24"
+    const val gradleVersionsPlugin = "0.29.0"
 
     // tests
     const val junit = "4.13"
-    const val junitTest = "1.1.1"
-    const val espresso = "3.2.0"
-    const val roboelectric = "4.3"
+    const val junitTest = "1.1.2"
+    const val espresso = "3.3.0"
+    const val roboelectric = "4.4-beta-1"
     const val androidXJUnit = "1.1.1"
-    const val truth = "1.0"
-    const val mockWebServer = "4.2.1"
-    const val androidXTestCore = "1.0.0"
-    const val runner = "1.2.0"
-    const val rules = "1.2.0"
+    const val truth = "1.0.1"
+    const val mockWebServer = "4.8.1"
+    const val androidXTestCore = "1.3.0"
+    const val runner = "1.3.0"
+    const val rules = "1.3.0"
     const val archComponentTest = "2.1.0"
-    const val kakao = "2.3.0"
+    const val kakao = "2.3.4"
     const val mockK = "1.10.0"
     const val liveDataTesting = "1.1.2"
 }
