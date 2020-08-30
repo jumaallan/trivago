@@ -11,6 +11,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.error.KoinAppAlreadyStartedException
+import org.koin.core.logger.Level
 import org.koin.core.module.Module
 import timber.log.Timber
 import javax.annotation.Nullable
@@ -36,7 +37,7 @@ class Trivago : Application() {
     private fun initKoin() {
         try {
             startKoin {
-                androidLogger()
+                androidLogger(Level.ERROR)
                 androidContext(applicationContext)
                 val modules = mutableListOf<Module>().apply {
                     addAll(coreModules)
